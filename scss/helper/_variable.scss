@@ -1,0 +1,25 @@
+$font-serif: "Cormorant Garamond", serif;
+$font-sans: "Jost", sans-serif;
+
+// Colors
+$color-bg: #c8bfb8;
+$color-headline: #2e2a27;
+$color-subtext: #4a453f;
+$color-divider: #8aab88;
+$color-btn: #8aab88;
+$color-btn-hover: #7a9c78;
+$color-white: #fff;
+
+// Overlay gradient stops
+$overlay-green: rgba(196, 210, 185, 0.3);
+$overlay-mauve: rgba(220, 200, 210, 0.25);
+$overlay-blue: rgba(180, 195, 210, 0.28);
+
+// Shadows
+$shadow-flower: rgba(180, 180, 180, 0.22);
+$shadow-btn: rgba(138, 171, 136, 0.35);
+$shadow-btn-hover: rgba(138, 171, 136, 0.45);
+
+// Animation timings
+$ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+$ease-standard: cubic-bezier(0.4, 0, 0.2, 1);

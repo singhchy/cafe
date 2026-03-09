@@ -1,0 +1,366 @@
+@use "../../helper/helper" as *;
+
+.img-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0; // both layers live at z-index 0 by default
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.88) saturate(0.75);
+  opacity: 0;
+  transition: opacity 0.9s ease;
+
+  // active layer floats just above the inactive one — still well below hero/header
+  &.is-active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      $overlay-green 0%,
+      $overlay-mauve 50%,
+      $overlay-blue 100%
+    );
+  }
+}
+
+.ay-hero {
+  position: relative;
+  z-index: 10; // hero sits above both image layers
+  height: 100vh;
+  padding-top: 72px;
+  @include flex-center;
+}
+
+// ── bigger flower ──
+.flower-wrap {
+  position: relative;
+  width: min(700px, 88vw);
+  aspect-ratio: 1;
+  @include flex-center;
+}
+
+.flower-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(0.9) translateY(30px);
+  animation: flowerPageLoad 1.3s 0.2s $ease-out-expo forwards;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 8px 48px $shadow-flower);
+  }
+}
+
+.flower-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 clamp(70px, 13%, 120px);
+}
+
+// h1 wraps naturally — no <br> needed
+.headline {
+  font-family: $font-serif;
+  font-size: clamp(2.1rem, 4.8vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.18;
+  color: $color-headline;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  transform: translateY(24px);
+  @include rise-in(1s, 0.55s);
+}
+
+.divider {
+  width: 38px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, $color-divider, transparent);
+  margin: 20px auto;
+  opacity: 0;
+  transform: scaleX(0);
+  animation: growLine 0.8s 1.15s ease forwards;
+}
+
+// p wraps naturally — no <br> needed
+.subtext {
+  font-family: $font-sans;
+  font-size: clamp(0.78rem, 1.4vw, 0.88rem);
+  font-weight: 300;
+  color: $color-subtext;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  transform: translateY(20px);
+  @include rise-in(1s, 1.4s);
+}
+
+.btn-wrap {
+  margin-top: 28px;
+  opacity: 0;
+  transform: translateY(20px);
+  @include rise-in(1s, 1.85s);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: $color-btn;
+  color: $color-white;
+  font-family: $font-sans;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 22px $shadow-btn;
+  transition:
+    background 0.35s ease,
+    transform 0.3s ease,
+    box-shadow 0.35s ease;
+
+  &:hover {
+    background: $color-btn-hover;
+    transform: translateY(-2px) scale(1.025);
+    box-shadow: 0 8px 30px $shadow-btn-hover;
+
+    .btn-icon {
+      background: rgba($color-white, 0.38);
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.btn-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba($color-white, 0.25);
+  @include flex-center;
+  flex-shrink: 0;
+  transition: background 0.25s;
+
+  svg {
+    width: 13px;
+    height: 13px;
+    stroke: $color-white;
+    fill: none;
+  }
+}
+
+.petal {
+  position: fixed;
+  border-radius: 50% 0 50% 0;
+  opacity: 0;
+  pointer-events: none;
+  animation: floatPetal linear infinite;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba($color-white, 0.15);
+  border: 1px solid rgba($color-white, 0.3);
+  color: $color-white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  @include flex-center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+
+  i {
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    background: rgba($color-white, 0.4);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &.prev {
+    left: 30px;
+  }
+
+  &.next {
+    right: 30px;
+  }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    &.prev {
+      left: 15px;
+    }
+    &.next {
+      right: 15px;
+    }
+  }
+}
+
+.is-animating {
+  pointer-events: none;
+}
+
+// ── RISE UP — smooth entry from below ──
+.flower-bg.rise-up {
+  animation: riseUpFlower 1s 0s $ease-out-expo forwards;
+}
+.headline.rise-up {
+  animation: riseUp 1s 0.18s $ease-out-expo forwards;
+}
+.divider.rise-up {
+  animation: growLine 0.7s 0.3s ease forwards;
+}
+.subtext.rise-up {
+  animation: riseUp 1s 0.42s $ease-out-expo forwards;
+}
+.btn-wrap.rise-up {
+  animation: riseUp 1s 0.58s $ease-out-expo forwards;
+}
+
+// ── HIDE DOWN — smooth exit upward ──
+.flower-bg.hide-down {
+  animation: hideDownFlower 0.75s 0s $ease-out-expo forwards;
+}
+.headline.hide-down {
+  animation: hideDown 0.7s 0.08s $ease-out-expo forwards;
+}
+.divider.hide-down {
+  animation: hideDown 0.55s 0.14s $ease-out-expo forwards;
+}
+.subtext.hide-down {
+  animation: hideDown 0.7s 0.2s $ease-out-expo forwards;
+}
+.btn-wrap.hide-down {
+  animation: hideDown 0.7s 0.28s $ease-out-expo forwards;
+}
+
+// Page load — flower blooms up from below
+@keyframes flowerPageLoad {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// JS nav — flower rises from below
+@keyframes riseUpFlower {
+  0% {
+    opacity: 0;
+    transform: scale(0.93) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// JS nav — flower exits upward
+@keyframes hideDownFlower {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.93) translateY(-40px);
+  }
+}
+
+// Text/content rise from below
+@keyframes riseUp {
+  0% {
+    opacity: 0;
+    transform: translateY(36px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Text/content exit upward
+@keyframes hideDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-36px) scale(0.98);
+  }
+}
+
+// Page-load text rise (used by @include rise-in mixin)
+@keyframes riseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes growLine {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes floatPetal {
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.35;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}

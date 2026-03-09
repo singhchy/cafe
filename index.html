@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pranam — Transform Body, Transform Soul</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- IMAGE BACKGROUND (two layers for smooth crossfade) -->
+    <div class="img-bg" id="imgBgA"></div>
+    <div class="img-bg" id="imgBgB"></div>
+
+    <header class="ay-header">
+      <nav class="ay-nav">
+        <!-- Logo -->
+        <a href="#" class="nav-logo">
+          <span class="nav-logo__icon"><i class="ri-seedling-fill"></i></span>
+          Pranam
+        </a>
+
+        <!-- Phone -->
+        <div class="nav-phone">
+          <span class="nav-phone__icon"><i class="ri-phone-fill"></i></span>
+          <div class="nav-phone__text">
+            <span class="nav-phone__number">0 123 456 789</span>
+            <span class="nav-phone__label">Free Call</span>
+          </div>
+        </div>
+
+        <!-- Nav links -->
+        <ul class="nav-links">
+          <li><a href="#" class="nav-links__item active">Home</a></li>
+          <li><a href="#" class="nav-links__item">Pages</a></li>
+          <li><a href="#" class="nav-links__item">Treatments</a></li>
+          <li><a href="#" class="nav-links__item">Course</a></li>
+          <li><a href="#" class="nav-links__item">Blogs</a></li>
+          <li><a href="#" class="nav-links__item">Contact Us</a></li>
+        </ul>
+
+        <!-- CTA -->
+        <a href="#" class="nav-cta">
+          Appointment
+          <span class="nav-cta__icon"
+            ><i class="ri-arrow-right-up-line"></i
+          ></span>
+        </a>
+      </nav>
+    </header>
+
+    <section class="ay-hero">
+      <button class="nav-btn prev" aria-label="Previous Slide">
+        <i class="ri-arrow-left-s-line"></i>
+      </button>
+      <button class="nav-btn next" aria-label="Next Slide">
+        <i class="ri-arrow-right-s-line"></i>
+      </button>
+
+      <div class="flower-wrap">
+        <!-- Flower SVG -->
+        <div class="flower-bg">
+          <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="petalGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.97" />
+                <stop offset="60%" stop-color="#f5f3f1" stop-opacity="0.93" />
+                <stop offset="100%" stop-color="#ede8e3" stop-opacity="0.82" />
+              </radialGradient>
+            </defs>
+            <g transform="translate(250,250)">
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(0)   translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(30)  translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(60)  translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(90)  translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(120) translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(150) translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(180) translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(210) translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(240) translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(270) translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(300) translate(0,-82)"
+              />
+              <ellipse
+                rx="90"
+                ry="145"
+                fill="url(#petalGrad)"
+                transform="rotate(330) translate(0,-82)"
+              />
+              <circle r="115" fill="url(#petalGrad)" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Text content -->
+        <div class="flower-content">
+          <h1 class="headline">Transform Body, Transform Soul</h1>
+          <div class="divider"></div>
+          <p class="subtext">
+            Discover a sanctuary where movement meets mindfulness. Every breath
+            brings you closer to the life you deserve.
+          </p>
+          <div class="btn-wrap">
+            <a class="btn" href="#">
+              Read More
+              <span class="btn-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="13 6 19 12 13 18" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
