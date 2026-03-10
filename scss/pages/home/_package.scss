@@ -1,0 +1,365 @@
+@use "../../helper/helper" as *;
+
+.ay-packages {
+  padding-top: 65px;
+  background: $color-bg;
+
+  @media (max-width: 1024px) {
+    padding-top: 40px;
+  }
+  @media (max-width: 768px) {
+    padding-top: 32px;
+  }
+  @media (max-width: 525px) {
+    padding-top: 24px;
+  }
+}
+
+.ay-packages__heading {
+  font-family: $font-serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 600;
+  color: $color-headline;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin-bottom: 32px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 36px;
+    font-size: 1.5rem;
+  }
+  @media (max-width: 525px) {
+    margin-bottom: 28px;
+    font-size: 1.35rem;
+  }
+}
+
+// ─── WRAPPER ───
+
+.ay-packages__wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  width: 1094px;
+  max-width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    gap: 16px;
+  }
+
+  // at 768 — stack left on top, center + right side by side below
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  // at 525 — full single column
+  @media (max-width: 525px) {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+// ─── LEFT COL ───
+
+.ay-packages__left {
+  display: flex;
+  flex-direction: column;
+  width: 464px;
+  flex-shrink: 0;
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    width: 380px;
+    gap: 16px;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: row;
+    gap: 16px;
+  }
+  @media (max-width: 525px) {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+// ─── CENTER COL ───
+
+.ay-packages__center {
+  flex: 1;
+  align-self: stretch;
+  min-width: 0;
+
+  @media (max-width: 768px) {
+    flex: 1;
+    align-self: auto;
+  }
+  @media (max-width: 525px) {
+    width: 100%;
+  }
+}
+
+// ─── RIGHT COL ───
+
+.ay-packages__right {
+  display: flex;
+  flex-direction: column;
+  width: 295px;
+  flex-shrink: 0;
+  gap: 24px;
+  align-self: stretch;
+
+  @media (max-width: 1024px) {
+    width: 240px;
+    gap: 16px;
+  }
+  @media (max-width: 768px) {
+    width: 220px;
+    align-self: auto;
+  }
+  @media (max-width: 525px) {
+    width: 100%;
+    flex-direction: row;
+    gap: 14px;
+  }
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+
+// ─── BASE CARD ───
+
+.ay-packages__card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  width: 100%;
+
+  @media (max-width: 525px) {
+    border-radius: 12px;
+  }
+}
+
+.ay-packages__card-img-wrap {
+  overflow: hidden;
+}
+
+.ay-packages__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  transition: transform 0.65s $ease-out-expo;
+
+  .ay-packages__card:hover & {
+    transform: scale(1.06);
+  }
+}
+
+.ay-packages__card-title {
+  font-family: $font-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: $color-headline;
+  line-height: 1.3;
+  margin-bottom: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+  @media (max-width: 525px) {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+}
+
+.ay-packages__card-text {
+  font-family: $font-sans;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: $color-subtext;
+  line-height: 1.65;
+
+  @media (max-width: 525px) {
+    font-size: 0.76rem;
+  }
+}
+
+// ─── LEFT TOP — text left, image right ───
+
+.ay-packages__card--row {
+  display: flex;
+  align-items: stretch;
+  min-height: 190px;
+
+  .ay-packages__card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 20px;
+
+    @media (max-width: 1024px) {
+      padding: 18px 14px;
+    }
+    @media (max-width: 525px) {
+      padding: 14px 12px;
+    }
+  }
+
+  .ay-packages__card-img-wrap {
+    flex: 0 0 52%;
+    border-radius: 16px;
+
+    @media (max-width: 768px) {
+      flex: 0 0 48%;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    min-height: 160px;
+  }
+  @media (max-width: 525px) {
+    min-height: 130px;
+  }
+}
+
+// ─── LEFT BOTTOM — image top, title + text in a row below ───
+
+.ay-packages__card--img-top {
+  display: flex;
+  flex-direction: column;
+
+  .ay-packages__card-img-wrap {
+    height: 200px;
+    border-radius: 16px;
+
+    @media (max-width: 1024px) {
+      height: 160px;
+    }
+    @media (max-width: 525px) {
+      height: 130px;
+    }
+  }
+
+  .ay-packages__card-body--row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px 22px;
+
+    @media (max-width: 1024px) {
+      padding: 14px 16px 18px;
+      gap: 12px;
+    }
+    @media (max-width: 525px) {
+      padding: 12px 14px;
+      gap: 10px;
+      flex-direction: column;
+    }
+
+    .ay-packages__card-title {
+      flex-shrink: 0;
+      margin-bottom: 0;
+      white-space: nowrap;
+
+      @media (max-width: 525px) {
+        white-space: normal;
+      }
+    }
+
+    .ay-packages__card-text {
+      flex: 1;
+    }
+  }
+}
+
+// ─── CENTER — tall, image ~80%, text rest ───
+
+.ay-packages__card--tall {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .ay-packages__card-img-wrap--grow {
+    flex: 0 0 78%;
+    min-height: 0;
+    border-radius: 16px;
+
+    @media (max-width: 768px) {
+      flex: 0 0 65%;
+      min-height: 220px;
+    }
+    @media (max-width: 525px) {
+      flex: none;
+      height: 220px;
+    }
+  }
+
+  .ay-packages__card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 22px 24px;
+
+    @media (max-width: 525px) {
+      padding: 14px 16px 18px;
+    }
+  }
+}
+
+// ─── RIGHT TOP — image only, 131px ───
+
+.ay-packages__card--img-only {
+  .ay-packages__card-img-wrap--full {
+    height: 204px;
+
+    @media (max-width: 1024px) {
+      height: 180px;
+    }
+    @media (max-width: 525px) {
+      height: 130px;
+    }
+  }
+}
+
+// ─── RIGHT BOTTOM — image top, text below ───
+
+.ay-packages__card--img-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .ay-packages__card-img-wrap {
+    height: 160px;
+    flex-shrink: 0;
+
+    @media (max-width: 1024px) {
+      height: 130px;
+    }
+    @media (max-width: 525px) {
+      height: 140px;
+    }
+  }
+
+  .ay-packages__card-body {
+    flex: 1;
+    padding: 18px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width: 525px) {
+      padding: 12px 14px 16px;
+    }
+  }
+}
+
+.ay-packages__right .ay-packages__card--img-text {
+  flex: 1;
+}
