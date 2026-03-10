@@ -132,3 +132,65 @@ requestAnimationFrame(() => {
   });
 });
 renderText(0);
+
+// SIDEBAR
+
+const sidebar = document.getElementById("sidebar");
+const sidebarToggle = document.getElementById("sidebarToggle");
+const sidebarClose = document.getElementById("sidebarClose");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+// ── OPEN ─────────────────────────────────
+function openSidebar() {
+  sidebar.classList.add("is-open");
+  sidebarToggle.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+}
+
+// ── CLOSE ────────────────────────────────
+function closeSidebar() {
+  sidebar.classList.remove("is-open");
+  sidebarToggle.classList.remove("is-open");
+  document.body.style.overflow = "";
+}
+
+// ── EVENTS ───────────────────────────────
+sidebarToggle.addEventListener("click", () => {
+  sidebar.classList.contains("is-open") ? closeSidebar() : openSidebar();
+});
+
+sidebarClose.addEventListener("click", closeSidebar);
+
+// click on the blurred overlay (left of panel) closes sidebar
+sidebarOverlay.addEventListener("click", (e) => {
+  // only close if clicking the overlay itself, not the panel
+  if (
+    e.target === sidebarOverlay ||
+    e.target.classList.contains("sidebar__blur-bg")
+  ) {
+    closeSidebar();
+  }
+});
+
+// Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeSidebar();
+});
+
+// ── ACTIVE LINK ──────────────────────────
+document.querySelectorAll(".sidebar__link").forEach((link) => {
+  link.addEventListener("click", function () {
+    document
+      .querySelectorAll(".sidebar__link")
+      .forEach((l) => l.classList.remove("active"));
+    this.classList.add("active");
+  });
+});
+
+// ── AUTO-CLOSE ON DESKTOP RESIZE ─────────
+// Prevents sidebar staying open if user drags window wider than breakpoint
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) {
+    closeSidebar();
+  }
+});

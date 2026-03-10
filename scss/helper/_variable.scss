@@ -1,25 +1,28 @@
+// ─── FONTS ───
 $font-serif: "Cormorant Garamond", serif;
-$font-sans: "Jost", sans-serif;
+$font-sans: "Poppins", sans-serif;
 
-// Colors
-$color-bg: #c8bfb8;
+// ─── COLORS ───
 $color-headline: #2e2a27;
-$color-subtext: #4a453f;
-$color-divider: #8aab88;
+$color-subtext: #6b6560;
+$color-white: #ffffff;
+$color-bg: #f5f2ee;
 $color-btn: #8aab88;
 $color-btn-hover: #7a9c78;
-$color-white: #fff;
+$color-divider: #8aab88;
 
-// Overlay gradient stops
-$overlay-green: rgba(196, 210, 185, 0.3);
-$overlay-mauve: rgba(220, 200, 210, 0.25);
-$overlay-blue: rgba(180, 195, 210, 0.28);
+// overlay tints for hero gradient
+$overlay-green: rgba(180, 200, 175, 0.35);
+$overlay-mauve: rgba(200, 185, 195, 0.3);
+$overlay-blue: rgba(175, 190, 205, 0.3);
 
-// Shadows
-$shadow-flower: rgba(180, 180, 180, 0.22);
+// shadows
+$shadow-flower: rgba(140, 130, 120, 0.18);
 $shadow-btn: rgba(138, 171, 136, 0.35);
-$shadow-btn-hover: rgba(138, 171, 136, 0.45);
+$shadow-btn-hover: rgba(138, 171, 136, 0.5);
 
-// Animation timings
-$ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+// ─── EASING ───
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+$ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 $ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
