@@ -1,7 +1,5 @@
-// ════════════════════════════════════════
 // ANIMATIONS.JS — global scroll & reveal
 // Depends on: Lenis (loaded via CDN below)
-// ════════════════════════════════════════
 //
 // HOW TO USE:
 //   Add to any element:
@@ -238,3 +236,105 @@ document.addEventListener("DOMContentLoaded", () => {
     initCounters();
   });
 });
+
+// BACK TO TOP — wave fills with scroll progress
+
+(function () {
+  const btn = document.getElementById("backToTop");
+  const wavePath = btn?.querySelector(".ay-btt__wave-path");
+  if (!btn || !wavePath) return;
+
+  const W = 56; // svg viewBox width
+  const H = 56; // svg viewBox height
+  const R = 26; // circle radius (matches clipPath)
+
+  // generate a wavy fill path that rises from bottom
+  // fillY = Y position of the wave's midline (0 = full, H = empty)
+  function buildWavePath(fillY, time) {
+    const amp = 3.5; // wave amplitude
+    const freq = (2 * Math.PI) / W; // one full wave across width
+    const phase = time * 0.04; // animate wave horizontally
+
+    let d = `M 0 ${H} `; // start bottom-left
+
+    // top wavy edge — left to right
+    for (let x = 0; x <= W; x += 2) {
+      const y =
+        fillY +
+        Math.sin(x * freq + phase) * amp +
+        Math.sin(x * freq * 1.7 + phase * 0.8) * (amp * 0.4);
+      d += `L ${x} ${y} `;
+    }
+
+    d += `L ${W} ${H} Z`; // close to bottom-right then bottom-left
+    return d;
+  }
+
+  let animFrame;
+  let tick = 0;
+  let currentFillY = H;
+  let targetFillY = H;
+
+  function animateWave() {
+    tick++;
+    // smooth interpolation toward target
+    currentFillY += (targetFillY - currentFillY) * 0.08;
+    wavePath.setAttribute("d", buildWavePath(currentFillY, tick));
+    animFrame = requestAnimationFrame(animateWave);
+  }
+
+  function onScroll() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+
+    // show/hide button
+    if (scrollTop > 200) {
+      btn.classList.add("is-visible");
+    } else {
+      btn.classList.remove("is-visible");
+    }
+
+    // wave rises as progress increases
+    // fillY: H (empty at 0%) → 0 (full at 100%)
+    targetFillY = H - progress * H;
+
+    // flip arrow color when >50% filled
+    if (progress > 0.5) {
+      btn.classList.add("is-filled");
+    } else {
+      btn.classList.remove("is-filled");
+    }
+  }
+
+  // scroll to top on click
+  btn.addEventListener("click", () => {
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { duration: 1.2 });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
+
+  // use lenis scroll event if available, else native
+  function hookScroll() {
+    if (window.lenis) {
+      window.lenis.on("scroll", onScroll);
+    } else {
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
+    onScroll(); // run once on load
+  }
+
+  // start wave animation loop
+  animateWave();
+
+  // hook after DOM ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", hookScroll);
+  } else {
+    // slight delay to let lenis init first
+    setTimeout(hookScroll, 200);
+  }
+})();
