@@ -1,6 +1,5 @@
 @use "./variable" as vars;
 
-// ─── RESET ───
 *,
 *::before,
 *::after {
@@ -212,4 +211,82 @@ html.lenis {
 }
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+// ─── BACK TO TOP ───
+
+.ay-btt {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 56px;
+  height: 56px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition:
+    opacity 0.4s vars.$ease-out-expo,
+    transform 0.4s vars.$ease-out-expo;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &:hover .ay-btt__circle {
+    stroke-width: 2;
+  }
+
+  &:hover .ay-btt__arrow {
+    transform: translate(-50%, -50%) translateY(-2px);
+  }
+
+  @media (max-width: 525px) {
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.ay-btt__wave-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ay-btt__circle {
+  transition: stroke-width 0.3s ease;
+}
+
+.ay-btt__wave-path {
+  transition: d 0.1s linear;
+}
+
+.ay-btt__arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  color: vars.$color-headline;
+  transition:
+    transform 0.3s vars.$ease-out-expo,
+    color 0.3s ease;
+  z-index: 1;
+}
+
+.ay-btt.is-filled .ay-btt__arrow {
+  color: #fff;
 }

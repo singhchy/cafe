@@ -385,6 +385,98 @@
         </div>
       </div>
     </section>
+    <section class="ay-media">
+      <div class="ay-container">
+        <h2 class="ay-media__heading text-reveal">In The Media</h2>
+        <div class="ay-media__wrapper">
+          <div class="ay-media__video" data-reveal="left">
+            <iframe
+              src="https://www.youtube.com/embed/inpok4MKVLM?autoplay=1&mute=1&loop=1&playlist=inpok4MKVLM"
+              title="5 Minute Yoga"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="ay-media__video" data-reveal="right">
+            <iframe
+              src="https://www.youtube.com/embed/v7AYKMP6rOE?autoplay=1&mute=1&loop=1&playlist=v7AYKMP6rOE"
+              title="Morning Yoga Flow"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer></footer>
+    <!-- BACK TO TOP BUTTON -->
+    <button class="ay-btt" id="backToTop" aria-label="Back to top">
+      <svg
+        class="ay-btt__wave-svg"
+        viewBox="0 0 56 56"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- wave fill that rises with scroll progress -->
+        <defs>
+          <clipPath id="circleClip">
+            <circle cx="28" cy="28" r="26" />
+          </clipPath>
+        </defs>
+        <!-- wave background group, clipped to circle -->
+        <g clip-path="url(#circleClip)">
+          <rect
+            class="ay-btt__wave-bg"
+            x="0"
+            y="0"
+            width="56"
+            height="56"
+            fill="#8aab88"
+            opacity="0.15"
+          />
+          <path class="ay-btt__wave-path" fill="#8aab88" opacity="0.9" />
+        </g>
+        <!-- circle border -->
+        <circle
+          class="ay-btt__circle"
+          cx="28"
+          cy="28"
+          r="26"
+          fill="none"
+          stroke="#8aab88"
+          stroke-width="1.5"
+        />
+      </svg>
+      <!-- up arrow -->
+      <svg
+        class="ay-btt__arrow"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="6 15 12 9 18 15"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
     <script src="./js/script.js"></script>
     <script src="./js/global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
