@@ -194,3 +194,85 @@ window.addEventListener("resize", () => {
     closeSidebar();
   }
 });
+
+// team js
+(function () {
+  const slider = document.getElementById("teamSlider");
+  const btnPrev = document.getElementById("teamPrev");
+  const btnNext = document.getElementById("teamNext");
+  if (!slider || !btnPrev || !btnNext) return;
+
+  // clone all cards and append for infinite loop
+  const origCards = Array.from(slider.querySelectorAll(".ay-team__card"));
+  const total = origCards.length;
+
+  // clone set at end and beginning
+  origCards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    slider.appendChild(clone);
+  });
+  origCards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    slider.insertBefore(clone, slider.firstChild);
+  });
+
+  const allCards = Array.from(slider.querySelectorAll(".ay-team__card"));
+  const GAP = 20;
+  let current = total; // start at first real card (after clones)
+  let isAnimating = false;
+
+  function getVisible() {
+    if (window.innerWidth <= 525) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+
+  function getCardWidth() {
+    return allCards[0].offsetWidth + GAP;
+  }
+
+  // jump without animation (for infinite reset)
+  function jumpTo(index) {
+    slider.style.transition = "none";
+    current = index;
+    slider.style.transform = `translateX(-${getCardWidth() * current}px)`;
+  }
+
+  // animate to index
+  function slideTo(index) {
+    if (isAnimating) return;
+    isAnimating = true;
+    current = index;
+    slider.style.transition = "transform 0.55s cubic-bezier(0.16,1,0.3,1)";
+    slider.style.transform = `translateX(-${getCardWidth() * current}px)`;
+  }
+
+  slider.addEventListener("transitionend", () => {
+    isAnimating = false;
+    // if past the last real card — jump to first real
+    if (current >= total * 2) {
+      jumpTo(total);
+    }
+    // if before the first real card — jump to last real
+    if (current < total) {
+      jumpTo(total * 2 - getVisible());
+    }
+  });
+
+  btnNext.addEventListener("click", () => slideTo(current + 1));
+  btnPrev.addEventListener("click", () => slideTo(current - 1));
+
+  // init styles
+  slider.style.display = "flex";
+  slider.style.overflow = "visible";
+  slider.parentElement.style.overflow = "hidden";
+
+  function init() {
+    jumpTo(total);
+  }
+
+  window.addEventListener("resize", init);
+  init();
+})();
