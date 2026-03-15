@@ -1,7 +1,7 @@
 @use "../../helper/helper" as *;
 
 .ay-services {
-  padding: 80px 0 100px;
+  padding-top: 80px;
   background: $color-bg;
 
   @media (max-width: 1024px) {

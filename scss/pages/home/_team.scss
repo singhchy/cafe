@@ -1,7 +1,7 @@
 @use "../../helper/helper" as *;
 
 .ay-team {
-  padding: 80px 0;
+  padding-top: 80px;
   background: $color-bg;
 
   @media (max-width: 1024px) {
@@ -28,9 +28,9 @@
   @media (max-width: 1024px) {
     gap: 20px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     flex-direction: column;
-    gap: 28px;
+    gap: 24px;
   }
 }
 
@@ -39,20 +39,21 @@
 .ay-team__info {
   position: relative;
   width: 256px;
+  height: 540px;
   flex-shrink: 0;
   background: rgba($color-btn, 0.12);
   border-radius: 20px;
-  padding: 36px 28px 0;
+  padding: 16px 24px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 22px;
 
   @media (max-width: 1024px) {
-    width: 220px;
-    padding: 28px 22px 0;
+    width: 200px;
+    padding: 28px 20px 0;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     width: 100%;
     padding: 28px 24px 0;
   }
@@ -103,10 +104,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 120px;
-  background: rgba($color-btn, 0.25);
+  height: 80px;
   border-radius: 60% 60% 0 0 / 100% 100% 0 0;
   pointer-events: none;
+  img {
+    height: 100%;
+    width: 100%;
+  }
 
   @media (max-width: 768px) {
     height: 80px;

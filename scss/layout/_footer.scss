@@ -1,1 +1,265 @@
 @use "../helper/helper" as *;
+
+$footer-bg: #8aab88;
+$footer-text: rgba(#fff, 0.92);
+$footer-dim: rgba(#fff, 0.75);
+$footer-border: rgba(#fff, 0.25);
+
+// ─── FOOTER ───
+
+.ay-footer {
+  background: $footer-bg;
+  color: $footer-text;
+}
+
+// container inside footer fills full green bg
+.ay-footer .ay-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 52px;
+
+  @media (max-width: 768px) {
+    padding-top: 40px;
+  }
+  @media (max-width: 525px) {
+    padding-top: 32px;
+  }
+}
+
+// ─── TOP GRID ───
+
+.ay-footer__top {
+  display: grid;
+  grid-template-columns: 1.4fr 1.4fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 525px) {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+// ─── COL ───
+
+.ay-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// ─── LOGO ───
+
+.ay-footer__logo {
+  display: inline-block;
+  img {
+    height: 52px;
+    width: auto;
+    display: block;
+  }
+}
+
+// ─── CONTACT ROW ───
+
+.ay-footer__contact-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ay-footer__contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ay-footer__contact-label {
+  font-family: $font-sans;
+  font-size: 0.74rem;
+  font-weight: 400;
+  color: $footer-dim;
+  line-height: 1.4;
+}
+
+.ay-footer__contact-val {
+  font-family: $font-sans;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// ─── FOLLOW ───
+
+.ay-footer__follow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ay-footer__follow-label {
+  font-family: $font-sans;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: $footer-dim;
+}
+
+.ay-footer__socials {
+  display: flex;
+  gap: 10px;
+}
+
+.ay-footer__social {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1.5px solid $footer-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+
+  i {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    background: rgba(#fff, 0.15);
+    border-color: rgba(#fff, 0.4);
+  }
+}
+
+// ─── COL TITLE ───
+
+.ay-footer__col-title {
+  font-family: $font-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+// ─── INFO LIST ───
+
+.ay-footer__info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: $font-sans;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: $footer-text;
+    line-height: 1.65;
+
+    i {
+      font-size: 0.95rem;
+      color: #fff;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    a {
+      color: $footer-text;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+// ─── LINKS ───
+
+.ay-footer__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li a {
+    font-family: $font-sans;
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: $footer-text;
+    text-decoration: none;
+    line-height: 1.5;
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.35s $ease-out-expo;
+    }
+
+    &:hover {
+      color: #fff;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// ─── DIVIDER ───
+
+.ay-footer__divider {
+  width: 100%;
+  height: 1px;
+  background: $footer-border;
+}
+
+// ─── BOTTOM ───
+
+.ay-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 0;
+  background: $footer-bg;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+}
+
+.ay-footer__copy,
+.ay-footer__credit {
+  font-family: $font-sans;
+  font-size: 0.76rem;
+  font-weight: 400;
+  color: rgba(#fff, 0.8);
+  line-height: 1.5;
+}

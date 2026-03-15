@@ -1,7 +1,7 @@
 @use "../../helper/helper" as *;
 
 .ay-packages {
-  padding: 65px 0;
+  padding-top: 65px;
   background: $color-bg;
 
   @media (max-width: 1024px) {
