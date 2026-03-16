@@ -1,26 +1,37 @@
 @use "../../helper/helper" as *;
 
-.ay-packages {
-  padding-top: 65px;
+$active-w: 900px;
+$active-h: 554px;
+$side-h: 400px;
+
+.ay-pkslider {
+  padding: 80px 0 60px;
   background: $color-bg;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
-    padding-top: 40px;
+    padding-top: 60px;
   }
   @media (max-width: 768px) {
-    padding-top: 32px;
+    padding-top: 48px;
   }
   @media (max-width: 525px) {
-    padding-top: 24px;
+    padding-top: 36px;
   }
 }
 
-.ay-packages__header {
+// ─── HEADER ───
+
+.ay-pkslider__header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 28px;
+  }
 }
 
-.ay-packages__label {
+.ay-pkslider__label {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -30,10 +41,10 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: $color-btn;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-.ay-packages__dot {
+.ay-pkslider__dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -42,488 +53,284 @@
   flex-shrink: 0;
 }
 
-.ay-packages__heading {
-  font-weight: 500;
+.ay-pkslider__heading {
+  font-family: $font-serif;
+  font-size: 29.51px;
+  font-weight: 700;
   color: $color-headline;
   line-height: 1.25;
-  letter-spacing: -0.01em;
 }
 
-.ay-packages__heading--line1 {
+.ay-pkslider__heading--line1 {
   display: block;
 }
-
-.ay-packages__heading--line2 {
+.ay-pkslider__heading--line2 {
   display: block;
-  text-indent: 30px;
-}
-// ─── WRAPPER ───
-
-.ay-packages__wrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  width: 1094px;
-  max-width: 100%;
-  margin: 0 auto;
-  height: 540px;
-
-  @media (max-width: 1024px) {
-    gap: 16px;
-    height: auto;
-  }
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-    height: auto;
-  }
-  @media (max-width: 525px) {
-    flex-direction: column;
-  }
+  font-style: italic;
 }
 
-// LEFT COL — 464px wide, 540px tall
+// ─── STAGE ───
 
-.ay-packages__left {
-  display: flex;
-  flex-direction: column;
-  width: 464px;
-  height: 540px;
-  flex-shrink: 0;
-  gap: 24px;
-
-  @media (max-width: 1024px) {
-    width: 360px;
-    height: auto;
-    gap: 16px;
-  }
-  @media (max-width: 768px) {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-  }
-  @media (max-width: 525px) {
-    flex-direction: column;
-  }
-}
-
-// ── Card A: text left | image right ── 258px
-
-.ay-packages__card-a {
-  display: flex;
-  align-items: stretch;
-  height: 258px;
-  flex-shrink: 0;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-
-  @media (max-width: 1024px) {
-    height: 220px;
-  }
-  @media (max-width: 768px) {
-    height: 200px;
-    flex: 1;
-  }
-  @media (max-width: 525px) {
-    height: 180px;
-    flex: none;
-    width: 100%;
-  }
-}
-
-.ay-packages__card-a__body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 28px 22px;
-
-  @media (max-width: 1024px) {
-    padding: 20px 16px;
-  }
-  @media (max-width: 525px) {
-    padding: 16px 14px;
-  }
-}
-
-.ay-packages__card-a__title {
-  font-family: $font-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: $color-btn;
-  line-height: 1.3;
-  margin-bottom: 12px;
-}
-
-.ay-packages__card-a__text {
-  font-family: $font-sans;
-  font-size: 0.82rem;
-  font-weight: 300;
-  color: $color-subtext;
-  line-height: 1.7;
-}
-
-.ay-packages__card-a__img-wrap {
-  flex: 0 0 55%; // image takes ~55% of card width
-  overflow: hidden;
-  border-radius: 20px; // fully rounded on image side too
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.65s $ease-out-expo;
-  }
-
-  .ay-packages__card-a:hover & img {
-    transform: scale(1.06);
-  }
-
-  @media (max-width: 768px) {
-    flex: 0 0 50%;
-  }
-}
-
-// ── Card B: full image top | title left + text right ── 258px
-
-.ay-packages__card-b {
-  display: flex;
-  flex-direction: column;
-  height: 258px;
-  flex-shrink: 0;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-
-  @media (max-width: 1024px) {
-    height: 220px;
-  }
-  @media (max-width: 768px) {
-    height: 200px;
-    flex: 1;
-  }
-  @media (max-width: 525px) {
-    height: 180px;
-    flex: none;
-    width: 100%;
-  }
-}
-
-.ay-packages__card-b__img-wrap {
-  flex: 1; // image fills available space
-  overflow: hidden;
-  border-radius: 20px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.65s $ease-out-expo;
-  }
-
-  .ay-packages__card-b:hover & img {
-    transform: scale(1.06);
-  }
-}
-
-.ay-packages__card-b__footer {
-  display: flex;
-  flex-direction: row; // title left | text right
-  align-items: flex-start;
-  gap: 14px;
-  padding: 14px 18px 16px;
-  flex-shrink: 0;
-  background: #fff;
-
-  @media (max-width: 525px) {
-    flex-direction: column;
-    gap: 4px;
-    padding: 10px 14px 12px;
-  }
-}
-
-.ay-packages__card-b__title {
-  font-family: $font-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: $color-btn;
-  line-height: 1.3;
-  flex-shrink: 0;
-  white-space: nowrap;
-
-  @media (max-width: 525px) {
-    white-space: normal;
-  }
-}
-
-.ay-packages__card-b__text {
-  font-family: $font-sans;
-  font-size: 0.78rem;
-  font-weight: 300;
-  color: $color-subtext;
-  line-height: 1.6;
-  flex: 1;
-}
-
-// CENTER COL — no bg, no shadow, floats on page
-// img 352px + gap 20px + text area 168px = 540px
-// svg absolutely positioned bottom-left
-
-.ay-packages__center {
-  flex: 1;
-  min-width: 0;
-  height: 540px;
-  flex-shrink: 0;
+.ay-pkslider__stage {
   position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 
-  @media (max-width: 1024px) {
-    height: auto;
+.ay-pkslider__track-wrap {
+  width: 100%;
+  overflow: visible;
+}
+
+.ay-pkslider__track {
+  display: flex;
+  align-items: center; // vertical center — side slides sit centered relative to big one
+  gap: 20px;
+  transition: transform 0.65s $ease-out-expo;
+  will-change: transform;
+  padding: 20px 0 20px;
+}
+
+// ─── SLIDE — default (side) ───
+
+.ay-pkslider__slide {
+  flex: 0 0 $active-w;
+  transition:
+    transform 0.55s $ease-out-expo,
+    opacity 0.4s ease;
+  opacity: 0.5;
+
+  .ay-pkslider__img-wrap {
+    height: $side-h; // side slides shorter
+    border-radius: 20px;
   }
+
+  // active slide — full size, full opacity
+  &.is-active {
+    opacity: 1;
+
+    .ay-pkslider__img-wrap {
+      height: $active-h; // center slide taller
+      border-radius: 24px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    flex: 0 0 700px;
+    &.is-active .ay-pkslider__img-wrap {
+      height: 440px;
+    }
+    .ay-pkslider__img-wrap {
+      height: 320px;
+    }
+  }
+
   @media (max-width: 768px) {
-    flex: 1;
-    height: auto;
+    flex: 0 0 85vw;
+    &.is-active .ay-pkslider__img-wrap {
+      height: 320px;
+    }
+    .ay-pkslider__img-wrap {
+      height: 240px;
+    }
   }
+
   @media (max-width: 525px) {
-    width: 100%;
+    flex: 0 0 90vw;
+    &.is-active .ay-pkslider__img-wrap {
+      height: 260px;
+    }
+    .ay-pkslider__img-wrap {
+      height: 200px;
+    }
   }
 }
 
-.ay-packages__card-c {
-  display: flex;
-  flex-direction: column;
-  width: 287px;
-  height: 540px;
-  margin: 0 auto;
+// ─── IMAGE WRAP ───
 
-  @media (max-width: 1024px) {
-    width: 100%;
-    height: auto;
-  }
-}
-
-// ── image + text together — 80% of 540 = 432px, white bg ──
-.ay-packages__card-c__main {
-  height: 462px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-radius: 20px;
+.ay-pkslider__img-wrap {
+  position: relative;
+  width: 100%;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-
-  @media (max-width: 1024px) {
-    height: auto;
-    flex: 1;
-  }
-}
-
-.ay-packages__card-c__img-wrap {
-  height: 272px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 20px;
+  transition:
+    height 0.55s $ease-out-expo,
+    border-radius 0.55s ease,
+    box-shadow 0.55s ease;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.65s $ease-out-expo;
+    transition: transform 0.7s $ease-out-expo;
   }
 
-  .ay-packages__card-c__main:hover & img {
-    transform: scale(1.06);
-  }
-
-  @media (max-width: 1024px) {
-    height: 220px;
-  }
-  @media (max-width: 525px) {
-    height: 200px;
+  .ay-pkslider__slide.is-active &:hover img {
+    transform: scale(1.03);
   }
 }
 
-.ay-packages__card-c__body {
-  flex: 1;
-  padding: 16px 20px;
+// ─── OVERLAY ───
+
+.ay-pkslider__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+// ─── INFO ───
+
+.ay-pkslider__info {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  overflow: hidden;
+  gap: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 36px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.4s ease 0.1s,
+    transform 0.4s $ease-out-expo 0.1s;
+
+  .ay-pkslider__slide.is-active & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 525px) {
+    padding: 20px 20px;
+  }
 }
 
-.ay-packages__card-c__title {
-  font-family: $font-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: $color-btn;
-  line-height: 1.3;
-  margin-bottom: 10px;
-}
-
-.ay-packages__card-c__text {
+.ay-pkslider__title {
   font-family: $font-sans;
-  font-size: 0.82rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+
+  @media (max-width: 525px) {
+    font-size: 1.1rem;
+  }
+}
+
+.ay-pkslider__text {
+  font-family: $font-sans;
+  font-size: 0.85rem;
   font-weight: 300;
-  color: $color-subtext;
+  color: rgba(#fff, 0.9);
   line-height: 1.65;
-}
+  max-width: 400px;
 
-// ── svg row — 20% of 540 = 108px, no background ──
-.ay-packages__card-c__svg {
-  height: 108px; // 20% of 540
-  top: -66px;
-  z-index: -1;
-  flex-shrink: 0;
-  position: relative;
-  background: transparent;
-  pointer-events: none;
-
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 70px;
-    height: auto;
-    display: block;
-  }
-
-  @media (max-width: 1024px) {
-    display: none;
-  }
-}
-
-// RIGHT COL — 295px wide, 540px tall
-// card-d 244px + gap 24px + card-e 272px = 540
-
-.ay-packages__right {
-  display: flex;
-  flex-direction: column;
-  width: 295px;
-  height: 540px;
-  flex-shrink: 0;
-  gap: 24px;
-
-  @media (max-width: 1024px) {
-    width: 240px;
-    height: auto;
-    gap: 16px;
-  }
-  @media (max-width: 768px) {
-    width: 220px;
-    height: auto;
-  }
   @media (max-width: 525px) {
-    width: 100%;
-    flex-direction: row;
-  }
-  @media (max-width: 480px) {
-    flex-direction: column;
+    font-size: 0.8rem;
   }
 }
 
-// ── Card D: image only, no white wrapper ──
-
-.ay-packages__card-d {
-  height: 148px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.65s $ease-out-expo;
-  }
-
-  &:hover img {
-    transform: scale(1.06);
-  }
-
-  @media (max-width: 1024px) {
-    height: 160px;
-  }
-  @media (max-width: 525px) {
-    height: 130px;
-    flex: 1;
-  }
-}
-
-// ── Card E: white card, image top + title + text ── fills 272px
-
-.ay-packages__card-e {
-  flex: 1; // 540 - 244 - 24 = 272px
-  display: flex;
-  flex-direction: column;
+.ay-pkslider__btn {
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-sans;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: $color-headline;
   background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-}
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 50px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    gap 0.3s ease;
 
-.ay-packages__card-e__img-wrap {
-  height: 200px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 20px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.65s $ease-out-expo;
-  }
-
-  .ay-packages__card-e:hover & img {
-    transform: scale(1.06);
-  }
-
-  @media (max-width: 1024px) {
-    height: 170px;
-  }
-  @media (max-width: 525px) {
-    height: 145px;
-  }
-}
-
-.ay-packages__card-e__body {
-  flex: 1;
-  padding: 16px 18px 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.ay-packages__card-e__title {
-  font-family: $font-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: $color-btn;
-  line-height: 1.3;
-  margin-bottom: 8px;
-
-  @media (max-width: 525px) {
+  i {
     font-size: 0.9rem;
-    margin-bottom: 5px;
+    transition: transform 0.3s $ease-out-expo;
+  }
+
+  &:hover {
+    background: $color-btn;
+    color: #fff;
+    gap: 10px;
+    i {
+      transform: translate(2px, -2px);
+    }
   }
 }
 
-.ay-packages__card-e__text {
-  font-family: $font-sans;
-  font-size: 0.82rem;
-  font-weight: 300;
-  color: $color-subtext;
-  line-height: 1.65;
+// ─── ARROWS ───
+
+.ay-pkslider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba($color-headline, 0.2);
+  background: $color-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: $color-headline;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+
+  i {
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    border-color: $color-btn;
+    background: $color-btn;
+    color: #fff;
+  }
+
+  &--prev {
+    left: 20px;
+  }
+  &--next {
+    right: 20px;
+  }
 
   @media (max-width: 525px) {
-    font-size: 0.76rem;
+    width: 36px;
+    height: 36px;
+    &--prev {
+      left: 8px;
+    }
+    &--next {
+      right: 8px;
+    }
+  }
+}
+.ay-pkslider__stage {
+  animation: pkStageFade 0.8s $ease-out-expo 0.3s both;
+}
+
+@keyframes pkStageFade {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

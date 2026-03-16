@@ -1,45 +1,58 @@
 @use "../helper/helper" as *;
 
+// HEADER
+
 .ay-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 0 40px;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 2px 24px rgba(180, 170, 160, 0.12);
+  padding: 32px 64px;
+  background: transparent;
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.45s ease;
+
+  &.is-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 }
 
 .ay-nav {
   display: flex;
   align-items: center;
-  height: 72px;
-  gap: 32px;
+  justify-content: space-between;
 }
+
+// ─── LOGO ───
 
 .nav-logo {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: $font-sans;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: $color-headline;
-  text-decoration: none;
-  letter-spacing: -0.01em;
-  white-space: nowrap;
+  height: 72px;
+  width: 250px;
 
-  &::after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: 32px;
-    background: rgba(0, 0, 0, 0.15);
-    margin-left: 24px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  transition: color 0.3s ease;
+
+  .ay-header.is-scrolled & {
+    color: $color-headline;
   }
 
   &__icon {
@@ -50,216 +63,121 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    i {
-      font-size: 1rem;
-      color: #fff;
-    }
-  }
-}
-
-.nav-phone {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-
-  &__icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1.5px solid $color-btn;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex-shrink: 0;
 
     i {
       font-size: 1rem;
-      color: $color-btn;
+      color: #fff;
     }
-  }
-
-  &__text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-  }
-
-  &__number {
-    font-family: $font-sans;
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: $color-headline;
-  }
-
-  &__label {
-    font-family: $font-sans;
-    font-size: 0.68rem;
-    font-weight: 300;
-    color: $color-subtext;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
   }
 }
 
-.nav-links {
+// ─── RIGHT ───
+
+.nav-right {
   display: flex;
   align-items: center;
-  gap: 4px;
-  list-style: none;
-  margin: 0 auto;
-
-  li {
-    display: flex;
-  }
-
-  &__item {
-    font-family: $font-sans;
-    font-size: 0.82rem;
-    font-weight: 400;
-    color: $color-headline;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 50px;
-    transition:
-      color 0.25s ease,
-      background 0.25s ease;
-
-    &:hover {
-      color: $color-btn;
-      background: rgba($color-btn, 0.08);
-    }
-
-    &.active {
-      background: $color-btn;
-      color: #fff;
-
-      &:hover {
-        background: $color-btn-hover;
-        color: #fff;
-      }
-    }
-  }
+  gap: 14px;
 }
 
 .nav-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  white-space: nowrap;
   font-family: $font-sans;
   font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
   text-decoration: none;
-  color: #fff;
-  background: $color-headline;
-  padding: 10px 20px 10px 26px;
+  color: $color-headline;
+  background: #fff;
+  padding: 10px 20px;
   border-radius: 50px;
+  white-space: nowrap;
   transition:
     background 0.3s ease,
+    color 0.3s ease,
     transform 0.25s ease;
+
+  i {
+    font-size: 1rem;
+  }
 
   &:hover {
     background: $color-btn;
+    color: #fff;
     transform: scale(1.03);
   }
 
-  &__icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: $color-btn;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
+  .ay-header.is-scrolled & {
+    background: $color-headline;
+    color: #fff;
 
-    i {
-      font-size: 1rem;
-      color: #fff;
+    &:hover {
+      background: $color-btn;
     }
   }
 
-  &:hover &__icon {
-    background: rgba(255, 255, 255, 0.25);
-  }
-}
-
-@media (max-width: 1024px) {
-  .nav-phone {
-    display: none;
-  }
-  .ay-nav {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .ay-header {
-    padding: 0 20px;
-  }
-  .nav-links {
-    display: none;
-  }
-  .nav-cta {
+  @media (max-width: 525px) {
     display: none;
   }
 }
 
-// ─── SIDEBAR HAMBURGER ───
+// ─── HAMBURGER ───
 
 .sidebar-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5px;
   width: 42px;
   height: 42px;
-  border: none;
+  border: none; // No border
   background: transparent;
+  border-radius: 10px;
   cursor: pointer;
   padding: 4px;
-  margin-left: auto;
-  z-index: 200;
 
   &__bar {
     display: block;
     width: 24px;
     height: 2px;
-    background: $color-headline;
+    background: #fff;
     border-radius: 2px;
-    transform-origin: center;
     transition:
-      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.4s $ease-out-expo,
       opacity 0.3s ease,
       width 0.3s ease;
+
+    .ay-header.is-scrolled & {
+      background: $color-headline;
+    }
+
+    // MAKE THE 3RD LINE SHORTER
+    &:nth-child(3) {
+      width: 14px;
+      margin-right: 10px;
+    }
   }
 
   &.is-open {
     .sidebar-toggle__bar:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
+
     .sidebar-toggle__bar:nth-child(2) {
       opacity: 0;
       width: 0;
     }
+
     .sidebar-toggle__bar:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
     }
   }
-
-  @media (max-width: 768px) {
-    display: flex;
-  }
 }
 
-// ─── SIDEBAR ROOT ───
+// SIDEBAR — identical to original
 
 .sidebar {
   position: fixed;
@@ -274,14 +192,8 @@
     visibility: visible;
     transition-delay: 0s;
   }
-
-  @media (min-width: 769px) {
-    pointer-events: none !important;
-    visibility: hidden !important;
-  }
 }
 
-// layer 1 — full-width blurred overlay, slides from right
 .sidebar__overlay {
   position: absolute;
   inset: 0;
@@ -292,6 +204,7 @@
   .sidebar.is-open & {
     transform: translateX(0);
   }
+
   .sidebar:not(.is-open) & {
     transform: translateX(100%);
     transition: transform 0.52s 0.08s cubic-bezier(0.4, 0, 0.6, 1);
@@ -302,11 +215,10 @@
   position: absolute;
   inset: 0;
   background: rgba($color-divider, 0.12);
-  backdrop-filter: blur(2px) saturate(1.1);
+  backdrop-filter: blur(6px) saturate(1.1);
   -webkit-backdrop-filter: blur(6px) saturate(1.1);
 }
 
-// layer 2 — nav panel, slides from right with slight delay
 .sidebar__panel {
   position: absolute;
   top: 0;
@@ -328,6 +240,7 @@
     transform: translateX(0);
     transition: transform 0.62s 0.08s cubic-bezier(0.16, 1, 0.3, 1);
   }
+
   .sidebar:not(.is-open) & {
     transform: translateX(100%);
     transition: transform 0.48s 0s cubic-bezier(0.4, 0, 0.6, 1);
@@ -453,22 +366,21 @@
 
 @for $i from 1 through 6 {
   .sidebar.is-open .sidebar__item:nth-child(#{$i}) .sidebar__link {
-    animation: sidebarLinkIn
-      0.5s
-      #{0.2s +
-      ($i - 1) *
-      0.07s}
-      cubic-bezier(0.16, 1, 0.3, 1)
-      both;
+    animation: sidebarLinkIn 0.5s #{0.2s +
+ ($i - 1) * 0.07s
   }
+
+  cubic-bezier(0.16, 1, 0.3, 1) both;
+}
 }
 
 @keyframes sidebarLinkIn {
-  0% {
+  from {
     opacity: 0;
     transform: translateX(22px);
   }
-  100% {
+
+  to {
     opacity: 1;
     transform: translateX(0);
   }

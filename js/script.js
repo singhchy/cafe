@@ -1,138 +1,217 @@
-//banner js with animations and floating petals
-const colors = ["#d4c9c0", "#c8d4c4", "#d4c8d0", "#c4ccd4"];
-for (let i = 0; i < 14; i++) {
-  const p = document.createElement("div");
-  p.className = "petal";
-  const size = 8 + Math.random() * 14;
-  p.style.cssText = `
-    width:${size}px;
-    height:${size}px;
-    left:${Math.random() * 100}vw;
-    background:${colors[Math.floor(Math.random() * colors.length)]};
-    animation-duration:${14 + Math.random() * 18}s;
-    animation-delay:${Math.random() * 12}s;
-  `;
-  document.body.appendChild(p);
-}
+(function () {
+  const slides = [
+    {
+      image:
+        "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&auto=format&fit=crop&q=80",
+      video: "",
+      label: "Explore the Benefits of Hot Yoga",
+      headline: "Transform Your Mind and Body with Daily Yoga",
+      btn: "Know more",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1600&auto=format&fit=crop&q=80",
+      video: "",
+      label: "Discover Ancient Healing",
+      headline: "Restore Balance with Ayurveda Therapy",
+      btn: "Learn more",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=1600&auto=format&fit=crop&q=80",
+      video: "",
+      label: "Find Your Inner Peace",
+      headline: "Breathe. Release. Renew Your Soul.",
+      btn: "Explore now",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&auto=format&fit=crop&q=80",
+      video: "",
+      label: "Holistic Treatment Programs",
+      headline: "Your Journey to Wellness Starts Here",
+      btn: "Book now",
+    },
+  ];
 
-// ── SLIDER DATA
-const slides = [
-  {
-    image:
-      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600",
-    headline: "Transform Body, Transform Soul",
-    sub: "Discover a sanctuary where movement meets mindfulness. Every breath brings you closer to the life you deserve.",
-    btn: "Read More",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1600",
-    headline: "Find Your Inner Rhythm",
-    sub: "Flow through each session with intention and grace. Movement is medicine — and it starts right here.",
-    btn: "Explore Classes",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8eW9nYXxlbnwwfHwwfHx8MA%3D%3D",
-    headline: "Breathe. Release. Renew.",
-    sub: "Step into stillness and rediscover the power that lives within every exhale.",
-    btn: "Begin Today",
-  },
-];
+  const DURATION = 5000;
+  const EXIT_DUR = 600; // how long exit animation takes
+  const ENTER_GAP = 120; // pause between exit finish and enter start
+  const STAGGER = 200; // ms between each element entering
 
-// ── ELEMENT REFS ─────────────────────────────────────────
-const layerA = document.getElementById("imgBgA");
-const layerB = document.getElementById("imgBgB");
-const flowerBg = document.querySelector(".flower-bg");
-const headline = document.querySelector(".headline");
-const divider = document.querySelector(".divider");
-const subtext = document.querySelector(".subtext");
-const btnWrap = document.querySelector(".btn-wrap");
-const btnLink = document.querySelector(".btn");
-const btnPrev = document.querySelector(".nav-btn.prev");
-const btnNext = document.querySelector(".nav-btn.next");
+  const bgA = document.getElementById("heroBgA");
+  const bgB = document.getElementById("heroBgB");
+  const videoEl = document.getElementById("heroVideo");
+  const labelEl = document.getElementById("heroLabel");
+  const headlineEl = document.getElementById("heroHeadline");
+  const btnEl = document.getElementById("heroBtn");
+  const tabs = Array.from(document.querySelectorAll(".ay-hero__tab"));
+  const header = document.getElementById("ayHeader");
 
-const elements = [flowerBg, headline, divider, subtext, btnWrap];
+  if (!bgA || !bgB) return;
 
-let current = 0;
-let activeLayer = layerA; // which layer is currently on top
-let isAnimating = false;
+  let current = 0;
+  let activeLayer = bgA;
+  let rafId = null;
+  let startTime = null;
+  let isAnimating = false;
 
-function crossfadeImage(url) {
-  const next = activeLayer === layerA ? layerB : layerA;
-  const prev = activeLayer;
+  // ── HEADER SCROLL — hide on scroll down, show on scroll up
+  let lastScrollY = 0;
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    if (scrollY <= 80) {
+      // at top — transparent, no bg
+      header.classList.remove("is-scrolled", "is-hidden");
+    } else if (scrollY > lastScrollY + 5) {
+      // scrolling down — hide
+      header.classList.add("is-hidden");
+      header.classList.remove("is-scrolled");
+    } else if (scrollY < lastScrollY - 5) {
+      // scrolling up — show with bg
+      header.classList.remove("is-hidden");
+      header.classList.add("is-scrolled");
+    }
+    lastScrollY = scrollY;
+  });
 
-  // load the new image on the inactive layer
-  next.style.backgroundImage = `url('${url}')`;
+  // ── CROSSFADE BG
+  function crossfade(slide) {
+    if (slide.video) {
+      videoEl.src = slide.video;
+      videoEl.play().catch(() => { });
+      videoEl.classList.add("is-active");
+      bgA.classList.remove("is-active");
+      bgB.classList.remove("is-active");
+    } else {
+      videoEl.classList.remove("is-active");
+      const next = activeLayer === bgA ? bgB : bgA;
+      const prev = activeLayer;
+      next.style.backgroundImage = `url('${slide.image}')`;
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          next.classList.add("is-active");
+          prev.classList.remove("is-active");
+          activeLayer = next;
+        }),
+      );
+    }
+  }
 
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      next.classList.add("is-active");
-      prev.classList.remove("is-active");
-      activeLayer = next;
+  // ── UPDATE CONTENT
+  function updateContent(slide) {
+    labelEl.textContent = slide.label;
+    headlineEl.textContent = slide.headline;
+    const icon = btnEl.querySelector("i");
+    btnEl.textContent = slide.btn + " ";
+    if (icon) btnEl.appendChild(icon);
+  }
+
+  const els = () => [labelEl, headlineEl, btnEl];
+
+  // ── EXIT — all slide up & fade out together
+  function exit() {
+    els().forEach((el) => {
+      el.classList.remove("hero-enter");
+      void el.offsetWidth;
+      el.classList.add("hero-exit");
     });
-  });
-}
+  }
 
-// ── RENDER TEXT ──────────────────────────────────────────
-function renderText(idx) {
-  const s = slides[idx];
-  headline.textContent = s.headline;
-  subtext.textContent = s.sub;
-  btnLink.childNodes[0].textContent = s.btn + " ";
-}
+  // ── ENTER — each drops in from top, one by one with stagger
+  function enter() {
+    els().forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.remove("hero-exit");
+        void el.offsetWidth;
+        el.classList.add("hero-enter");
+      }, i * STAGGER);
+    });
+  }
 
-// ── CHANGE SLIDE ─────────────────────────────────────────
-function changeSlide(direction) {
-  if (isAnimating) return;
-  isAnimating = true;
-  document.body.classList.add("is-animating");
+  // ── INIT ENTER (page load — no exit, just enter)
+  function initEnter() {
+    els().forEach((el, i) => {
+      setTimeout(
+        () => {
+          el.classList.add("hero-enter");
+        },
+        200 + i * STAGGER,
+      );
+    });
+  }
 
-  // 1. EXIT — elements hide upward
-  elements.forEach((el) => {
-    el.classList.remove("rise-up");
-    void el.offsetWidth;
-    el.classList.add("hide-down");
-  });
+  // ── CHANGE SLIDE
+  function goTo(index) {
+    if (isAnimating) return;
+    isAnimating = true;
 
-  setTimeout(() => {
-    // 2. SWAP — crossfade image + update text
-    current =
-      direction === "next"
-        ? (current + 1) % slides.length
-        : (current - 1 + slides.length) % slides.length;
+    // reset tabs
+    tabs.forEach((t) => {
+      t.classList.remove("active");
+      t.querySelector(".ay-hero__tab-progress").style.width = "0%";
+    });
 
-    crossfadeImage(slides[current].image);
-    renderText(current);
+    // 1. EXIT
+    exit();
 
     setTimeout(() => {
-      // 3. RE-ENTER — elements rise from below
-      elements.forEach((el) => {
-        el.classList.remove("hide-down");
-        void el.offsetWidth;
-        el.classList.add("rise-up");
-      });
+      // 2. SWAP content + bg
+      current = index;
+      tabs[current]?.classList.add("active");
+      updateContent(slides[current]);
+      crossfade(slides[current]);
 
       setTimeout(() => {
+        // 3. ENTER serially
+        enter();
         isAnimating = false;
-        document.body.classList.remove("is-animating");
-      }, 1600);
-    }, 120);
-  }, 1050);
-}
+      }, ENTER_GAP);
+    }, EXIT_DUR);
 
-// ── ARROWS ───────────────────────────────────────────────
-btnNext.addEventListener("click", () => changeSlide("next"));
-btnPrev.addEventListener("click", () => changeSlide("prev"));
+    startProgress();
+  }
 
-// ── INIT — show first image ──────────────────────────────
-layerA.style.backgroundImage = `url('${slides[0].image}')`;
-requestAnimationFrame(() => {
-  requestAnimationFrame(() => {
-    layerA.classList.add("is-active");
+  // ── PROGRESS
+  function startProgress() {
+    cancelAnimationFrame(rafId);
+    startTime = performance.now();
+
+    function tick(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min((elapsed / DURATION) * 100, 100);
+      const activeTab = tabs[current];
+      if (activeTab)
+        activeTab.querySelector(".ay-hero__tab-progress").style.width =
+          progress + "%";
+      if (progress < 100) rafId = requestAnimationFrame(tick);
+      else {
+        const next = (current + 1) % slides.length;
+        goTo(next);
+      }
+    }
+    rafId = requestAnimationFrame(tick);
+  }
+
+  // ── TAB CLICKS
+  tabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => {
+      if (i === current) return;
+      cancelAnimationFrame(rafId);
+      goTo(i);
+    });
   });
-});
-renderText(0);
 
+  // ── INIT
+  bgA.style.backgroundImage = `url('${slides[0].image}')`;
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => bgA.classList.add("is-active")),
+  );
+  updateContent(slides[0]);
+  tabs[0]?.classList.add("active");
+  initEnter();
+  startProgress();
+})();
 // SIDEBAR
 
 const sidebar = document.getElementById("sidebar");
@@ -275,6 +354,109 @@ window.addEventListener("resize", () => {
 
   window.addEventListener("resize", init);
   init();
+})();
+
+// package js
+(function () {
+  const track = document.getElementById("pkTrack");
+  const btnPrev = document.getElementById("pkPrev");
+  const btnNext = document.getElementById("pkNext");
+  if (!track || !btnPrev || !btnNext) return;
+
+  const slides = Array.from(track.querySelectorAll(".ay-pkslider__slide"));
+  const total = slides.length;
+  const GAP = 20;
+  let current = 0;
+  let isAnim = false;
+
+  function getSlideW() {
+    return slides[0].offsetWidth + GAP;
+  }
+
+  function getCenterOffset() {
+    const vw = track.parentElement.offsetWidth;
+    const slideW = slides[0].offsetWidth;
+    return (vw - slideW) / 2;
+  }
+
+  function update(animate = true) {
+    track.style.transition = animate
+      ? "transform 0.65s cubic-bezier(0.16,1,0.3,1)"
+      : "none";
+
+    const offset = getCenterOffset() - current * getSlideW();
+    track.style.transform = `translateX(${offset}px)`;
+
+    slides.forEach((s, i) => s.classList.toggle("is-active", i === current));
+  }
+
+  function goTo(index) {
+    if (isAnim) return;
+    isAnim = true;
+    current = ((index % total) + total) % total;
+    update(true);
+    setTimeout(() => {
+      isAnim = false;
+    }, 700);
+  }
+
+  btnNext.addEventListener("click", () => goTo(current + 1));
+  btnPrev.addEventListener("click", () => goTo(current - 1));
+
+  // click side slides to go to them
+  slides.forEach((s, i) => {
+    s.addEventListener("click", () => {
+      if (i !== current) goTo(i);
+    });
+  });
+
+  // drag
+  let dragStartX = 0,
+    dragging = false;
+
+  track.addEventListener("mousedown", (e) => {
+    dragging = true;
+    dragStartX = e.clientX;
+    track.style.transition = "none";
+    track.style.cursor = "grabbing";
+  });
+
+  window.addEventListener("mousemove", (e) => {
+    if (!dragging) return;
+    const diff = e.clientX - dragStartX;
+    const offset = getCenterOffset() - current * getSlideW() + diff;
+    track.style.transform = `translateX(${offset}px)`;
+  });
+
+  window.addEventListener("mouseup", (e) => {
+    if (!dragging) return;
+    dragging = false;
+    track.style.cursor = "";
+    const diff = e.clientX - dragStartX;
+    if (Math.abs(diff) > 60) goTo(diff < 0 ? current + 1 : current - 1);
+    else update(true);
+    isAnim = false;
+  });
+
+  // touch
+  let touchStartX = 0;
+  track.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.touches[0].clientX;
+    },
+    { passive: true },
+  );
+  track.addEventListener("touchend", (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+  });
+
+  window.addEventListener("resize", () => update(false));
+
+  // start at index 1 so left side always has a neighbour
+  current = 1;
+  update(false);
 })();
 
 // testi js

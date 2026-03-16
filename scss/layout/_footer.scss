@@ -1,19 +1,21 @@
 @use "../helper/helper" as *;
 
-$footer-bg: #8aab88;
-$footer-text: rgba(#fff, 0.92);
-$footer-dim: rgba(#fff, 0.75);
-$footer-border: rgba(#fff, 0.25);
-
 // ─── FOOTER ───
 
 .ay-footer {
-  background: $footer-bg;
-  color: $footer-text;
+  background: $color-btn;
+  color: rgba(#fff, 0.92);
 }
 
-// container inside footer fills full green bg
 .ay-footer .ay-container {
+  background: $color-btn;
+}
+
+// wrapper — matches all other sections
+.ay-footer__wrapper {
+  width: 1094px;
+  max-width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   padding-top: 52px;
@@ -21,6 +23,7 @@ $footer-border: rgba(#fff, 0.25);
   @media (max-width: 768px) {
     padding-top: 40px;
   }
+
   @media (max-width: 525px) {
     padding-top: 32px;
   }
@@ -38,6 +41,7 @@ $footer-border: rgba(#fff, 0.25);
     grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
+
   @media (max-width: 525px) {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -55,7 +59,23 @@ $footer-border: rgba(#fff, 0.25);
 // ─── LOGO ───
 
 .ay-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  width: 250px;
+  height: 72px;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+.ay-footer__logo {
   display: inline-block;
+
   img {
     height: 52px;
     width: auto;
@@ -81,7 +101,7 @@ $footer-border: rgba(#fff, 0.25);
   font-family: $font-sans;
   font-size: 0.74rem;
   font-weight: 400;
-  color: $footer-dim;
+  color: rgba(#fff, 0.75);
   line-height: 1.4;
 }
 
@@ -111,7 +131,7 @@ $footer-border: rgba(#fff, 0.25);
   font-family: $font-sans;
   font-size: 0.8rem;
   font-weight: 400;
-  color: $footer-dim;
+  color: rgba(#fff, 0.75);
 }
 
 .ay-footer__socials {
@@ -123,7 +143,7 @@ $footer-border: rgba(#fff, 0.25);
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  border: 1.5px solid $footer-border;
+  border: 1.5px solid rgba(#fff, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,7 +189,7 @@ $footer-border: rgba(#fff, 0.25);
     font-family: $font-sans;
     font-size: 0.8rem;
     font-weight: 300;
-    color: $footer-text;
+    color: rgba(#fff, 0.92);
     line-height: 1.65;
 
     i {
@@ -180,7 +200,7 @@ $footer-border: rgba(#fff, 0.25);
     }
 
     a {
-      color: $footer-text;
+      color: rgba(#fff, 0.92);
       text-decoration: none;
       transition: color 0.2s ease;
 
@@ -203,7 +223,7 @@ $footer-border: rgba(#fff, 0.25);
     font-family: $font-sans;
     font-size: 0.82rem;
     font-weight: 300;
-    color: $footer-text;
+    color: rgba(#fff, 0.92);
     text-decoration: none;
     line-height: 1.5;
     display: inline-block;
@@ -223,6 +243,7 @@ $footer-border: rgba(#fff, 0.25);
 
     &:hover {
       color: #fff;
+
       &::after {
         width: 100%;
       }
@@ -235,7 +256,7 @@ $footer-border: rgba(#fff, 0.25);
 .ay-footer__divider {
   width: 100%;
   height: 1px;
-  background: $footer-border;
+  background: rgba(#fff, 0.25);
 }
 
 // ─── BOTTOM ───
@@ -246,7 +267,7 @@ $footer-border: rgba(#fff, 0.25);
   justify-content: space-between;
   width: 100%;
   padding: 18px 0;
-  background: $footer-bg;
+  background: $color-btn;
 
   @media (max-width: 600px) {
     flex-direction: column;
