@@ -1,0 +1,238 @@
+@use "../../helper/helper" as *;
+
+.ay-why {
+  padding-top: 80px;
+  background: $color-bg;
+
+  @media (max-width: 1024px) {
+    padding: 60px 0;
+  }
+  @media (max-width: 768px) {
+    padding: 48px 0;
+  }
+  @media (max-width: 525px) {
+    padding: 36px 0;
+  }
+}
+
+// ─── INNER — left + right with 52px gap ───
+
+.ay-why__inner {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  width: 1094px;
+  max-width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    gap: 40px;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+// ─── LEFT CONTENT ───
+
+.ay-why__content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px; // gap between top text group and features
+}
+
+// ─── TOP GROUP — label + heading + body all together ───
+
+.ay-why__top {
+  display: flex;
+  flex-direction: column;
+  gap: 22px; // gap: label → text-group, and inside text-group
+}
+
+.ay-why__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-btn;
+}
+
+.ay-why__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-btn;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+// heading + body share the 22px gap via parent flex
+.ay-why__text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.ay-why__heading {
+  font-family: $font-serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: $color-headline;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.ay-why__heading--line1 {
+  display: block;
+}
+
+.ay-why__heading--line2 {
+  display: block;
+  font-style: italic;
+}
+
+.ay-why__body {
+  font-family: $font-sans;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: $color-subtext;
+  line-height: 1.8;
+  max-width: 520px;
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
+  @media (max-width: 525px) {
+    font-size: 0.84rem;
+  }
+}
+
+// ─── FEATURES — gap 32px between top and features via parent gap ───
+
+.ay-why__features {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ay-why__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba($color-headline, 0.12);
+  }
+
+  @media (max-width: 525px) {
+    gap: 14px;
+    padding: 18px 0;
+  }
+}
+
+// ─── FEATURE ICON — remix icon ───
+
+.ay-why__feature-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  background: rgba($color-btn, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 1.4rem;
+    color: $color-btn;
+  }
+}
+
+// ─── FEATURE BODY ───
+
+.ay-why__feature-body {
+  flex: 1;
+  padding-top: 2px;
+}
+
+.ay-why__feature-title {
+  font-family: $font-sans;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $color-headline;
+  line-height: 1.3;
+  margin-bottom: 6px;
+
+  @media (max-width: 525px) {
+    font-size: 0.92rem;
+  }
+}
+
+.ay-why__feature-text {
+  font-family: $font-sans;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: $color-subtext;
+  line-height: 1.7;
+}
+
+// ─── RIGHT IMAGE — fixed 374×459px ───
+
+.ay-why__media {
+  flex-shrink: 0;
+  width: 374px;
+
+  @media (max-width: 1024px) {
+    width: 300px;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.ay-why__img-wrap {
+  width: 374px;
+  height: 459px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1024px) {
+    width: 300px;
+    height: 368px;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 300px;
+  }
+  @media (max-width: 525px) {
+    height: 260px;
+  }
+}
+
+.ay-why__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s $ease-out-expo;
+
+  .ay-why__img-wrap:hover & {
+    transform: scale(1.04);
+  }
+}

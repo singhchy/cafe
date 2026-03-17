@@ -1,0 +1,336 @@
+@use "../../helper/helper" as *;
+
+$active-w: 900px;
+$active-h: 554px;
+$side-h: 400px;
+
+.ay-pkslider {
+  padding: 80px 0 60px;
+  background: $color-bg;
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    padding-top: 60px;
+  }
+  @media (max-width: 768px) {
+    padding-top: 48px;
+  }
+  @media (max-width: 525px) {
+    padding-top: 36px;
+  }
+}
+
+// ─── HEADER ───
+
+.ay-pkslider__header {
+  text-align: center;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 28px;
+  }
+}
+
+.ay-pkslider__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-btn;
+  margin-bottom: 12px;
+}
+
+.ay-pkslider__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-btn;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.ay-pkslider__heading {
+  font-family: $font-serif;
+  font-size: 29.51px;
+  font-weight: 700;
+  color: $color-headline;
+  line-height: 1.25;
+}
+
+.ay-pkslider__heading--line1 {
+  display: block;
+}
+.ay-pkslider__heading--line2 {
+  display: block;
+  font-style: italic;
+}
+
+// ─── STAGE ───
+
+.ay-pkslider__stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ay-pkslider__track-wrap {
+  width: 100%;
+  overflow: visible;
+}
+
+.ay-pkslider__track {
+  display: flex;
+  align-items: center; // vertical center — side slides sit centered relative to big one
+  gap: 20px;
+  transition: transform 0.65s $ease-out-expo;
+  will-change: transform;
+  padding: 20px 0 20px;
+}
+
+// ─── SLIDE — default (side) ───
+
+.ay-pkslider__slide {
+  flex: 0 0 $active-w;
+  transition:
+    transform 0.55s $ease-out-expo,
+    opacity 0.4s ease;
+  opacity: 0.5;
+
+  .ay-pkslider__img-wrap {
+    height: $side-h; // side slides shorter
+    border-radius: 20px;
+  }
+
+  // active slide — full size, full opacity
+  &.is-active {
+    opacity: 1;
+
+    .ay-pkslider__img-wrap {
+      height: $active-h; // center slide taller
+      border-radius: 24px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  @media (max-width: 1200px) {
+    flex: 0 0 700px;
+    &.is-active .ay-pkslider__img-wrap {
+      height: 440px;
+    }
+    .ay-pkslider__img-wrap {
+      height: 320px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex: 0 0 85vw;
+    &.is-active .ay-pkslider__img-wrap {
+      height: 320px;
+    }
+    .ay-pkslider__img-wrap {
+      height: 240px;
+    }
+  }
+
+  @media (max-width: 525px) {
+    flex: 0 0 90vw;
+    &.is-active .ay-pkslider__img-wrap {
+      height: 260px;
+    }
+    .ay-pkslider__img-wrap {
+      height: 200px;
+    }
+  }
+}
+
+// ─── IMAGE WRAP ───
+
+.ay-pkslider__img-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  transition:
+    height 0.55s $ease-out-expo,
+    border-radius 0.55s ease,
+    box-shadow 0.55s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s $ease-out-expo;
+  }
+
+  .ay-pkslider__slide.is-active &:hover img {
+    transform: scale(1.03);
+  }
+}
+
+// ─── OVERLAY ───
+
+.ay-pkslider__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+// ─── INFO ───
+
+.ay-pkslider__info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 36px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.4s ease 0.1s,
+    transform 0.4s $ease-out-expo 0.1s;
+
+  .ay-pkslider__slide.is-active & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 525px) {
+    padding: 20px 20px;
+  }
+}
+
+.ay-pkslider__title {
+  font-family: $font-sans;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+
+  @media (max-width: 525px) {
+    font-size: 1.1rem;
+  }
+}
+
+.ay-pkslider__text {
+  font-family: $font-sans;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(#fff, 0.9);
+  line-height: 1.65;
+  max-width: 400px;
+
+  @media (max-width: 525px) {
+    font-size: 0.8rem;
+  }
+}
+
+.ay-pkslider__btn {
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-sans;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: $color-headline;
+  background: #fff;
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 50px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    gap 0.3s ease;
+
+  i {
+    font-size: 0.9rem;
+    transition: transform 0.3s $ease-out-expo;
+  }
+
+  &:hover {
+    background: $color-btn;
+    color: #fff;
+    gap: 10px;
+    i {
+      transform: translate(2px, -2px);
+    }
+  }
+}
+
+// ─── ARROWS ───
+
+.ay-pkslider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba($color-headline, 0.2);
+  background: $color-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: $color-headline;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+
+  i {
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    border-color: $color-btn;
+    background: $color-btn;
+    color: #fff;
+  }
+
+  &--prev {
+    left: 20px;
+  }
+  &--next {
+    right: 20px;
+  }
+
+  @media (max-width: 525px) {
+    width: 36px;
+    height: 36px;
+    &--prev {
+      left: 8px;
+    }
+    &--next {
+      right: 8px;
+    }
+  }
+}
+.ay-pkslider__stage {
+  animation: pkStageFade 0.8s $ease-out-expo 0.3s both;
+}
+
+@keyframes pkStageFade {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

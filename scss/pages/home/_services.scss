@@ -1,0 +1,218 @@
+@use "../../helper/helper" as *;
+
+.ay-services {
+  padding-top: 80px;
+  background: $color-bg;
+
+  @media (max-width: 1024px) {
+    padding: 60px 0 80px;
+  }
+  @media (max-width: 768px) {
+    padding: 48px 0 64px;
+  }
+  @media (max-width: 525px) {
+    padding: 36px 0 48px;
+  }
+}
+
+// ─── HEADER ───
+
+.ay-services__header {
+  text-align: center;
+  margin-bottom: 24px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 36px;
+  }
+  @media (max-width: 525px) {
+    margin-bottom: 28px;
+  }
+}
+
+.ay-services__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-btn;
+  margin-bottom: 12px;
+}
+
+.ay-services__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-btn;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.ay-services__heading {
+  font-family: $font-serif;
+  font-size: 29.51px;
+  font-weight: 700;
+  color: $color-headline;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.ay-services__heading--line1 {
+  display: block;
+}
+
+.ay-services__heading--line2 {
+  display: block;
+  font-style: italic;
+  text-indent: 72px;
+
+  @media (max-width: 525px) {
+    text-indent: 32px;
+  }
+}
+
+// ─── GRID ───
+
+.ay-services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 1094px;
+  max-width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 525px) {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+// ─── BASE CARD ───
+
+.ay-services__card {
+  position: relative;
+  border-radius: 20px;
+  padding: 32px 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    padding: 28px 22px 100px;
+  }
+  @media (max-width: 525px) {
+    padding: 24px 20px 90px;
+  }
+}
+
+.ay-services__card--1 {
+  background: #f5e3d9;
+}
+.ay-services__card--2 {
+  background-color: #d8ded0;
+}
+.ay-services__card--3 {
+  background: #f5e3d9;
+}
+.ay-services__card--4 {
+  background-color: #d8ded0;
+}
+
+// ─── ICON ───
+
+.ay-services__icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 14px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// ─── TITLE — uses ::after as divider line ───
+
+.ay-services__card-title {
+  font-family: $font-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: $color-headline;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 1.4px;
+    background: rgba($color-headline, 0.25);
+    border-radius: 2px;
+  }
+
+  @media (max-width: 525px) {
+    font-size: 1.1rem;
+  }
+}
+
+// ─── LIST ───
+
+.ay-services__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: $font-sans;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: $color-headline;
+    line-height: 1.4;
+
+    i {
+      font-size: 1rem;
+      color: $color-btn;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// ─── BG DECORATION ───
+
+.ay-services__card-bg {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 160px;
+  height: 160px;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}

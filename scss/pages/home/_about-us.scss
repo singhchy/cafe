@@ -1,0 +1,456 @@
+@use "../../helper/helper" as *;
+
+.ay-about {
+  padding-top: 85px;
+  background: $color-bg;
+
+  @media (max-width: 1024px) {
+    padding-top: 65px;
+  }
+  @media (max-width: 768px) {
+    padding-top: 40px;
+  }
+  @media (max-width: 525px) {
+    padding-top: 24px;
+  }
+}
+
+// ─── INNER ───
+
+.ay-about__inner {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: 1094px;
+  max-width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    gap: 40px;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 36px;
+  }
+  @media (max-width: 525px) {
+    gap: 28px;
+  }
+}
+
+// ─── MEDIA: single image ───
+
+.ay-about__media {
+  width: 50%;
+  flex-shrink: 0;
+
+  @media (max-width: 1024px) {
+    width: 46%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.ay-about__img-wrap {
+  width: 100%;
+  height: 460px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1024px) {
+    height: 380px;
+  }
+  @media (max-width: 768px) {
+    height: 320px;
+  }
+  @media (max-width: 525px) {
+    height: 260px;
+  }
+}
+
+.ay-about__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s $ease-out-expo;
+
+  .ay-about__img-wrap:hover & {
+    transform: scale(1.04);
+  }
+}
+
+// ─── CONTENT ───
+
+.ay-about__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (max-width: 525px) {
+    gap: 14px;
+  }
+}
+
+.ay-about__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: $font-sans;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-btn;
+
+  &::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $color-btn;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+}
+
+.ay-about__heading {
+  font-family: $font-serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: $color-headline;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  }
+  @media (max-width: 525px) {
+    font-size: 1.5rem;
+  }
+
+  .text-reveal__line {
+    display: block;
+    transform: translateY(105%);
+    opacity: 0;
+    transition:
+      transform 0.8s $ease-out-expo,
+      opacity 0.5s ease;
+  }
+
+  &.is-visible .text-reveal__line,
+  .ay-about__content.is-visible & .text-reveal__line {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &.is-visible .text-reveal__line:nth-child(2),
+  .ay-about__content.is-visible & .text-reveal__line:nth-child(2) {
+    transition-delay: 0.08s;
+  }
+}
+
+.ay-about__body {
+  font-family: $font-sans;
+  font-size: clamp(0.88rem, 1.4vw, 0.96rem);
+  font-weight: 300;
+  color: $color-subtext;
+  line-height: 1.8;
+  max-width: 480px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+  @media (max-width: 525px) {
+    font-size: 0.84rem;
+  }
+}
+
+// ─── BOTTOM: list+btn left | stat card right ───
+
+.ay-about__bottom {
+  display: flex;
+  align-items: stretch; // equal height both sides
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  margin-top: 4px;
+
+  @media (max-width: 768px) {
+    justify-content: start;
+  }
+  @media (max-width: 525px) {
+    flex-direction: column;
+  }
+}
+
+.ay-about__bottom-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; // list top, btn bottom
+  gap: 16px;
+}
+
+// ─── CHECKLIST ───
+
+.ay-about__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-sans;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: $color-headline;
+    line-height: 1.5;
+
+    i {
+      font-size: 1rem;
+      color: $color-btn;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.ay-about__btn {
+  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-sans;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: $color-headline;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1.5px solid rgba($color-headline, 0.25);
+  border-radius: 50px;
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+
+  &:hover {
+    border-color: $color-btn;
+    color: $color-btn;
+    background: rgba($color-btn, 0.06);
+  }
+}
+
+.ay-about__btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: $color-btn;
+  color: #fff;
+  transition: background 0.3s ease;
+
+  i {
+    font-size: 0.9rem;
+  }
+
+  .ay-about__btn:hover & {
+    background: $color-btn-hover;
+  }
+}
+
+// ─── STAT CARD ───
+
+.ay-about__stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  background: rgba($color-btn, 0.1);
+  border-radius: 14px;
+  padding: 24px 14px;
+  align-self: stretch; // fill full height of bottom row
+  height: 100%;
+}
+
+.ay-about__stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba($color-btn, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  i {
+    font-size: 1.2rem;
+    color: $color-btn;
+  }
+}
+
+.ay-about__stat-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.ay-about__stat-num {
+  font-family: $font-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-headline;
+  line-height: 1;
+}
+
+.ay-about__stat-plus {
+  font-family: $font-sans;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-btn;
+}
+
+.ay-about__stat-label {
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: $color-subtext;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+// ─── COUNTERS ROW ───
+
+.ay-about__counters {
+  display: flex;
+  align-items: center;
+  width: 1094px;
+  max-width: 100%;
+  margin: 52px auto 0;
+  border-top: 1px solid rgba($color-headline, 0.1);
+  padding-top: 36px;
+  padding-bottom: 52px;
+
+  @media (max-width: 1024px) {
+    margin-top: 40px;
+    padding-bottom: 40px;
+  }
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    margin-top: 32px;
+    padding-bottom: 32px;
+  }
+  @media (max-width: 525px) {
+    padding-top: 24px;
+    margin-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+.ay-about__counter {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 32px;
+  position: relative;
+
+  &:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 36px;
+    background: rgba($color-headline, 0.12);
+  }
+
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+
+  @media (max-width: 768px) {
+    flex: 0 0 50%;
+    padding: 16px 20px;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-bottom: 1px solid rgba($color-headline, 0.1);
+    }
+    &:nth-child(odd)::before {
+      display: none;
+    }
+    &:nth-child(even)::before {
+      left: 0;
+    }
+    &:first-child {
+      padding-left: 20px;
+    }
+  }
+
+  @media (max-width: 525px) {
+    padding: 12px 14px;
+  }
+}
+
+.ay-about__counter-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba($color-btn, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  i {
+    font-size: 1.2rem;
+    color: $color-btn;
+  }
+}
+
+.ay-about__counter-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.ay-about__counter-num {
+  font-family: $font-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: $color-headline;
+  line-height: 1;
+}
+
+.ay-about__counter-suffix {
+  font-family: $font-sans;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $color-btn;
+}
+
+.ay-about__counter-label {
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: $color-subtext;
+  line-height: 1.4;
+  margin-top: 3px;
+}
