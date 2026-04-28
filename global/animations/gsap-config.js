@@ -1,20 +1,20 @@
 // GSAP global configuration and ScrollTrigger registration
-import gsap from 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
-import ScrollTrigger from 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
-import CustomEase from 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js';
+const gsap = window.gsap;
+const ScrollTrigger = window.ScrollTrigger;
+const CustomEase = window.CustomEase;
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, CustomEase);
 
 // Global GSAP defaults
 gsap.defaults({
-  ease: 'power3.out',
-  duration: 0.8
+  ease: "power3.out",
+  duration: 0.8,
 });
 
 // Custom easing curves
-CustomEase.create('organic', '0.4, 0.0, 0.2, 1');
-CustomEase.create('bounceOut', '0.34, 1.56, 0.64, 1');
+CustomEase.create("organic", "0.4, 0.0, 0.2, 1");
+CustomEase.create("bounceOut", "0.34, 1.56, 0.64, 1");
 
 /**
  * Initialize GSAP and ScrollTrigger with global settings
@@ -22,26 +22,26 @@ CustomEase.create('bounceOut', '0.34, 1.56, 0.64, 1');
 export function initGSAP() {
   // Set global ScrollTrigger defaults
   ScrollTrigger.defaults({
-    toggleActions: 'play none none none',
-    start: 'top 80%',
-    end: 'bottom 20%',
-    markers: false // set to true for debugging
+    toggleActions: "play none none none",
+    start: "top 80%",
+    end: "bottom 20%",
+    markers: false, // set to true for debugging
   });
 
   // Prevent memory leaks on page hide
-  ScrollTrigger.addEventListener('refreshInit', () => {
+  ScrollTrigger.addEventListener("refreshInit", () => {
     // Optional: add any pre‑refresh logic
   });
 
   // Improve performance on mobile
-  if (window.matchMedia('(max-width: 768px)').matches) {
+  if (window.matchMedia("(max-width: 768px)").matches) {
     ScrollTrigger.config({
       limitCallbacks: true,
-      ignoreMobileResize: true
+      ignoreMobileResize: true,
     });
   }
 
-  console.log('GSAP configured with ScrollTrigger');
+  console.log("GSAP configured with ScrollTrigger");
 }
 
 /**
@@ -55,23 +55,23 @@ export function createEntrance(target, options = {}) {
     y: 50,
     opacity: 0,
     duration: 0.9,
-    ease: 'power3.out',
+    ease: "power3.out",
     stagger: 0,
-    scrollTrigger: null
+    scrollTrigger: null,
   };
 
   const config = { ...defaults, ...options };
 
   const tl = gsap.timeline({
     defaults: { ease: config.ease },
-    scrollTrigger: config.scrollTrigger
+    scrollTrigger: config.scrollTrigger,
   });
 
   tl.from(target, {
     y: config.y,
     opacity: config.opacity,
     duration: config.duration,
-    stagger: config.stagger
+    stagger: config.stagger,
   });
 
   return tl;
@@ -88,9 +88,9 @@ export function staggerEntrance(elements, options = {}) {
     y: 40,
     opacity: 0,
     duration: 0.7,
-    ease: 'power3.out',
+    ease: "power3.out",
     stagger: 0.12,
-    scrollTrigger: null
+    scrollTrigger: null,
   };
 
   const config = { ...defaults, ...options };
@@ -101,7 +101,7 @@ export function staggerEntrance(elements, options = {}) {
     duration: config.duration,
     ease: config.ease,
     stagger: config.stagger,
-    scrollTrigger: config.scrollTrigger
+    scrollTrigger: config.scrollTrigger,
   });
 }
 
@@ -115,9 +115,9 @@ export function floatAnimation(element, options = {}) {
   const defaults = {
     y: 20,
     duration: 3,
-    ease: 'sine.inOut',
+    ease: "sine.inOut",
     repeat: -1,
-    yoyo: true
+    yoyo: true,
   };
 
   const config = { ...defaults, ...options };
@@ -127,7 +127,7 @@ export function floatAnimation(element, options = {}) {
     duration: config.duration,
     ease: config.ease,
     repeat: config.repeat,
-    yoyo: config.yoyo
+    yoyo: config.yoyo,
   });
 }
 
@@ -139,7 +139,7 @@ export function floatAnimation(element, options = {}) {
 export function magneticButton(button, strength = 0.2) {
   const bounding = button.getBoundingClientRect();
 
-  button.addEventListener('mousemove', (e) => {
+  button.addEventListener("mousemove", (e) => {
     const x = e.clientX - bounding.left - bounding.width / 2;
     const y = e.clientY - bounding.top - bounding.height / 2;
 
@@ -147,16 +147,16 @@ export function magneticButton(button, strength = 0.2) {
       x: x * strength,
       y: y * strength,
       duration: 0.6,
-      ease: 'power2.out'
+      ease: "power2.out",
     });
   });
 
-  button.addEventListener('mouseleave', () => {
+  button.addEventListener("mouseleave", () => {
     gsap.to(button, {
       x: 0,
       y: 0,
       duration: 0.6,
-      ease: 'elastic.out(1, 0.5)'
+      ease: "elastic.out(1, 0.5)",
     });
   });
 }
@@ -171,12 +171,12 @@ export function tiltEffect(card, options = {}) {
     maxRotation: 8,
     perspective: 1000,
     scale: 1.03,
-    easing: 'power2.out'
+    easing: "power2.out",
   };
 
   const config = { ...defaults, ...options };
 
-  card.addEventListener('mousemove', (e) => {
+  card.addEventListener("mousemove", (e) => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -193,17 +193,17 @@ export function tiltEffect(card, options = {}) {
       scale: config.scale,
       transformPerspective: config.perspective,
       duration: 0.4,
-      ease: config.easing
+      ease: config.easing,
     });
   });
 
-  card.addEventListener('mouseleave', () => {
+  card.addEventListener("mouseleave", () => {
     gsap.to(card, {
       rotateX: 0,
       rotateY: 0,
       scale: 1,
       duration: 0.6,
-      ease: 'elastic.out(1, 0.5)'
+      ease: "elastic.out(1, 0.5)",
     });
   });
 }
@@ -218,29 +218,33 @@ export function tiltEffect(card, options = {}) {
 export function counterAnimation(element, endValue, options = {}) {
   const defaults = {
     duration: 2,
-    ease: 'power2.out',
+    ease: "power2.out",
     scrollTrigger: null,
-    prefix: '',
-    suffix: ''
+    prefix: "",
+    suffix: "",
   };
 
   const config = { ...defaults, ...options };
 
   const tl = gsap.timeline({
-    scrollTrigger: config.scrollTrigger
+    scrollTrigger: config.scrollTrigger,
   });
 
-  tl.fromTo(element,
+  tl.fromTo(
+    element,
     { innerText: 0 },
     {
       innerText: endValue,
       duration: config.duration,
       ease: config.ease,
       snap: { innerText: 1 },
-      onUpdate: function() {
-        element.textContent = config.prefix + Math.floor(this.targets()[0].innerText) + config.suffix;
-      }
-    }
+      onUpdate: function () {
+        element.textContent =
+          config.prefix +
+          Math.floor(this.targets()[0].innerText) +
+          config.suffix;
+      },
+    },
   );
 
   return tl;
@@ -252,7 +256,7 @@ export function counterAnimation(element, endValue, options = {}) {
  * @param {string} direction - 'left' or 'right' (default 'left')
  * @param {number} speed - Pixels per second (default 50)
  */
-export function marquee(container, direction = 'left', speed = 50) {
+export function marquee(container, direction = "left", speed = 50) {
   const content = container.children[0];
   if (!content) return;
 
@@ -267,17 +271,17 @@ export function marquee(container, direction = 'left', speed = 50) {
 
   const tl = gsap.timeline({ repeat: -1 });
   tl.to([content, duplicate], {
-    x: direction === 'left' ? -contentWidth : contentWidth,
+    x: direction === "left" ? -contentWidth : contentWidth,
     duration,
-    ease: 'none',
+    ease: "none",
     modifiers: {
-      x: gsap.utils.unitize(x => parseFloat(x) % contentWidth)
-    }
+      x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth),
+    },
   });
 
   // Pause on hover
-  container.addEventListener('mouseenter', () => tl.pause());
-  container.addEventListener('mouseleave', () => tl.resume());
+  container.addEventListener("mouseenter", () => tl.pause());
+  container.addEventListener("mouseleave", () => tl.resume());
 
   return tl;
 }
@@ -286,7 +290,7 @@ export function marquee(container, direction = 'left', speed = 50) {
  * Kill all ScrollTrigger instances and clean up
  */
 export function cleanupAnimations() {
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   gsap.globalTimeline.clear();
 }
 

@@ -8,6 +8,7 @@
   
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
   
   <!-- Global CSS -->
   <link rel="stylesheet" href="../global/css/reset.css">
@@ -35,7 +36,7 @@
     <div class="container">
       <nav class="nav">
         <a href="#" class="nav-logo">
-          <span class="logo-icon">🍃</span>
+          <span class="logo-icon"><i class="ri-leaf-fill"></i></span>
           <span class="logo-text">Earthen Leaf</span>
         </a>
         <div class="nav-links">
@@ -49,6 +50,8 @@
         <a href="#reservation" class="nav-cta btn btn-outline">VIEW MENU</a>
         <button class="nav-toggle" aria-label="Toggle navigation">
           <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
         </button>
       </nav>
     </div>
@@ -57,13 +60,32 @@
   <!-- Mobile Overlay -->
   <div class="mobile-overlay">
     <div class="mobile-nav">
-      <a href="#home" class="mobile-link">Home</a>
-      <a href="#about" class="mobile-link">About</a>
-      <a href="#menu" class="mobile-link">Menu</a>
-      <a href="#testimonials" class="mobile-link">Testimonials</a>
-      <a href="#blog" class="mobile-link">Blog</a>
-      <a href="#contact" class="mobile-link">Contact</a>
+      <div class="mobile-nav-top">
+        <a href="#" class="nav-logo">
+          <span class="logo-icon"><i class="ri-leaf-fill"></i></span>
+          <span class="logo-text">Earthen Leaf</span>
+        </a>
+      </div>
+      <div class="mobile-links">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#menu" class="mobile-link">Menu</a>
+        <a href="#testimonials" class="mobile-link">Testimonials</a>
+        <a href="#blog" class="mobile-link">Blog</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+      </div>
       <a href="#reservation" class="mobile-cta btn btn-primary">Reserve a Table</a>
+      <div class="mobile-nav-bottom">
+        <div class="mobile-contact">
+          <p><i class="ri-map-pin-line"></i> 123 Green Street, Organic City</p>
+          <p><i class="ri-phone-line"></i> +1 (555) 123‑4567</p>
+        </div>
+        <div class="mobile-social">
+          <a href="#" class="social-icon"><i class="ri-instagram-line"></i></a>
+          <a href="#" class="social-icon"><i class="ri-facebook-fill"></i></a>
+          <a href="#" class="social-icon"><i class="ri-twitter-x-fill"></i></a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -85,7 +107,13 @@
               <a href="#menu" class="btn btn-outline">View Menu</a>
             </div>
             <div class="hero-rating">
-              <div class="stars">★★★★★</div>
+              <div class="stars">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
               <span class="rating-text">4.9/5 • 1200+ Reviews</span>
             </div>
           </div>
@@ -99,9 +127,9 @@
             <div class="floating-img img-3">
               <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coffee cup" width="300" height="400" loading="lazy">
             </div>
-            <div class="leaf leaf-1">🍃</div>
-            <div class="leaf leaf-2">🍃</div>
-            <div class="leaf leaf-3">🍃</div>
+            <div class="leaf leaf-1"><i class="ri-leaf-line"></i></div>
+            <div class="leaf leaf-2"><i class="ri-leaf-line"></i></div>
+            <div class="leaf leaf-3"><i class="ri-leaf-line"></i></div>
           </div>
         </div>
       </div>
@@ -117,22 +145,22 @@
         </div>
         <div class="features-grid">
           <div class="feature-card">
-            <div class="feature-icon">🌿</div>
+            <div class="feature-icon"><i class="ri-plant-line"></i></div>
             <h3 class="feature-title">100% Organic</h3>
             <p class="feature-desc">Sourced from local farms that practice sustainable agriculture.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">👨‍🍳</div>
+            <div class="feature-icon"><i class="ri-restaurant-line"></i></div>
             <h3 class="feature-title">Master Chefs</h3>
             <p class="feature-desc">Award‑winning chefs with over 20 years of culinary expertise.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">🏡</div>
+            <div class="feature-icon"><i class="ri-home-4-line"></i></div>
             <h3 class="feature-title">Cozy Ambiance</h3>
             <p class="feature-desc">Warm, earthy interiors with soft lighting and botanical accents.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">♻️</div>
+            <div class="feature-icon"><i class="ri-recycle-line"></i></div>
             <h3 class="feature-title">Zero Waste</h3>
             <p class="feature-desc">Committed to reducing our environmental footprint every day.</p>
           </div>
@@ -220,36 +248,71 @@
       </div>
     </section>
 
-    <!-- About / Elegance Section -->
+    <!-- About / Classic Section -->
     <section id="about" class="section about-section">
       <div class="container">
         <div class="about-grid">
+          <!-- Media Column -->
           <div class="about-media">
-            <div class="about-image">
-              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Restaurant interior" width="600" height="700" loading="lazy">
-              <button class="play-button" aria-label="Play video">
-                <div class="play-icon"></div>
-              </button>
+            <div class="about-video-container">
+              <video class="about-video" loop muted playsinline poster="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-coffee-being-poured-into-a-cup-3430-large.mp4" type="video/mp4">
+              </video>
             </div>
-            <div class="stats-row">
-              <div class="stat">
-                <div class="stat-number" data-count="250">0</div>
-                <div class="stat-label">Dishes</div>
+            
+            <!-- 4 Flip Cards Row -->
+            <div class="stats-flip-row">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front stat-box">
+                    <span class="stat-number" data-count="250">0</span>
+                    <span class="stat-label">Dishes</span>
+                  </div>
+                  <div class="flip-card-back">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Food">
+                  </div>
+                </div>
               </div>
-              <div class="stat">
-                <div class="stat-number" data-count="120">0</div>
-                <div class="stat-label">Recipes</div>
+
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front stat-box">
+                    <span class="stat-number" data-count="120">0</span>
+                    <span class="stat-label">Partners</span>
+                  </div>
+                  <div class="flip-card-back">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Market">
+                  </div>
+                </div>
               </div>
-              <div class="stat">
-                <div class="stat-number" data-count="5000">0</div>
-                <div class="stat-label">Repeat Customers</div>
+
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front stat-box">
+                    <span class="stat-number" data-count="5000">0</span>
+                    <span class="stat-label">Guests</span>
+                  </div>
+                  <div class="flip-card-back">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dining">
+                  </div>
+                </div>
               </div>
-              <div class="stat">
-                <div class="stat-number" data-count="150">0</div>
-                <div class="stat-label">Occasions</div>
+
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front stat-box">
+                    <span class="stat-number" data-count="15">0</span>
+                    <span class="stat-label">Awards</span>
+                  </div>
+                  <div class="flip-card-back">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Awards">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+          <!-- Content Column -->
           <div class="about-content">
             <div class="badge">Our Story</div>
             <h2 class="section-title">Where Elegance Meets Nature</h2>
@@ -283,7 +346,7 @@
         <div class="testimonial-slider">
           <div class="slider-track">
             <div class="testimonial-card">
-              <div class="quote-icon">"</div>
+              <div class="quote-icon"><i class="ri-double-quotes-l"></i></div>
               <p class="testimonial-text">Every visit feels like a retreat. The attention to detail in both food and atmosphere is remarkable.</p>
               <div class="testimonial-author">
                 <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Taylor Chen" class="author-avatar" width="48" height="48" loading="lazy">
@@ -293,10 +356,43 @@
                 </div>
               </div>
             </div>
+            <div class="testimonial-card">
+              <div class="quote-icon"><i class="ri-double-quotes-l"></i></div>
+              <p class="testimonial-text">The organic ingredients really make a difference. You can taste the freshness in every bite of the Forest Salad.</p>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marcus Smith" class="author-avatar" width="48" height="48" loading="lazy">
+                <div class="author-info">
+                  <h4 class="author-name">Marcus Smith</h4>
+                  <p class="author-role">Culinary Critic</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="quote-icon"><i class="ri-double-quotes-l"></i></div>
+              <p class="testimonial-text">A hidden gem in the city. The warm ambiance and botanical accents create such a calming dining experience.</p>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Elena Rodriguez" class="author-avatar" width="48" height="48" loading="lazy">
+                <div class="author-info">
+                  <h4 class="author-name">Elena Rodriguez</h4>
+                  <p class="author-role">Regular Guest</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="quote-icon"><i class="ri-double-quotes-l"></i></div>
+              <p class="testimonial-text">Zero-waste and delicious! It's rare to find a place that cares as much about the planet as they do about the plate.</p>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Jordan Lee" class="author-avatar" width="48" height="48" loading="lazy">
+                <div class="author-info">
+                  <h4 class="author-name">Jordan Lee</h4>
+                  <p class="author-role">Eco-Activist</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="slider-controls">
-            <button class="slider-prev" aria-label="Previous testimonial">←</button>
-            <button class="slider-next" aria-label="Next testimonial">→</button>
+            <button class="slider-prev" aria-label="Previous testimonial"><i class="ri-arrow-left-line"></i></button>
+            <button class="slider-next" aria-label="Next testimonial"><i class="ri-arrow-right-line"></i></button>
           </div>
         </div>
       </div>
@@ -315,37 +411,74 @@
             <div class="marquee-item">
               <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dining area" width="300" height="300" loading="lazy">
               <div class="gallery-overlay">
-                <span class="gallery-likes">❤️ 245</span>
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 245</span>
               </div>
             </div>
             <div class="marquee-item">
               <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fresh bread" width="300" height="300" loading="lazy">
               <div class="gallery-overlay">
-                <span class="gallery-likes">❤️ 189</span>
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 189</span>
               </div>
             </div>
             <div class="marquee-item">
               <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Coffee art" width="300" height="300" loading="lazy">
               <div class="gallery-overlay">
-                <span class="gallery-likes">❤️ 312</span>
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 312</span>
               </div>
             </div>
             <div class="marquee-item">
               <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Avocado toast" width="300" height="300" loading="lazy">
               <div class="gallery-overlay">
-                <span class="gallery-likes">❤️ 278</span>
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 278</span>
               </div>
             </div>
             <div class="marquee-item">
               <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pancakes" width="300" height="300" loading="lazy">
               <div class="gallery-overlay">
-                <span class="gallery-likes">❤️ 156</span>
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 156</span>
               </div>
             </div>
             <div class="marquee-item">
               <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Smoothie bowl" width="300" height="300" loading="lazy">
               <div class="gallery-overlay">
-                <span class="gallery-likes">❤️ 221</span>
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 221</span>
+              </div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="marquee-item" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dining area" width="300" height="300" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 245</span>
+              </div>
+            </div>
+            <div class="marquee-item" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fresh bread" width="300" height="300" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 189</span>
+              </div>
+            </div>
+            <div class="marquee-item" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Coffee art" width="300" height="300" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 312</span>
+              </div>
+            </div>
+            <div class="marquee-item" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Avocado toast" width="300" height="300" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 278</span>
+              </div>
+            </div>
+            <div class="marquee-item" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pancakes" width="300" height="300" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 156</span>
+              </div>
+            </div>
+            <div class="marquee-item" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Smoothie bowl" width="300" height="300" loading="lazy">
+              <div class="gallery-overlay">
+                <span class="gallery-likes"><i class="ri-heart-fill"></i> 221</span>
               </div>
             </div>
           </div>
@@ -377,21 +510,21 @@
           <div class="reservation-form">
             <form id="booking-form" class="booking-form">
               <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
               </div>
               <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required>
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="date">Date</label>
-                  <input type="date" id="date" name="date" required>
+                  <label for="date" class="form-label">Date</label>
+                  <input type="date" id="date" name="date" class="form-input" required>
                 </div>
                 <div class="form-group">
-                  <label for="time">Time</label>
-                  <select id="time" name="time" required>
+                  <label for="time" class="form-label">Time</label>
+                  <select id="time" name="time" class="form-select" required>
                     <option value="">Select time</option>
                     <option value="18:00">6:00 PM</option>
                     <option value="18:30">6:30 PM</option>
@@ -404,8 +537,8 @@
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="guests">Guests</label>
-                  <select id="guests" name="guests" required>
+                  <label for="guests" class="form-label">Guests</label>
+                  <select id="guests" name="guests" class="form-select" required>
                     <option value="1">1 person</option>
                     <option value="2">2 people</option>
                     <option value="3">3 people</option>
@@ -415,8 +548,8 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="occasion">Occasion</label>
-                  <select id="occasion" name="occasion">
+                  <label for="occasion" class="form-label">Occasion</label>
+                  <select id="occasion" name="occasion" class="form-select">
                     <option value="">None</option>
                     <option value="birthday">Birthday</option>
                     <option value="anniversary">Anniversary</option>
@@ -426,8 +559,8 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="message">Special Requests</label>
-                <textarea id="message" name="message" placeholder="Dietary restrictions, allergies, or special notes..." rows="3"></textarea>
+                <label for="message" class="form-label">Special Requests</label>
+                <textarea id="message" name="message" class="form-textarea" placeholder="Dietary restrictions, allergies, or special notes..." rows="3"></textarea>
               </div>
               <button type="submit" class="btn btn-primary btn-block">Reserve Table</button>
               <p class="form-note">We'll confirm your reservation within 24 hours.</p>
@@ -514,10 +647,10 @@
             </a>
             <p class="footer-description">An upscale, organic dining experience where elegance meets nature.</p>
             <div class="footer-social">
-              <a href="#" aria-label="Instagram">📷</a>
-              <a href="#" aria-label="Facebook">📘</a>
-              <a href="#" aria-label="Twitter">🐦</a>
-              <a href="#" aria-label="YouTube">📺</a>
+              <a href="#" aria-label="Instagram" class="social-icon"><i class="ri-instagram-line"></i></a>
+              <a href="#" aria-label="Facebook" class="social-icon"><i class="ri-facebook-fill"></i></a>
+              <a href="#" aria-label="Twitter" class="social-icon"><i class="ri-twitter-x-fill"></i></a>
+              <a href="#" aria-label="YouTube" class="social-icon"><i class="ri-youtube-fill"></i></a>
             </div>
           </div>
           <div class="footer-col">
@@ -534,11 +667,11 @@
           <div class="footer-col">
             <h4 class="footer-title">Contact Info</h4>
             <ul class="footer-contact">
-              <li>📍 123 Green Street, Organic City</li>
-              <li>📞 +1 (555) 123‑4567</li>
-              <li>✉️ hello@earthenleaf.com</li>
-              <li>🕒 Mon‑Fri: 8am‑10pm</li>
-              <li>🕒 Sat‑Sun: 9am‑11pm</li>
+              <li><i class="ri-map-pin-line"></i> 123 Green Street, Organic City</li>
+              <li><i class="ri-phone-line"></i> +1 (555) 123‑4567</li>
+              <li><i class="ri-mail-line"></i> hello@earthenleaf.com</li>
+              <li><i class="ri-time-line"></i> Mon‑Fri: 8am‑10pm</li>
+              <li><i class="ri-time-line"></i> Sat‑Sun: 9am‑11pm</li>
             </ul>
           </div>
           <div class="footer-col">
@@ -546,7 +679,7 @@
             <p>Get updates on seasonal menus and events.</p>
             <form class="footer-newsletter">
               <input type="email" placeholder="Email address" required>
-              <button type="submit" class="btn btn-sm btn-primary">→</button>
+              <button type="submit" class="btn btn-sm btn-accent"><i class="ri-arrow-right-line"></i></button>
             </form>
           </div>
         </div>
@@ -573,16 +706,155 @@
   <script type="module" src="../global/js/cursor.js"></script>
   <script type="module" src="../global/animations/gsap-config.js"></script>
   
-  <!-- V1 JS -->
-  <script type="module" src="js/v1-hero.js"></script>
-  <script type="module" src="js/v1-menu.js"></script>
-  <script type="module" src="js/v1-counter.js"></script>
-  <script type="module" src="js/v1-testimonial.js"></script>
-  <script type="module" src="js/v1-navigation.js"></script>
-  <script type="module" src="animations/v1-entrance.js"></script>
-  <script type="module" src="animations/v1-interactions.js"></script>
-  
   <!-- Main Initialization -->
   <script type="module" src="js/main.js"></script>
+
+  <!-- Inline Fail-safe Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. Hamburger Menu Logic
+      const navToggle = document.querySelector('.nav-toggle');
+      const mobileOverlay = document.querySelector('.mobile-overlay');
+      const header = document.querySelector('.nav-header');
+      
+      if (navToggle && mobileOverlay) {
+        navToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          const isActive = navToggle.classList.toggle('active');
+          mobileOverlay.classList.toggle('active');
+          if (header) header.classList.toggle('active', isActive);
+          document.body.style.overflow = isActive ? 'hidden' : '';
+        });
+      }
+
+      // 2. Testimonial Slider Logic (Stable Version)
+      function initSlider() {
+        if (!window.gsap) {
+          setTimeout(initSlider, 50);
+          return;
+        }
+
+        const track = document.querySelector('.slider-track');
+        const nextBtn = document.querySelector('.slider-next');
+        const prevBtn = document.querySelector('.slider-prev');
+        const cards = document.querySelectorAll('.testimonial-card');
+
+        if (!track || cards.length === 0) return;
+
+        // Hide track during setup to prevent flickering
+        window.gsap.set(track, { opacity: 0 });
+
+        // Only clone if not already cloned
+        if (track.querySelectorAll('.testimonial-card').length === cards.length) {
+          cards.forEach(card => {
+            track.prepend(card.cloneNode(true));
+            track.appendChild(card.cloneNode(true));
+          });
+        }
+
+        const allCards = track.querySelectorAll('.testimonial-card');
+        let index = cards.length;
+        let isMoving = false;
+
+        function move(animate = true) {
+          const firstCard = allCards[0];
+          if (!firstCard) return;
+          
+          const cardWidth = firstCard.getBoundingClientRect().width;
+          const gap = parseFloat(getComputedStyle(track).gap) || 0;
+          const x = -(index * (cardWidth + gap));
+          
+          if (animate) {
+            isMoving = true;
+            window.gsap.to(track, {
+              x: x,
+              duration: 0.7,
+              ease: "power3.inOut",
+              onComplete: () => {
+                isMoving = false;
+                if (index >= cards.length * 2) {
+                  index = cards.length;
+                  window.gsap.set(track, { x: -(index * (cardWidth + gap)) });
+                } else if (index < cards.length) {
+                  index = cards.length * 2 - 1;
+                  window.gsap.set(track, { x: -(index * (cardWidth + gap)) });
+                }
+              }
+            });
+          } else {
+            window.gsap.set(track, { x: x, opacity: 1 });
+          }
+        }
+
+        nextBtn?.addEventListener('click', (e) => { 
+          e.preventDefault();
+          if (!isMoving) { index++; move(); } 
+        });
+        prevBtn?.addEventListener('click', (e) => { 
+          e.preventDefault();
+          if (!isMoving) { index--; move(); } 
+        });
+
+        // Initialize with a slight delay to ensure widths are correct
+        setTimeout(() => move(false), 200);
+        window.addEventListener('resize', () => move(false));
+      }
+
+      // 3. Stats Counter Logic
+      function initCounters() {
+        const stats = document.querySelectorAll('.stat-number');
+        if (!stats.length) return;
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const target = entry.target;
+              const countTo = parseInt(target.getAttribute('data-count'));
+              const countNum = { val: 0 };
+              
+              window.gsap.to(countNum, {
+                val: countTo,
+                duration: 2.5,
+                ease: "expo.out",
+                onUpdate: () => {
+                  target.textContent = Math.floor(countNum.val).toLocaleString();
+                }
+              });
+              observer.unobserve(target);
+            }
+          });
+        }, { threshold: 0.2 });
+        
+        stats.forEach(stat => observer.observe(stat));
+      }
+
+      // 4. Video Interaction Logic
+      function initVideoInteraction() {
+        const container = document.querySelector('.bento-video');
+        const video = document.querySelector('.about-video');
+        
+        if (!container || !video) return;
+        
+        video.muted = true;
+        video.setAttribute('muted', '');
+        video.load();
+
+        const playVideo = () => {
+          video.play().catch(() => {
+            video.muted = true;
+            video.play();
+          });
+        };
+
+        container.addEventListener('mouseenter', playVideo);
+        container.addEventListener('touchstart', playVideo, {passive: true});
+        container.addEventListener('mouseleave', () => video.pause());
+      }
+
+      initSlider();
+      initCounters();
+      initVideoInteraction();
+    });
+  </script>
 </body>
 </html>

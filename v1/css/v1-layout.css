@@ -79,7 +79,14 @@
 .hero-images {
   order: 1;
   position: relative;
-  height: 500px;
+  height: 400px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .hero-images {
+    height: 500px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -118,6 +125,10 @@
 }
 
 /* About Grid */
+.about-section {
+  contain: paint; /* Isolates the section to prevent internal shifts from shaking the page */
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -170,7 +181,7 @@
 .slider-track {
   display: flex;
   gap: var(--space-xl);
-  transition: transform 0.5s ease;
+  align-items: stretch;
 }
 
 .testimonial-card {
@@ -187,32 +198,68 @@
 /* Instagram Marquee */
 .instagram-marquee {
   overflow: hidden;
-  white-space: nowrap;
   margin-top: var(--space-2xl);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .marquee-track {
-  display: inline-flex;
+  display: flex;
   gap: var(--space-lg);
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
 .marquee-item {
-  flex: 0 0 auto;
-  width: 250px;
+  flex: 0 0 250px;
+  position: relative;
 }
 
-/* Reservation Form Grid */
-.reservation-form {
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Reservation Layout */
+.reservation-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-lg);
-  max-width: 800px;
-  margin: var(--space-3xl) auto 0;
+  gap: var(--space-3xl);
+  align-items: flex-start;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
+  .reservation-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-4xl);
+  }
+}
+
+.reservation-content {
+  padding-top: var(--space-xl);
+}
+
+.reservation-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.reservation-form {
+  background-color: var(--v1-surface);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--v1-border);
+}
+
+@media (max-width: 768px) {
   .reservation-form {
-    grid-template-columns: repeat(2, 1fr);
+    padding: var(--space-xl);
   }
 }
 
