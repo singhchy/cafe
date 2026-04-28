@@ -1,0 +1,80 @@
+/* CSS Custom Properties for V1 Theme */
+:root {
+  /* Color Palette */
+  --v1-bg: #F5F0E8;           /* warm cream */
+  --v1-surface: #FFFDF7;      /* card bg */
+  --v1-primary: #2D4A2D;      /* deep forest green */
+  --v1-accent: #C8A96E;       /* warm gold */
+  --v1-text: #1A1A1A;
+  --v1-text-muted: #6B6B5A;
+  --v1-border: rgba(45, 74, 45, 0.12);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  /* Spacing Scale */
+  --space-xxs: 0.25rem;   /* 4px */
+  --space-xs: 0.5rem;     /* 8px */
+  --space-sm: 0.75rem;    /* 12px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
+  --space-4xl: 6rem;      /* 96px */
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(45, 74, 45, 0.06);
+  --shadow-md: 0 4px 16px rgba(45, 74, 45, 0.08);
+  --shadow-lg: 0 8px 32px rgba(45, 74, 45, 0.12);
+  --shadow-xl: 0 16px 48px rgba(45, 74, 45, 0.16);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Breakpoints */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+
+  /* Container Widths */
+  --container-sm: 100%;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-2xl: 1320px;
+
+  /* Z‑index layers */
+  --z-below: -1;
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 100;
+  --z-modal: 1000;
+  --z-popover: 1010;
+  --z-tooltip: 1020;
+  --z-cursor: 9999;
+}
+
+/* Dark mode (optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --v1-bg: #1A1A1A;
+    --v1-surface: #2D2D2D;
+    --v1-text: #F5F0E8;
+    --v1-text-muted: #A0A0A0;
+    --v1-border: rgba(200, 169, 110, 0.2);
+  }
+}
