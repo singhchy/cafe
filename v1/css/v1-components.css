@@ -8,7 +8,10 @@
   width: 100%;
   z-index: 1001;
   padding: var(--space-md) 0;
-  transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    padding 0.4s ease,
+    backdrop-filter 0.4s ease;
 }
 
 .nav-header.active {
@@ -261,13 +264,13 @@
   will-change: transform;
 }
 
-.btn-arrow::after {
-  content: "→";
-  margin-left: var(--space-sm);
+.btn-arrow i {
+  margin-left: var(--space-xs);
   transition: transform 0.3s ease;
+  display: inline-block;
 }
 
-.btn-arrow:hover::after {
+.btn-arrow:hover i {
   transform: translateX(4px);
 }
 
@@ -485,14 +488,7 @@
   flex-direction: column;
   gap: var(--space-md);
   margin-top: var(--space-md);
-}
-
-@media (min-width: 480px) {
-  .menu-card-footer {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+  align-items: stretch;
 }
 
 .menu-card-price {
@@ -504,8 +500,33 @@
 
 .menu-card-actions {
   display: flex;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
+  gap: var(--space-xs);
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.menu-card-actions::-webkit-scrollbar {
+  height: 6px;
+}
+
+.menu-card-actions::-webkit-scrollbar-thumb {
+  background: rgba(45, 74, 45, 0.4);
+  border-radius: 999px;
+}
+
+.menu-card-actions .btn {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+@media (min-width: 1200px) {
+  .menu-card-actions .btn {
+    font-size: 0.875rem;
+    padding: var(--space-sm) var(--space-lg);
+  }
 }
 
 /* About Components */
@@ -616,7 +637,9 @@
   display: flex;
   flex-direction: column;
   min-height: 380px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .quote-icon {
@@ -791,6 +814,19 @@
 }
 
 /* Blog Cards */
+.blog-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+@media (min-width: 768px) {
+  .blog-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .blog-card {
   background-color: var(--v1-surface);
   border-radius: var(--radius-lg);
@@ -959,11 +995,12 @@
   margin-bottom: var(--space-3xl);
 }
 
-.footer-col-title {
+.footer-col-title,
+.footer-title {
   font-family: var(--font-heading);
   font-size: 1.25rem;
   margin-bottom: var(--space-lg);
-  color: var(--v1-accent);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .footer-links {
@@ -1045,14 +1082,14 @@
     padding: 0;
     gap: var(--space-sm);
   }
-  
+
   .newsletter-input {
     background: rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-md);
     padding: var(--space-md);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
-  
+
   .newsletter-input-group .btn {
     width: 100%;
     border-radius: var(--radius-md);
@@ -1179,14 +1216,14 @@
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-3xl);
-  align-items: flex-start;
+  gap: var(--space-2xl);
+  align-items: center;
 }
 
 @media (min-width: 992px) {
   .about-grid {
     grid-template-columns: 1.2fr 1fr;
-    gap: var(--space-4xl);
+    gap: var(--space-3xl);
   }
 }
 
@@ -1219,21 +1256,14 @@
 /* Flip Stats Row */
 .stats-flip-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--space-lg);
   margin-top: var(--space-sm);
-}
-
-@media (min-width: 576px) {
-  .stats-flip-row {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-lg);
-  }
 }
 
 .flip-card {
   perspective: 1500px;
-  height: 180px; /* Increased height */
+  min-height: 200px;
 }
 
 .flip-card-inner {
@@ -1250,7 +1280,8 @@
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   top: 0;
   left: 0;
@@ -1269,6 +1300,16 @@
   background-color: var(--v1-surface);
   border: 1px solid var(--v1-border);
   padding: var(--space-lg);
+}
+
+.flip-card-front .stat-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-height: 100%;
 }
 
 /* Make every 2nd card accent themed for a better rhythm */
@@ -1349,8 +1390,9 @@
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 180px;
   }
-  
-  .bento-video, .bento-story {
+
+  .bento-video,
+  .bento-story {
     grid-column: span 2;
   }
 }
@@ -1360,13 +1402,13 @@
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
   }
-  
+
   .bento-item {
     grid-column: span 1 !important;
     grid-row: span 1 !important;
     min-height: 200px;
   }
-  
+
   .bento-video {
     min-height: 300px;
   }
