@@ -9,24 +9,55 @@
   --v1-text: #1A1A1A;
   --v1-text-muted: #6B6B5A;
   --v1-border: rgba(45, 74, 45, 0.12);
+  --v1-nav-bg: rgba(255, 253, 247, 0.92);
 }
 
 /* Backgrounds */
-.bg-v1-bg { background-color: var(--v1-bg); }
-.bg-v1-surface { background-color: var(--v1-surface); }
-.bg-v1-primary { background-color: var(--v1-primary); }
-.bg-v1-accent { background-color: var(--v1-accent); }
+.bg-v1-bg {
+  background-color: var(--v1-bg);
+}
+
+.bg-v1-surface {
+  background-color: var(--v1-surface);
+}
+
+.bg-v1-primary {
+  background-color: var(--v1-primary);
+}
+
+.bg-v1-accent {
+  background-color: var(--v1-accent);
+}
 
 /* Text Colors */
-.text-v1-text { color: var(--v1-text); }
-.text-v1-text-muted { color: var(--v1-text-muted); }
-.text-v1-primary { color: var(--v1-primary); }
-.text-v1-accent { color: var(--v1-accent); }
+.text-v1-text {
+  color: var(--v1-text);
+}
+
+.text-v1-text-muted {
+  color: var(--v1-text-muted);
+}
+
+.text-v1-primary {
+  color: var(--v1-primary);
+}
+
+.text-v1-accent {
+  color: var(--v1-accent);
+}
 
 /* Borders */
-.border-v1-border { border-color: var(--v1-border); }
-.border-v1-primary { border-color: var(--v1-primary); }
-.border-v1-accent { border-color: var(--v1-accent); }
+.border-v1-border {
+  border-color: var(--v1-border);
+}
+
+.border-v1-primary {
+  border-color: var(--v1-primary);
+}
+
+.border-v1-accent {
+  border-color: var(--v1-accent);
+}
 
 /* Gradients */
 .gradient-organic {
@@ -198,18 +229,37 @@
 
 /* Animation Keyframes */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes drift {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(30px, 20px) rotate(5deg); }
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(30px, 20px) rotate(5deg);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
 }
 
 /* Apply Theme to Specific Elements */
@@ -270,12 +320,13 @@
     --v1-text: #F5F0E8;
     --v1-text-muted: #A0A0A0;
     --v1-border: rgba(200, 169, 110, 0.2);
+    --v1-nav-bg: rgba(26, 26, 26, 0.92);
   }
-  
+
   .gradient-organic {
     background: linear-gradient(135deg, #3a5c3a 0%, #2D4A2D 100%);
   }
-  
+
   .shadow-organic {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   }

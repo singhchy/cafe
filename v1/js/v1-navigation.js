@@ -35,9 +35,13 @@ export function initNavigation() {
   });
 
   // Sticky nav
-  window.addEventListener("scroll", () => {
-    header.classList.toggle("scrolled", window.scrollY > 80);
-  });
+  const handleScroll = () => {
+    const isScrolled = window.scrollY > 50;
+    header.classList.toggle("scrolled", isScrolled);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // Initial check
 }
 
 // Auto-init as backup

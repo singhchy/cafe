@@ -4,157 +4,167 @@ const ScrollTrigger = window.ScrollTrigger;
 import { staggerEntrance } from "../../global/animations/gsap-config.js";
 
 export function initSectionEntrances() {
-  // Generic section entrance pattern
+  // Global Reveal Pattern for all sections
   const sections = document.querySelectorAll(".section");
+  
   sections.forEach((section) => {
-    // Skip hero (handled separately)
     if (section.classList.contains("hero")) return;
 
     const header = section.querySelector(".section-header");
-    const cards = section.querySelectorAll(
-      ".feature-card, .menu-card, .blog-card",
-    );
-    const images = section.querySelectorAll("img");
+    const cards = section.querySelectorAll(".feature-card, .menu-card, .blog-card, .testimonial-card");
+    const images = section.querySelectorAll(".menu-card-img img, .blog-card-img img, .about-media img, .marquee-item img");
 
-    // Header entrance
+    // 1. Sophisticated Section Header Reveal
     if (header) {
-      gsap.from(header, {
-        y: 50,
+      const children = header.children;
+      gsap.from(children, {
+        y: 60,
         opacity: 0,
-        duration: 1,
-        ease: "power3.out",
+        skewY: 3,
+        stagger: 0.2,
+        duration: 1.2,
+        ease: "power4.out",
         scrollTrigger: {
           trigger: header,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
-    }
-
-    // Cards stagger
-    if (cards.length) {
-      staggerEntrance(cards, {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.12,
-        scrollTrigger: {
-          trigger: cards[0].parentElement,
           start: "top 85%",
           toggleActions: "play none none none",
         },
       });
     }
 
-    // Images fade up
+    // 2. Premium Image Reveal (Ken Burns style entrance)
     if (images.length) {
-      gsap.from(images, {
-        y: 30,
+      images.forEach((img) => {
+        gsap.from(img, {
+          scale: 1.5,
+          filter: "blur(10px) brightness(0.5)",
+          opacity: 0,
+          duration: 1.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: img,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+    }
+
+    // 3. Staggered Card "Pop" Entrance
+    if (cards.length) {
+      gsap.from(cards, {
+        y: 100,
         opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power3.out",
+        scale: 0.9,
+        stagger: 0.15,
+        duration: 1.4,
+        ease: "expo.out",
         scrollTrigger: {
-          trigger: section,
-          start: "top 85%",
+          trigger: cards[0],
+          start: "top 90%",
           toggleActions: "play none none none",
         },
       });
     }
   });
 
-  // Why Choose Us feature cards specific
+  // 4. About Section "Sliding" Reveal
+  const aboutGrid = document.querySelector(".about-grid");
+  if (aboutGrid) {
+    const media = aboutGrid.querySelector(".about-media");
+    const content = aboutGrid.querySelector(".about-content");
+
+    if (media) {
+      gsap.from(media, {
+        x: -150,
+        opacity: 0,
+        clipPath: "inset(0 100% 0 0)",
+        duration: 1.5,
+        ease: "power4.inOut",
+        scrollTrigger: {
+          trigger: aboutGrid,
+          start: "top 70%",
+        },
+      });
+    }
+
+    if (content) {
+      gsap.from(content, {
+        x: 100,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power4.out",
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: aboutGrid,
+          start: "top 70%",
+        },
+      });
+    }
+  }
+
+  // 5. Why Choose Us Feature Cards - 3D Spin Entrance
   const featureCards = document.querySelectorAll(".feature-card");
   if (featureCards.length) {
     gsap.from(featureCards, {
-      y: 60,
+      rotationX: -45,
+      y: 80,
       opacity: 0,
-      duration: 0.9,
-      stagger: 0.15,
-      ease: "power3.out",
+      stagger: 0.2,
+      duration: 1.2,
+      ease: "back.out(1.4)",
       scrollTrigger: {
         trigger: ".why-choose",
         start: "top 75%",
-        toggleActions: "play none none none",
       },
     });
   }
 
-  // About section split entrance
-  const aboutGrid = document.querySelector(".about-grid");
-  if (aboutGrid) {
-    const left = aboutGrid.querySelector(".about-media");
-    const right = aboutGrid.querySelector(".about-content");
-
-    if (left) {
-      gsap.from(left, {
-        x: -80,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: aboutGrid,
-          start: "top 75%",
-          toggleActions: "play none none none",
-        },
-      });
-    }
-
-    if (right) {
-      gsap.from(right, {
-        x: 80,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: aboutGrid,
-          start: "top 75%",
-          toggleActions: "play none none none",
-        },
-      });
-    }
-  }
-
-  // Stats counter trigger (will be handled by v1-counter.js)
+  // 6. Stats Counter Entrance
   const statsRow = document.querySelector(".stats-row");
   if (statsRow) {
-    ScrollTrigger.create({
-      trigger: statsRow,
-      start: "top 80%",
-      onEnter: () => {
-        statsRow.classList.add("counted");
-      },
+    gsap.from(".flip-card", {
+      opacity: 0,
+      scale: 0.5,
+      rotationY: 180,
+      stagger: 0.15,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: statsRow,
+        start: "top 85%",
+        onEnter: () => statsRow.classList.add("counted")
+      }
     });
   }
 
-  // Newsletter banner scale + fade
+  // 7. Newsletter Banner Reveal
   const newsletter = document.querySelector(".newsletter-banner");
   if (newsletter) {
     gsap.from(newsletter, {
-      scale: 0.95,
+      y: 100,
+      scale: 0.9,
       opacity: 0,
-      duration: 1,
-      ease: "power3.out",
+      duration: 1.5,
+      ease: "power4.out",
       scrollTrigger: {
         trigger: newsletter,
-        start: "top 85%",
-        toggleActions: "play none none none",
+        start: "top 90%",
       },
     });
   }
 
-  // Footer fade up
-  const footer = document.querySelector("footer");
+  // 8. Footer "Slide Up" Reveal
+  const footer = document.querySelector(".footer");
   if (footer) {
     gsap.from(footer, {
-      y: 40,
+      y: 100,
       opacity: 0,
-      duration: 1,
+      duration: 1.2,
       ease: "power3.out",
       scrollTrigger: {
         trigger: footer,
-        start: "top 95%",
-        toggleActions: "play none none none",
+        start: "top 100%",
       },
     });
   }

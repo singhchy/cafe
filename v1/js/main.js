@@ -20,6 +20,7 @@ import { initTestimonial } from "./v1-testimonial.js";
 import { initNavigation } from "./v1-navigation.js";
 import { initSectionEntrances as initEntranceAnimations } from "../animations/v1-entrance.js";
 import { initAllInteractions as initInteractions } from "../animations/v1-interactions.js";
+import { initObserverScroll } from "./v1-observer-scroll.js";
 
 class V1App {
   constructor() {
@@ -102,6 +103,11 @@ class V1App {
 
     // 9. Smooth scroll
     smoothScroll();
+
+    // 10. Observer Scroll (Slideshow Mode)
+    setTimeout(() => {
+      initObserverScroll();
+    }, 100);
 
     console.log(`📦 ${this.modules.length} modules initialized`);
   }

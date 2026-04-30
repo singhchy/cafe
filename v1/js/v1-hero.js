@@ -30,24 +30,57 @@ export function initHero() {
     });
   }
 
-  // Floating images
+  // Floating images with multi-directional entrance and "hanging" feel
   const floatingImgs = heroSection.querySelectorAll(".floating-img");
   floatingImgs.forEach((img, idx) => {
+    // Custom starting positions for a dynamic entrance
+    let startX = 0;
+    let startY = 0;
+    let startRotation = 0;
+
+    if (idx === 0) { // img-1: from top-right
+      startX = 100;
+      startY = -200;
+      startRotation = 15;
+    } else if (idx === 1) { // img-2: from bottom-left
+      startX = -200;
+      startY = 100;
+      startRotation = -15;
+    } else { // img-3: from center-bottom
+      startY = 150;
+      startRotation = 5;
+    }
+
     gsap.from(img, {
-      scale: 0.8,
+      x: startX,
+      y: startY,
+      rotation: startRotation,
+      scale: 0.5,
       opacity: 0,
-      duration: 1,
-      ease: "back.out(1.7)",
+      duration: 1.5,
+      ease: "power4.out",
       delay: 0.5 + idx * 0.2,
     });
 
-    // Continuous floating animation
+    // Continuous "Hanging" animation (Desktop only)
     if (!isMobile()) {
-      floatAnimation(img, {
-        y: 20 + idx * 5,
-        duration: 3 + idx * 0.5,
+      // Gentle swing/rotation
+      gsap.to(img, {
+        rotation: idx % 2 === 0 ? 2 : -2,
+        duration: 3 + idx * 0.7,
         repeat: -1,
         yoyo: true,
+        ease: "sine.inOut",
+        delay: idx * 0.5
+      });
+      
+      // Vertical float with staggered duration
+      floatAnimation(img, {
+        y: 15 + idx * 4,
+        duration: 4 + idx * 0.6,
+        repeat: -1,
+        yoyo: true,
+        delay: idx * 0.3
       });
     }
   });
@@ -97,7 +130,21 @@ export function initHero() {
     });
   }
 
-  // ScrollTrigger for hero section
+  // Hero Parallax on Scroll
+  floatingImgs.forEach((img, idx) => {
+    gsap.to(img, {
+      y: (idx + 1) * -100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: heroSection,
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  });
+
+  // ScrollTrigger for hero visibility
   ScrollTrigger.create({
     trigger: heroSection,
     start: "top top",
