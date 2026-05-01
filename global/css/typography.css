@@ -1,0 +1,184 @@
+/* Typography System */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+/* Font Face Declarations (fallback) */
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--v1-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Heading Scale */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  color: var(--v1-text);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1.italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+h4 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h5 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+h6 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Body Text */
+p {
+  margin-bottom: var(--space-md);
+  max-width: 65ch;
+}
+
+p.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--v1-text-muted);
+}
+
+/* Small & Muted Text */
+small,
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-muted {
+  color: var(--v1-text-muted);
+}
+
+/* Links */
+a {
+  color: var(--v1-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--v1-accent);
+}
+
+/* Lists */
+ul,
+ol {
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+/* Blockquote */
+blockquote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  padding-left: var(--space-lg);
+  border-left: 4px solid var(--v1-accent);
+  margin: var(--space-xl) 0;
+  color: var(--v1-text-muted);
+}
+
+/* Code & Pre */
+code,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  background-color: var(--v1-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--v1-border);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding: var(--space-md);
+  background-color: var(--v1-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--v1-border);
+  overflow-x: auto;
+  margin-bottom: var(--space-md);
+}
+
+/* Badge / Label */
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: var(--space-xxs) var(--space-sm);
+  background-color: var(--v1-surface);
+  border: 1px solid var(--v1-border);
+  border-radius: var(--radius-full);
+  display: inline-block;
+  color: var(--v1-text-muted);
+}
+
+/* Text Alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Font Weights */
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* Line Heights */
+.leading-tight { line-height: 1.2; }
+.leading-normal { line-height: 1.6; }
+.leading-relaxed { line-height: 1.75; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  h2 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+  blockquote {
+    font-size: 1.25rem;
+    padding-left: var(--space-md);
+  }
+}
