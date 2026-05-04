@@ -1,10 +1,73 @@
-@use "../../helper/helper" as *;
+@use "../helper/helper" as *;
+
+.video-section {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  background: $color-primary;
+
+  .section-inner {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    filter: brightness(0.4) saturate(1.2);
+    transition: filter 0.8s $ease-out-expo;
+  }
+
+  .video-overlay-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    text-align: center;
+    color: $color-white;
+    pointer-events: none;
+
+    h2 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-family: $font-serif;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+  }
+
+  &:hover {
+    video {
+      filter: brightness(0.6) saturate(1.4);
+    }
+  }
+}
+
+// ─── TESTIMONIALS ───
 
 .testimonial-section {
   background: $color-bg;
   padding: 120px 0;
-  position: relative !important;
-  z-index: 7;
+  position: sticky;
+  top: 0;
 
   .testimonial-header {
     text-align: center;

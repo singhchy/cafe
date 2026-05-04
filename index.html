@@ -1,1107 +1,601 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pranam — Transform Body, Transform Soul</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./animations/animations.css" />
-  </head>
-  <body>
-    <!-- HEADER -->
-    <header class="ay-header" id="ayHeader">
-      <nav class="ay-nav">
-        <a href="#" class="nav-logo">
-          <img src="./assets/img/logo.png" alt="" class="nav-logo__img" />
-        </a>
-        <div class="nav-right">
-          <a href="#" class="nav-cta">
-            Book an Appointment
-            <span class="nav-cta__icon"
-              ><i class="ri-arrow-right-up-line"></i
-            ></span>
-          </a>
-          <button
-            class="sidebar-toggle"
-            id="sidebarToggle"
-            aria-label="Open menu"
-          >
-            <span class="sidebar-toggle__bar"></span>
-            <span class="sidebar-toggle__bar"></span>
-            <span class="sidebar-toggle__bar"></span>
-          </button>
-        </div>
-      </nav>
-    </header>
 
-    <!-- SIDEBAR -->
-    <div class="sidebar" id="sidebar">
-      <div class="sidebar__overlay" id="sidebarOverlay">
-        <div class="sidebar__blur-bg"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafe Hub</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./animations/animations.css" />
+</head>
+
+<body>
+  <div class="nav" id="nav">
+    <a href="#" class="logo" style="text-decoration: none;">Earthen Leaf</a>
+
+    <div class="nav-right">
+      <div class="cta">
+        <span class="btn-text">Book Table</span>
       </div>
-      <div class="sidebar__panel" id="sidebarPanel">
-        <button
-          class="sidebar__close"
-          id="sidebarClose"
-          aria-label="Close menu"
-        >
-          <i class="ri-close-line"></i>
-        </button>
-        <a href="#" class="sidebar__logo">
-          <span class="sidebar__logo-icon"
-            ><i class="ri-seedling-fill"></i
-          ></span>
-          Pranam
-        </a>
-        <nav class="sidebar__nav">
-          <ul class="sidebar__links">
-            <li class="sidebar__item">
-              <a href="#" class="sidebar__link active">Home</a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#" class="sidebar__link">Pages</a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#" class="sidebar__link">Treatments</a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#" class="sidebar__link">Course</a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#" class="sidebar__link">Blogs</a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#" class="sidebar__link">Contact Us</a>
-            </li>
-          </ul>
-        </nav>
-        <a href="#" class="sidebar__cta">
-          Book Appointment
-          <span class="sidebar__cta-icon"
-            ><i class="ri-arrow-right-up-line"></i
-          ></span>
-        </a>
-        <div class="sidebar__contact">
-          <span class="sidebar__contact-icon"
-            ><i class="ri-phone-fill"></i
-          ></span>
-          <div>
-            <span class="sidebar__contact-number">0 123 456 789</span>
-            <span class="sidebar__contact-label">Free Call</span>
+
+      <div class="hamburger" id="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu" id="menu">
+    <a href="#home" class="mobile-link">Home</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#menu" class="mobile-link">Menu</a>
+    <a href="#testimonials" class="mobile-link">Testimonials</a>
+    <a href="#blog" class="mobile-link">Blog</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+  <div class="slides-wrapper">
+    <section class="ca-hero section">
+      <div class="section-inner">
+        <div class="ay-container">
+          <div class="wrapper">
+            <div class="hero-left">
+              <h1>
+                The Time To <br />
+                Taste Of <br />
+                <span>Delicious Food</span>
+              </h1>
+
+              <p>
+                Digibyte tether dash siacoin gala kava kadena hedera. Serum stacks
+                tether polymath harmony secret.
+              </p>
+
+              <button class="hero-btn">
+                <span class="btn-text">BOOK TABLE <i class="ri-arrow-right-line"></i></span>
+              </button>
+            </div>
+
+            <div class="hero-right">
+              <!-- SVG OUTLINE (instead of div) -->
+              <!--
+                  SVG viewBox matches hero-right proportions: 480×540 → normalized to 100×112.5
+                  The polygon mirrors the clip-path: polygon(40px 0%, 100% 0%, calc(100%-40px) 100%, 0% 100%)
+                  In SVG coords (100 wide, 112.5 tall) → 40px = 8.33 units
+                -->
+              <svg class="outline-shape" viewBox="-2 -2 120 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="grad-hero" x1="0" y1="0" x2="116" y2="126" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#c8a96e" />
+                    <stop offset="50%" stop-color="#2d4a2d" />
+                    <stop offset="100%" stop-color="#c8a96e" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Diagonal parallelogram: matches clip-path polygon -->
+                <!-- 40px of 480px = 8.33%; in viewBox (116 wide, 126 tall) ≈ 9.65 units -->
+                <polygon class="outline-path" points="9.65,0 116,0 106.35,126 0,126" stroke="url(#grad-hero)"
+                  stroke-width="1" fill="none" />
+              </svg>
+
+              <!-- IMAGE: two stacked imgs for smooth cross-fade -->
+              <div class="image-mask">
+                <img id="foodImageNext" src="/assets/img/image2.webp" style="opacity:0;" />
+                <img id="foodImage" src="/assets/img/image1.webp" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="about-us section">
+      <div class="section-inner">
+        <div class="ay-container">
+          <div class="about-wrapper">
+            <div class="about-left">
+              <img src="/assets/img/image3.webp" alt="Chef preparing food" />
+            </div>
+            <div class="about-center">
+              <span class="subtitle">ABOUT US</span>
+              <h2>Hunger World</h2>
+              <div class="leaf-branch">
+                <svg viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10,15 Q30,5 50,15 T90,15" stroke="currentColor" fill="none" stroke-width="1" />
+                  <path d="M20,10 Q25,0 30,5 Q25,10 20,10" stroke="currentColor" fill="none" stroke-width="1" />
+                  <path d="M40,20 Q45,30 50,25 Q45,20 40,20" stroke="currentColor" fill="none" stroke-width="1" />
+                  <path d="M60,10 Q65,0 70,5 Q65,10 60,10" stroke="currentColor" fill="none" stroke-width="1" />
+                </svg>
+              </div>
+              <h3>A glory nose yaxley hollow. Woes mistletoe hall professor knickerbocker.</h3>
+              <p>
+                Hand in that betrayal sticking mistletoe. Hall mewing beauxbatons hiya heir muggle-born spectacles
+                bathroom padma. Cabbage voldemort above treacle tail green restricted. Dervish telescope trunks duel
+                broken portkey.
+              </p>
+              <div class="signature">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/John_Hancock_signature.svg"
+                  alt="Signature">
+              </div>
+            </div>
+            <div class="about-right">
+              <div class="right-images">
+                <div class="orange-triangle"></div>
+                <img src="/assets/img/image4.webp" alt="Food plate" class="img-top" />
+                <img src="/assets/img/image1.webp" alt="Food bowl" class="img-bottom" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="package-section" id="package">
+      <div class="ay-container package-container">
+        <div class="package-left">
+          <span class="subtitle">SPECIAL FOR YOU</span>
+          <h2>Try Few Delicious Dishes</h2>
+          <p>Golden expecto transfiguration who nose. Scarlet dog hagrid hall requirement treacle kedavra. Shrieking
+            cleansweep mimbulus holly gillyweed.</p>
+          <div class="package-images">
+            <img src="/assets/img/image1.webp" alt="Dish 1" class="img-1">
+            <img src="/assets/img/image4.webp" alt="Dish 2" class="img-2">
+          </div>
+        </div>
+
+        <div class="package-right">
+          <div class="package-tabs">
+            <button class="tab-btn active" data-target="starters">Starters</button>
+            <button class="tab-btn" data-target="main-course">Main Course</button>
+            <button class="tab-btn" data-target="desert">Desert</button>
+          </div>
+
+          <div class="menu-category active" id="starters">
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image1.webp" alt="Mocktail">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Non Alcoholic Mocktail</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 25.00 USD</span>
+                </div>
+                <p>Deep lasagna tossed party black onions.</p>
+              </div>
+            </div>
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image2.webp" alt="Platter">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Antipasto Platter</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 45.00 USD</span>
+                </div>
+                <p>Deep lasagna tossed party black onions.</p>
+              </div>
+            </div>
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image3.webp" alt="Soup">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Honey Glazed Onion Soup</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 30.00 USD</span>
+                </div>
+                <p>Deep lasagna tossed party black onions.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-category" id="main-course">
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image4.webp" alt="Lemon Rice">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Lemon Rice</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 65.00 USD</span>
+                </div>
+                <p>Golden expecto transfiguration who nose.</p>
+              </div>
+            </div>
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image1.webp" alt="Matzo Soup">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Matzo Soup</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 30.00 USD</span>
+                </div>
+                <p>Golden expecto transfiguration who nose.</p>
+              </div>
+            </div>
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image2.webp" alt="Kara Kuzhambu">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Kara Kuzhambu</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 65.00 USD</span>
+                </div>
+                <p>Golden expecto transfiguration who nose.</p>
+              </div>
+            </div>
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image3.webp" alt="Paneer Butter Masala">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Paneer Butter Masala</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 79.00 USD</span>
+                </div>
+                <p>Golden expecto transfiguration who nose.</p>
+              </div>
+            </div>
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image4.webp" alt="Arachuvitta Sambar">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Arachuvitta Sambar</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 92.00 USD</span>
+                </div>
+                <p>Golden expecto transfiguration who nose.</p>
+              </div>
+            </div>
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image1.webp" alt="Kulambu">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Ennai Kathirikai Kulambu</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 85.00 USD</span>
+                </div>
+                <p>Golden expecto transfiguration who nose.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-category" id="desert">
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image2.webp" alt="Cruncher">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Coco Cruncher</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 36.00 USD</span>
+                </div>
+                <p>Golden expecto transfiguration who nose.</p>
+              </div>
+            </div>
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image3.webp" alt="Muhallabia">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Muhallabia</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 30.00 USD</span>
+                </div>
+                <p>Golden expecto transfiguration who nose.</p>
+              </div>
+            </div>
+            <div class="menu-item menu-anim-item">
+              <img src="/assets/img/image4.webp" alt="Chocolate Mousse">
+              <div class="menu-details">
+                <div class="menu-title-row">
+                  <h4>Chocolate Mousse</h4>
+                  <span class="dotted-line"></span>
+                  <span class="price">$ 30.00 USD</span>
+                </div>
+                <p>Golden expecto transfiguration who nose.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-us-section section" id="why-us">
+      <div class="section-inner">
+        <div class="ay-container">
+          <div class="why-us-top">
+            <div class="why-us-top-left">
+              <span class="subtitle">WHY CHOOSE US</span>
+              <h2>Provide Unique Service <br> For Your Special Day</h2>
+              <p>Glory large points them niffler petrificus flourish. Beaded werewolf gringotts quidditch sunshine
+                dungeons hermione thieves tonight dragon-scale. Suits them robes willow orbs.</p>
+
+              <div class="why-us-stats">
+                <div class="stat-item">
+                  <span class="stat-num" data-count="4000" data-count-suffix="+">4k+</span>
+                  <span class="stat-label">Event Management</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-num" data-count="24000" data-count-suffix="+">24k+</span>
+                  <span class="stat-label">Satisfied Customers</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="why-us-top-right">
+              <div class="parallax-img-wrap">
+                <div class="p-img-box img-box-1" data-speed="-0.05">
+                  <img src="/assets/img/image3.webp" alt="Service 1">
+                </div>
+                <div class="p-img-box img-box-2" data-speed="0.08">
+                  <img src="/assets/img/image1.webp" alt="Service 2">
+                </div>
+                <div class="p-img-box img-box-3" data-speed="0.03">
+                  <img src="/assets/img/image4.webp" alt="Service 3">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-us-bottom">
+            <div class="event-box">
+              <div class="box-content">
+                <h3>Birthday</h3>
+                <p>Hoops half-giant remembrall minerva powder the petrific-mudbloods grindylows.</p>
+              </div>
+              <div class="box-hover-img">
+                <img src="/assets/img/image1.webp" alt="Birthday">
+                <div class="box-cta">
+                  <button class="cta-btn">
+                    <span class="btn-text">View Details <i class="ri-arrow-right-line"></i></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="event-box">
+              <div class="box-content">
+                <h3>Wedding</h3>
+                <p>Hoops half-giant remembrall minerva powder the petrific-mudbloods grindylows.</p>
+              </div>
+              <div class="box-hover-img">
+                <img src="/assets/img/image2.webp" alt="Wedding">
+                <div class="box-cta">
+                  <button class="cta-btn">
+                    <span class="btn-text">View Details <i class="ri-arrow-right-line"></i></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="event-box">
+              <div class="box-content">
+                <h3>Other Events</h3>
+                <p>Hoops half-giant remembrall minerva powder the petrific-mudbloods grindylows.</p>
+              </div>
+              <div class="box-hover-img">
+                <img src="/assets/img/image4.webp" alt="Other Events">
+                <div class="box-cta">
+                  <button class="cta-btn">
+                    <span class="btn-text">View Details <i class="ri-arrow-right-line"></i></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-us-footer">
+            <div class="stars">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section section" id="services">
+      <div class="section-inner">
+        <div class="services-header">
+          <span class="subtitle">OUR SERVICES</span>
+          <h2>Delicious Experience</h2>
+        </div>
+        <div class="slider-container" id="servicesSlider">
+          <div class="slider-track" id="sliderTrack">
+            <div class="slider-item">
+              <img src="/assets/img/image1.webp" alt="Service 1">
+              <div class="hover-cta">
+                <button class="cta-btn">
+                  <span class="btn-text">View More <i class="ri-arrow-right-up-line"></i></span>
+                </button>
+              </div>
+            </div>
+            <div class="slider-item">
+              <img src="/assets/img/image2.webp" alt="Service 2">
+              <div class="hover-cta">
+                <button class="cta-btn">
+                  <span class="btn-text">View More <i class="ri-arrow-right-up-line"></i></span>
+                </button>
+              </div>
+            </div>
+            <div class="slider-item">
+              <img src="/assets/img/image3.webp" alt="Service 3">
+              <div class="hover-cta">
+                <button class="cta-btn">
+                  <span class="btn-text">View More <i class="ri-arrow-right-up-line"></i></span>
+                </button>
+              </div>
+            </div>
+            <div class="slider-item">
+              <img src="/assets/img/image4.webp" alt="Service 4">
+              <div class="hover-cta">
+                <button class="cta-btn">
+                  <span class="btn-text">View More <i class="ri-arrow-right-up-line"></i></span>
+                </button>
+              </div>
+            </div>
+            <div class="slider-item">
+              <img src="/assets/img/image1.webp" alt="Service 5">
+              <div class="hover-cta">
+                <button class="cta-btn">
+                  <span class="btn-text">View More <i class="ri-arrow-right-up-line"></i></span>
+                </button>
+              </div>
+            </div>
+            <div class="slider-item">
+              <img src="/assets/img/image2.webp" alt="Service 6">
+              <div class="hover-cta">
+                <button class="cta-btn">
+                  <span class="btn-text">View More <i class="ri-arrow-right-up-line"></i></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ─── VIDEO SECTION ─── -->
+    <section class="video-section section" id="experience">
+      <div class="section-inner">
+        <div class="video-overlay-text" data-reveal="fade">
+          <h2>Sensory Sanctuary</h2>
+          <p>Hover to immerse yourself in the atmosphere</p>
+        </div>
+        <video id="hoverVideo" loop muted playsinline preload="auto">
+          <source src="https://media.istockphoto.com/id/2175154040/video/maldives-breakfast-table-by-the-sea-on-the-beach-under-palm-trees-with-scenic-views-on.mp4?s=mp4-640x640-is&k=20&c=xJ7CZmCacfCJ95geueAWhr3ccnFv7B5qlrzAlmjnsqA=" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <section class="testimonial-section section" id="testimonials">
+      <div class="section-inner">
+        <div class="ay-container">
+          <div class="testimonial-header" data-reveal="up">
+            <span class="subtitle">VOICES OF EXCELLENCE</span>
+            <h2>What Our Guests Say</h2>
+          </div>
+
+          <div class="testimonial-slider">
+            <div class="testimonial-track">
+              <div class="testimonial-item">
+                <div class="quote-icon"><i class="ri-double-quotes-l"></i></div>
+                <p class="quote-text">The atmosphere is simply cinematic. Every dish feels like a piece of art, and the flavors are deeply grounded yet sophisticated.</p>
+                <div class="author">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Author 1">
+                  <div class="author-info">
+                    <h4>Alexander Thorne</h4>
+                    <span>Food Critic</span>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-item">
+                <div class="quote-icon"><i class="ri-double-quotes-l"></i></div>
+                <p class="quote-text">A sanctuary for the senses. Earthen Leaf has redefined what a local cafe can be. The attention to detail is truly unparalleled.</p>
+                <div class="author">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Author 2">
+                  <div class="author-info">
+                    <h4>Elena Vance</h4>
+                    <span>Interior Designer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="slider-controls">
+              <button class="slider-btn prev"><i class="ri-arrow-left-s-line"></i></button>
+              <button class="slider-btn next"><i class="ri-arrow-right-s-line"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section class="gallery-section section" id="gallery">
+    <div class="section-inner">
+      <div class="ay-container">
+        <div class="gallery-header">
+          <span class="subtitle">OUR GALLERY</span>
+          <h2>Cinematic Moments <br> & Culinary Art</h2>
+        </div>
+
+        <div class="gallery-row" data-reveal="fade">
+          <div class="gallery-item">
+            <img src="/assets/img/image1.webp" alt="Gallery 1">
+            <div class="item-overlay">
+              <button class="cta-btn">
+                <span class="btn-text">The Atmosphere <i class="ri-arrow-right-line"></i></span>
+              </button>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="/assets/img/image2.webp" alt="Gallery 2">
+            <div class="item-overlay">
+              <button class="cta-btn">
+                <span class="btn-text">Culinary Arts <i class="ri-arrow-right-line"></i></span>
+              </button>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt="Gallery 3">
+            <div class="item-overlay">
+              <button class="cta-btn">
+                <span class="btn-text">Private Dining <i class="ri-arrow-right-line"></i></span>
+              </button>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Gallery 4">
+            <div class="item-overlay">
+              <button class="cta-btn">
+                <span class="btn-text">Chef's Selection <i class="ri-arrow-right-line"></i></span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- HERO -->
-    <section class="ay-hero" id="ayHero">
-      <div class="ay-hero__bg" id="heroBgA"></div>
-      <div class="ay-hero__bg" id="heroBgB"></div>
-      <video
-        class="ay-hero__video"
-        id="heroVideo"
-        muted
-        autoplay
-        loop
-        playsinline
-      ></video>
-      <div class="ay-hero__overlay"></div>
-
-      <div class="ay-hero__content">
-        <p class="ay-hero__label" id="heroLabel">
-          Explore the Benefits of Hot Yoga
-        </p>
-        <h1 class="ay-hero__headline" id="heroHeadline">
-          Transform Your Mind and Body with Daily Yoga
-        </h1>
-        <a href="#" class="ay-hero__btn" id="heroBtn">
-          Know more <i class="ri-arrow-right-up-line"></i>
-        </a>
-      </div>
-
-      <div class="ay-hero__tabs">
-        <div class="ay-hero__tab active" data-index="0">
-          <span class="ay-hero__tab-label">Panchakarma</span>
-          <div class="ay-hero__tab-bar">
-            <div class="ay-hero__tab-progress"></div>
-          </div>
+  <footer class="footer-section">
+    <div class="ay-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2>Earthen Leaf</h2>
+          <p>Cinematic culinary sanctuary where taste meets atmosphere.</p>
         </div>
-        <div class="ay-hero__tab" data-index="1">
-          <span class="ay-hero__tab-label">Ayurveda Therapy</span>
-          <div class="ay-hero__tab-bar">
-            <div class="ay-hero__tab-progress"></div>
-          </div>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#package">Menu</a>
+          <a href="#why-us">Experience</a>
         </div>
-        <div class="ay-hero__tab" data-index="2">
-          <span class="ay-hero__tab-label">Wellness/Relaxation</span>
-          <div class="ay-hero__tab-bar">
-            <div class="ay-hero__tab-progress"></div>
-          </div>
-        </div>
-        <div class="ay-hero__tab" data-index="3">
-          <span class="ay-hero__tab-label">Treatment</span>
-          <div class="ay-hero__tab-bar">
-            <div class="ay-hero__tab-progress"></div>
+        <div class="footer-contact">
+          <p>info@earthenleaf.com</p>
+          <p>+1 555 0123</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" data-tooltip="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" class="social-link" data-tooltip="Facebook"><i class="ri-facebook-line"></i></a>
+            <a href="#" class="social-link" data-tooltip="X (Twitter)"><i class="ri-twitter-x-line"></i></a>
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="ay-about">
-      <div class="ay-container">
-        <div class="ay-about__inner">
-          <!-- LEFT: single image -->
-          <div class="ay-about__media" data-reveal="left">
-            <div class="ay-about__img-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1761839256545-4268b03606c0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D"
-                alt="About Pranam"
-                class="ay-about__img"
-              />
-            </div>
-          </div>
-
-          <!-- RIGHT: content -->
-          <div class="ay-about__content">
-            <span class="ay-about__tag" data-reveal="up">About Us</span>
-            <h2 class="ay-about__heading" data-reveal="fade" data-delay="100">
-              <span class="text-reveal__line">Balance Your Energy,</span>
-              <span class="text-reveal__line">Balance Your Life.</span>
-            </h2>
-            <p class="ay-about__body" data-reveal="up" data-delay="200">
-              Ayurveda is the science of life, with the history of more than
-              5000 years. Nurtured with the time and aided with the experience
-              of ancient scholars, the principles of Ayurveda are equally
-              valuable in modern era as well.
-            </p>
-
-            <div class="ay-about__bottom" data-reveal="up" data-delay="300">
-              <div class="ay-about__bottom-left">
-                <ul class="ay-about__list">
-                  <li>
-                    <i class="ri-checkbox-circle-line"></i>Passionate and
-                    Certified Wellness Experts
-                  </li>
-                  <li>
-                    <i class="ri-checkbox-circle-line"></i>Passionate and
-                    Certified Wellness Experts
-                  </li>
-                  <li>
-                    <i class="ri-checkbox-circle-line"></i>Passionate and
-                    Certified Wellness Experts
-                  </li>
-                </ul>
-                <a href="#" class="ay-about__btn">
-                  Read More
-                  <span class="ay-about__btn-icon"
-                    ><i class="ri-arrow-right-up-line"></i
-                  ></span>
-                </a>
-              </div>
-              <div class="ay-about__stat-card">
-                <div class="ay-about__stat-icon">
-                  <i class="ri-group-line"></i>
-                </div>
-                <div class="ay-about__stat-body">
-                  <div>
-                    <span class="ay-about__stat-num" data-count="29">0</span
-                    ><span class="ay-about__stat-plus"> +</span>
-                  </div>
-                  <p class="ay-about__stat-label">Team Members</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- COUNTERS -->
-        <div class="ay-about__counters" data-reveal="up" data-delay="100">
-          <div class="ay-about__counter">
-            <div class="ay-about__counter-icon">
-              <i class="ri-seedling-line"></i>
-            </div>
-            <div class="ay-about__counter-body">
-              <div>
-                <span class="ay-about__counter-num" data-count="10">0</span
-                ><span class="ay-about__counter-suffix"> +</span>
-              </div>
-              <p class="ay-about__counter-label">Years of Wellness Expertise</p>
-            </div>
-          </div>
-          <div class="ay-about__counter">
-            <div class="ay-about__counter-icon">
-              <i class="ri-user-smile-line"></i>
-            </div>
-            <div class="ay-about__counter-body">
-              <div>
-                <span class="ay-about__counter-num" data-count="5">0</span
-                ><span class="ay-about__counter-suffix"> k+</span>
-              </div>
-              <p class="ay-about__counter-label">Royal and Relaxed Clients</p>
-            </div>
-          </div>
-          <div class="ay-about__counter">
-            <div class="ay-about__counter-icon">
-              <i class="ri-heart-pulse-line"></i>
-            </div>
-            <div class="ay-about__counter-body">
-              <div>
-                <span class="ay-about__counter-num" data-count="30">0</span
-                ><span class="ay-about__counter-suffix"> +</span>
-              </div>
-              <p class="ay-about__counter-label">Signature Healing Treatment</p>
-            </div>
-          </div>
-          <div class="ay-about__counter">
-            <div class="ay-about__counter-icon">
-              <i class="ri-award-line"></i>
-            </div>
-            <div class="ay-about__counter-body">
-              <div>
-                <span class="ay-about__counter-num" data-count="90">0</span
-                ><span class="ay-about__counter-suffix"> %</span>
-              </div>
-              <p class="ay-about__counter-label">Client Satisfaction Rate</p>
-            </div>
-          </div>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Earthen Leaf. Crafted for excellence.</p>
       </div>
-    </section>
-    <section class="ay-pkslider">
-      <div class="ay-container">
-        <div class="ay-pkslider__header" data-reveal="up">
-          <p class="ay-pkslider__label">
-            <span class="ay-pkslider__dot"></span>Our Packages
-          </p>
-          <h2 class="ay-pkslider__heading">
-            <span class="ay-pkslider__heading--line1"
-              >Holistic programs to restore</span
-            >
-            <span class="ay-pkslider__heading--line2">balace and vitality</span>
-          </h2>
-        </div>
-      </div>
+    </div>
+  </footer>
+  <!-- Scripts: GSAP core must come first, then plugins, then our code -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://assets.codepen.io/16327/DrawSVGPlugin3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/global.js"></script>
+</body>
 
-      <div class="ay-pkslider__stage">
-        <button
-          class="ay-pkslider__arrow ay-pkslider__arrow--prev"
-          id="pkPrev"
-          aria-label="Previous"
-        >
-          <i class="ri-arrow-left-s-line"></i>
-        </button>
-
-        <div class="ay-pkslider__track-wrap">
-          <div class="ay-pkslider__track" id="pkTrack">
-            <div class="ay-pkslider__slide">
-              <div class="ay-pkslider__img-wrap">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1661505103296-a23f027f2dd1?w=900&auto=format&fit=crop&q=60"
-                  alt="Panchakarma"
-                />
-                <div class="ay-pkslider__overlay"></div>
-                <div class="ay-pkslider__info">
-                  <h3 class="ay-pkslider__title">Panchakarma</h3>
-                  <p class="ay-pkslider__text">
-                    Lorem ipsum dolor sit amet consectetur. Ornare amet ut cras
-                    et donec in.
-                  </p>
-                  <a href="#" class="ay-pkslider__btn"
-                    >Read more <i class="ri-arrow-right-up-line"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="ay-pkslider__slide">
-              <div class="ay-pkslider__img-wrap">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1661505103296-a23f027f2dd1?w=900&auto=format&fit=crop&q=60"
-                  alt="Wellness/Relaxation"
-                />
-                <div class="ay-pkslider__overlay"></div>
-                <div class="ay-pkslider__info">
-                  <h3 class="ay-pkslider__title">Wellness/Relaxation</h3>
-                  <p class="ay-pkslider__text">
-                    Lorem ipsum dolor sit amet consectetur. Ornare amet ut cras
-                    et donec in.
-                  </p>
-                  <a href="#" class="ay-pkslider__btn"
-                    >Read more <i class="ri-arrow-right-up-line"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="ay-pkslider__slide">
-              <div class="ay-pkslider__img-wrap">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1661505103296-a23f027f2dd1?w=900&auto=format&fit=crop&q=60"
-                  alt="Pain Management"
-                />
-                <div class="ay-pkslider__overlay"></div>
-                <div class="ay-pkslider__info">
-                  <h3 class="ay-pkslider__title">Pain Management</h3>
-                  <p class="ay-pkslider__text">
-                    Lorem ipsum dolor sit amet consectetur. Ornare amet ut cras
-                    et donec in.
-                  </p>
-                  <a href="#" class="ay-pkslider__btn"
-                    >Read more <i class="ri-arrow-right-up-line"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="ay-pkslider__slide">
-              <div class="ay-pkslider__img-wrap">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1661505103296-a23f027f2dd1?w=900&auto=format&fit=crop&q=60"
-                  alt="Ayurveda Therapy"
-                />
-                <div class="ay-pkslider__overlay"></div>
-                <div class="ay-pkslider__info">
-                  <h3 class="ay-pkslider__title">Ayurveda Therapy</h3>
-                  <p class="ay-pkslider__text">
-                    Lorem ipsum dolor sit amet consectetur. Ornare amet ut cras
-                    et donec in.
-                  </p>
-                  <a href="#" class="ay-pkslider__btn"
-                    >Read more <i class="ri-arrow-right-up-line"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="ay-pkslider__slide">
-              <div class="ay-pkslider__img-wrap">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1661505103296-a23f027f2dd1?w=900&auto=format&fit=crop&q=60"
-                  alt="Treatment"
-                />
-                <div class="ay-pkslider__overlay"></div>
-                <div class="ay-pkslider__info">
-                  <h3 class="ay-pkslider__title">Treatment</h3>
-                  <p class="ay-pkslider__text">
-                    Lorem ipsum dolor sit amet consectetur. Ornare amet ut cras
-                    et donec in.
-                  </p>
-                  <a href="#" class="ay-pkslider__btn"
-                    >Read more <i class="ri-arrow-right-up-line"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button
-          class="ay-pkslider__arrow ay-pkslider__arrow--next"
-          id="pkNext"
-          aria-label="Next"
-        >
-          <i class="ri-arrow-right-s-line"></i>
-        </button>
-      </div>
-    </section>
-    <section class="ay-media">
-      <div class="ay-container">
-        <h2 class="ay-media__heading text-reveal">In The Media</h2>
-        <div class="ay-media__wrapper">
-          <div class="ay-media__video" data-reveal="left">
-            <iframe
-              src="https://www.youtube.com/embed/inpok4MKVLM?autoplay=1&mute=1&loop=1&playlist=inpok4MKVLM"
-              title="5 Minute Yoga"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-              "
-              allowfullscreen
-            ></iframe>
-          </div>
-
-          <div class="ay-media__video" data-reveal="right">
-            <iframe
-              src="https://www.youtube.com/embed/v7AYKMP6rOE?autoplay=1&mute=1&loop=1&playlist=v7AYKMP6rOE"
-              title="Morning Yoga Flow"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-              "
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="ay-services">
-      <div class="ay-container">
-        <div class="ay-services__header">
-          <p class="ay-services__label">
-            <span class="ay-services__dot"></span>Our Services
-          </p>
-          <h2 class="ay-services__heading">
-            <span class="ay-services__heading--line1"
-              >Holistic programs to restore</span
-            >
-            <span class="ay-services__heading--line2">balace and vitality</span>
-          </h2>
-        </div>
-
-        <div class="ay-services__grid">
-          <div
-            class="ay-services__card ay-services__card--1"
-            data-reveal="up"
-            data-delay="0"
-          >
-            <div class="ay-services__icon">
-              <img src="./assets/img/Vector.png" alt="" aria-hidden="true" />
-            </div>
-            <h3 class="ay-services__card-title">Panchakarma</h3>
-            <ul class="ay-services__list">
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-            </ul>
-            <div class="ay-services__card-bg">
-              <img src="./assets/img/Vector.png" alt="" aria-hidden="true" />
-            </div>
-          </div>
-
-          <div
-            class="ay-services__card ay-services__card--2"
-            data-reveal="up"
-            data-delay="100"
-          >
-            <div class="ay-services__icon">
-              <img src="./assets/img/Vector.png" alt="" aria-hidden="true" />
-            </div>
-            <h3 class="ay-services__card-title">Wellness/Relaxation</h3>
-            <ul class="ay-services__list">
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-            </ul>
-            <div class="ay-services__card-bg">
-              <img src="./assets/img/Vector.png" alt="" aria-hidden="true" />
-            </div>
-          </div>
-
-          <div
-            class="ay-services__card ay-services__card--3"
-            data-reveal="up"
-            data-delay="200"
-          >
-            <div class="ay-services__icon">
-              <img src="./assets/img/Vector.png" alt="" aria-hidden="true" />
-            </div>
-            <h3 class="ay-services__card-title">Pain Management</h3>
-            <ul class="ay-services__list">
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-            </ul>
-            <div class="ay-services__card-bg">
-              <img
-                src="./assets/img/services-bg.svg"
-                alt=""
-                aria-hidden="true"
-              />
-            </div>
-          </div>
-
-          <div
-            class="ay-services__card ay-services__card--4"
-            data-reveal="up"
-            data-delay="300"
-          >
-            <div class="ay-services__icon">
-              <img src="./assets/img/Vector.png" alt="Consultation" />
-            </div>
-            <h3 class="ay-services__card-title">Consultation</h3>
-            <ul class="ay-services__list">
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-line"></i>Passionate and Certified
-                Wellness Experts
-              </li>
-            </ul>
-            <div class="ay-services__card-bg">
-              <img src="./assets/img/Vector.png" alt="" aria-hidden="true" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="ay-why">
-      <div class="ay-container">
-        <div class="ay-why__inner">
-          <!-- LEFT -->
-          <div class="ay-why__content" data-reveal="left">
-            <div class="ay-why__top">
-              <p class="ay-why__label">
-                <span class="ay-why__dot"></span>Why choose us
-              </p>
-
-              <div class="ay-why__text-group">
-                <h2 class="ay-why__heading">
-                  <span class="ay-why__heading--line1"
-                    >Where healing, comfort, and</span
-                  >
-                  <span class="ay-why__heading--line2"
-                    >luxury come together</span
-                  >
-                </h2>
-                <p class="ay-why__body">
-                  Ayurveda is the science of life, with the history of more than
-                  5000 years. Nurtured with the time and aided with the
-                  experience of ancient scholars, the principles of Ayurveda are
-                  equally valuable in modern era as well.
-                </p>
-              </div>
-            </div>
-
-            <div class="ay-why__features">
-              <div class="ay-why__feature">
-                <div class="ay-why__feature-icon">
-                  <i class="ri-fire-line"></i>
-                </div>
-                <div class="ay-why__feature-body">
-                  <h4 class="ay-why__feature-title">Hot Stone Therapy</h4>
-                  <p class="ay-why__feature-text">
-                    Experience the warmth of volcanic stones placed on key
-                    points to release tension and promote deep relaxation.
-                  </p>
-                </div>
-              </div>
-
-              <div class="ay-why__feature">
-                <div class="ay-why__feature-icon">
-                  <i class="ri-user-heart-line"></i>
-                </div>
-                <div class="ay-why__feature-body">
-                  <h4 class="ay-why__feature-title">Hot Stone Therapy</h4>
-                  <p class="ay-why__feature-text">
-                    Experience the warmth of volcanic stones placed on key
-                    points to release tension and promote deep relaxation.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- RIGHT -->
-          <div class="ay-why__media" data-reveal="right">
-            <div class="ay-why__img-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1639162906614-0603b0ae95fd?w=600&auto=format&fit=crop&q=60"
-                alt="Why choose us"
-                class="ay-why__img"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="ay-team">
-      <div class="ay-container">
-        <div class="ay-team__inner">
-          <!-- LEFT INFO CARD -->
-          <div class="ay-team__info" data-reveal="left">
-            <p class="ay-team__label">
-              <span class="ay-team__dot"></span>Meet Our Team
-            </p>
-            <h2 class="ay-team__heading">Awesome<br />Instructors</h2>
-            <p class="ay-team__body">
-              Ayurveda is the science of life, with the history of more than
-              5000 years. Nurtured with the time and aided with the experience
-              of ancient scholars, the principles of Ayurveda are equally
-              valuable in
-            </p>
-            <div class="ay-team__info-bg">
-              <img src="./assets/img/Star 1.png" alt="" />
-            </div>
-          </div>
-
-          <!-- RIGHT: slider + controls -->
-          <div class="ay-team__right">
-            <div class="ay-team__slider" id="teamSlider">
-              <div class="ay-team__card" data-reveal="up" data-delay="0">
-                <div class="ay-team__card-top">
-                  <h3 class="ay-team__card-name">Sangita Karki</h3>
-                  <p class="ay-team__card-role">Ayurveda Therapist</p>
-                </div>
-                <div class="ay-team__card-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2lybHxlbnwwfHwwfHx8MA%3D%3D"
-                    alt="Sangita Karki"
-                  />
-                </div>
-              </div>
-
-              <div class="ay-team__card" data-reveal="up" data-delay="100">
-                <div class="ay-team__card-top">
-                  <h3 class="ay-team__card-name">Sangita Karki</h3>
-                  <p class="ay-team__card-role">Ayurveda Therapist</p>
-                </div>
-                <div class="ay-team__card-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2lybHxlbnwwfHwwfHx8MA%3D%3D"
-                    alt="Sangita Karki"
-                  />
-                </div>
-              </div>
-
-              <div class="ay-team__card" data-reveal="up" data-delay="200">
-                <div class="ay-team__card-top">
-                  <h3 class="ay-team__card-name">Sangita Karki</h3>
-                  <p class="ay-team__card-role">Ayurveda Therapist</p>
-                </div>
-                <div class="ay-team__card-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2lybHxlbnwwfHwwfHx8MA%3D%3D"
-                    alt="Sangita Karki"
-                  />
-                </div>
-              </div>
-
-              <div class="ay-team__card">
-                <div class="ay-team__card-top">
-                  <h3 class="ay-team__card-name">Sangita Karki</h3>
-                  <p class="ay-team__card-role">Ayurveda Therapist</p>
-                </div>
-                <div class="ay-team__card-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2lybHxlbnwwfHwwfHx8MA%3D%3D"
-                    alt="Sangita Karki"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- BOTTOM: view more + arrows -->
-            <div class="ay-team__footer">
-              <a href="#" class="ay-team__view-more">
-                View More <i class="ri-arrow-right-up-line"></i>
-              </a>
-              <div class="ay-team__arrows">
-                <button
-                  class="ay-team__arrow ay-team__arrow--prev"
-                  id="teamPrev"
-                  aria-label="Previous"
-                >
-                  <i class="ri-arrow-left-line"></i>
-                </button>
-                <button
-                  class="ay-team__arrow ay-team__arrow--next"
-                  id="teamNext"
-                  aria-label="Next"
-                >
-                  <i class="ri-arrow-right-line"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="ay-testi">
-      <div class="ay-container">
-        <div class="ay-testi__header" data-reveal="up">
-          <p class="ay-testi__label">
-            <span class="ay-testi__dot"></span>Testimonials
-          </p>
-          <h2 class="ay-testi__heading">
-            <span class="ay-testi__heading--line1"
-              >Holistic programs to restore</span
-            >
-            <span class="ay-testi__heading--line2">balace and vitality</span>
-          </h2>
-        </div>
-
-        <div class="ay-testi__slider-wrap" data-reveal="up" data-delay="100">
-          <div class="ay-testi__slider" id="testiSlider">
-            <div class="ay-testi__card">
-              <div class="ay-testi__card-top">
-                <div class="ay-testi__avatar">
-                  <img
-                    src="https://images.unsplash.com/photo-1771736813330-46491cbd9736?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
-                    alt="Gerlind Rüder"
-                  />
-                </div>
-                <div class="ay-testi__info">
-                  <h4 class="ay-testi__name">Gerlind Rüder</h4>
-                  <p class="ay-testi__role">Ayurveda Therapist</p>
-                </div>
-                <div class="ay-testi__quote-icon">
-                  <i class="ri-double-quotes-r"></i>
-                </div>
-              </div>
-              <p class="ay-testi__text">
-                Von Bishnu, Yogalehrer und Ayurvedatherapeut, wurde mir diese
-                „Panchakarma- Kur" in seinem Center Ajasrika in Nepal, ans Herz
-                gelegt. Und so kam es, dass ich mich entschied, im Herbst 2016
-                für drei Wochen nach Nepal zu reisen, um dieses Land
-                kennenzulernen und um diese Panchakarma-Kur für 14 Tage.
-              </p>
-            </div>
-
-            <div class="ay-testi__card">
-              <div class="ay-testi__card-top">
-                <div class="ay-testi__avatar">
-                  <img
-                    src="https://images.unsplash.com/photo-1771736813330-46491cbd9736?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
-                    alt="Gerlind Rüder"
-                  />
-                </div>
-                <div class="ay-testi__info">
-                  <h4 class="ay-testi__name">Gerlind Rüder</h4>
-                  <p class="ay-testi__role">Ayurveda Therapist</p>
-                </div>
-                <div class="ay-testi__quote-icon">
-                  <i class="ri-double-quotes-r"></i>
-                </div>
-              </div>
-              <p class="ay-testi__text">
-                Von Bishnu, Yogalehrer und Ayurvedatherapeut, wurde mir diese
-                „Panchakarma- Kur" in seinem Center Ajasrika in Nepal, ans Herz
-                gelegt. Und so kam es, dass ich mich entschied, im Herbst 2016
-                für drei Wochen nach Nepal zu reisen, um dieses Land
-                kennenzulernen und um diese Panchakarma-Kur für 14 Tage.
-              </p>
-            </div>
-
-            <div class="ay-testi__card">
-              <div class="ay-testi__card-top">
-                <div class="ay-testi__avatar">
-                  <img
-                    src="https://images.unsplash.com/photo-1771736813330-46491cbd9736?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
-                    alt="Gerlind Rüder"
-                  />
-                </div>
-                <div class="ay-testi__info">
-                  <h4 class="ay-testi__name">Gerlind Rüder</h4>
-                  <p class="ay-testi__role">Ayurveda Therapist</p>
-                </div>
-                <div class="ay-testi__quote-icon">
-                  <i class="ri-double-quotes-r"></i>
-                </div>
-              </div>
-              <p class="ay-testi__text">
-                Von Bishnu, Yogalehrer und Ayurvedatherapeut, wurde mir diese
-                „Panchakarma- Kur" in seinem Center Ajasrika in Nepal, ans Herz
-                gelegt. Und so kam es, dass ich mich entschied, im Herbst 2016
-                für drei Wochen nach Nepal zu reisen, um dieses Land
-                kennenzulernen und um diese Panchakarma-Kur für 14 Tage.
-              </p>
-            </div>
-
-            <div class="ay-testi__card">
-              <div class="ay-testi__card-top">
-                <div class="ay-testi__avatar">
-                  <img src="./images/testi-4.jpg" alt="Gerlind Rüder" />
-                </div>
-                <div class="ay-testi__info">
-                  <h4 class="ay-testi__name">Gerlind Rüder</h4>
-                  <p class="ay-testi__role">Ayurveda Therapist</p>
-                </div>
-                <div class="ay-testi__quote-icon">
-                  <i class="ri-double-quotes-r"></i>
-                </div>
-              </div>
-              <p class="ay-testi__text">
-                Von Bishnu, Yogalehrer und Ayurvedatherapeut, wurde mir diese
-                „Panchakarma- Kur" in seinem Center Ajasrika in Nepal, ans Herz
-                gelegt. Und so kam es, dass ich mich entschied, im Herbst 2016
-                für drei Wochen nach Nepal zu reisen, um dieses Land
-                kennenzulernen und um diese Panchakarma-Kur für 14 Tage.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="ay-blog">
-      <div class="ay-container">
-        <div class="ay-blog__header" data-reveal="up">
-          <p class="ay-blog__label">
-            <span class="ay-blog__dot"></span>Article & Blogs
-          </p>
-          <h2 class="ay-blog__heading">Need To Know About Yoga</h2>
-        </div>
-
-        <div class="ay-blog__grid">
-          <article class="ay-blog__card" data-reveal="up" data-delay="0">
-            <div class="ay-blog__img-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1771736813330-46491cbd9736?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
-                alt="Blog 1"
-              />
-            </div>
-            <div class="ay-blog__body">
-              <p class="ay-blog__date">
-                <i class="ri-time-line"></i>December 1, 2021
-              </p>
-              <h3 class="ay-blog__title">
-                Here are 5 yoga asanas to help you strengthen and tone your back
-              </h3>
-              <a href="#" class="ay-blog__read-more"
-                >Read more <i class="ri-arrow-right-up-line"></i
-              ></a>
-            </div>
-          </article>
-
-          <article class="ay-blog__card" data-reveal="up" data-delay="100">
-            <div class="ay-blog__img-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1771736813330-46491cbd9736?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
-                alt="Blog 2"
-              />
-            </div>
-            <div class="ay-blog__body">
-              <p class="ay-blog__date">
-                <i class="ri-time-line"></i>December 1, 2021
-              </p>
-              <h3 class="ay-blog__title">
-                Here are 5 yoga asanas to help you strengthen and tone your back
-              </h3>
-              <a href="#" class="ay-blog__read-more"
-                >Read more <i class="ri-arrow-right-up-line"></i
-              ></a>
-            </div>
-          </article>
-
-          <article class="ay-blog__card" data-reveal="up" data-delay="200">
-            <div class="ay-blog__img-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1771736813330-46491cbd9736?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8"
-                alt="Blog 3"
-              />
-            </div>
-            <div class="ay-blog__body">
-              <p class="ay-blog__date">
-                <i class="ri-time-line"></i>December 1, 2021
-              </p>
-              <h3 class="ay-blog__title">
-                Here are 5 yoga asanas to help you strengthen and tone your back
-              </h3>
-              <a href="#" class="ay-blog__read-more"
-                >Read more <i class="ri-arrow-right-up-line"></i
-              ></a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-    <footer class="ay-footer">
-      <div class="ay-container">
-        <div class="ay-footer__wrapper">
-          <div class="ay-footer__top">
-            <div
-              class="ay-footer__col ay-footer__col--brand"
-              data-reveal="up"
-              data-delay="0"
-            >
-              <a href="#" class="ay-footer__logo">
-                <img src="./assets/img/logo.png" alt="Ajasrika" />
-              </a>
-              <div class="ay-footer__contact-row">
-                <div class="ay-footer__contact-item">
-                  <span class="ay-footer__contact-label">Contact number</span>
-                  <a href="tel:+9779876543456" class="ay-footer__contact-val"
-                    >+977 9876543456</a
-                  >
-                </div>
-                <div class="ay-footer__contact-item">
-                  <span class="ay-footer__contact-label"
-                    >Need live support</span
-                  >
-                  <a
-                    href="mailto:support@domain.com"
-                    class="ay-footer__contact-val"
-                    >support@domain.com</a
-                  >
-                </div>
-              </div>
-              <div class="ay-footer__follow">
-                <span class="ay-footer__follow-label">Follow On</span>
-                <div class="ay-footer__socials">
-                  <a href="#" class="ay-footer__social" aria-label="Facebook"
-                    ><i class="ri-facebook-fill"></i
-                  ></a>
-                  <a href="#" class="ay-footer__social" aria-label="YouTube"
-                    ><i class="ri-youtube-fill"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="ay-footer__col" data-reveal="up" data-delay="100">
-              <h4 class="ay-footer__col-title">Contact Info</h4>
-              <ul class="ay-footer__info-list">
-                <li>
-                  <i class="ri-map-pin-line"></i
-                  ><span>Bhaisipati, Salbu-4, Lalitpur</span>
-                </li>
-                <li>
-                  <i class="ri-mail-line"></i
-                  ><a href="mailto:info@ayurvedacenternepal.com"
-                    >info@ayurvedacenternepal.com</a
-                  >
-                </li>
-                <li>
-                  <i class="ri-phone-line"></i>
-                  <span
-                    >Mobile & Whatsapp: +977 9849210876<br />Germany:
-                    004915127011852<br />Office: 015114187</span
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <div class="ay-footer__col" data-reveal="up" data-delay="200">
-              <h4 class="ay-footer__col-title">Our Services</h4>
-              <ul class="ay-footer__links">
-                <li><a href="#">Panchakarma</a></li>
-                <li><a href="#">Wellness/Relaxation</a></li>
-                <li><a href="#">Ayurveda Therapy</a></li>
-                <li><a href="#">Treatment</a></li>
-                <li><a href="#">Ayurveda Training</a></li>
-              </ul>
-            </div>
-
-            <div class="ay-footer__col" data-reveal="up" data-delay="300">
-              <h4 class="ay-footer__col-title">Quick Links</h4>
-              <ul class="ay-footer__links">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Ayurveda Training</a></li>
-                <li><a href="#">Tariffs</a></li>
-                <li><a href="#">Ayurveda Short courses</a></li>
-                <li><a href="#">Booking Form</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="ay-footer__divider"></div>
-
-          <div class="ay-footer__bottom">
-            <p class="ay-footer__copy">2026 copyright ©. All rights reserved</p>
-            <p class="ay-footer__credit">
-              Design & Developed by: Codeed Incorporated
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- BACK TO TOP BUTTON -->
-    <button class="ay-btt" id="backToTop" aria-label="Back to top">
-      <svg
-        class="ay-btt__wave-svg"
-        viewBox="0 0 56 56"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <!-- wave fill that rises with scroll progress -->
-        <defs>
-          <clipPath id="circleClip">
-            <circle cx="28" cy="28" r="26" />
-          </clipPath>
-        </defs>
-        <!-- wave background group, clipped to circle -->
-        <g clip-path="url(#circleClip)">
-          <rect
-            class="ay-btt__wave-bg"
-            x="0"
-            y="0"
-            width="56"
-            height="56"
-            fill="#8aab88"
-            opacity="0.15"
-          />
-          <path class="ay-btt__wave-path" fill="#8aab88" opacity="0.9" />
-        </g>
-        <!-- circle border -->
-        <circle
-          class="ay-btt__circle"
-          cx="28"
-          cy="28"
-          r="26"
-          fill="none"
-          stroke="#8aab88"
-          stroke-width="1.5"
-        />
-      </svg>
-      <!-- up arrow -->
-      <svg
-        class="ay-btt__arrow"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <polyline
-          points="6 15 12 9 18 15"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </button>
-    <script src="./js/script.js"></script>
-    <script src="./js/global.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-    <script src="./animations/animations.js"></script>
-  </body>
 </html>

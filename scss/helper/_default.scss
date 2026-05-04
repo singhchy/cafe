@@ -1,4 +1,4 @@
-@use "./variable" as vars;
+@use "variable" as vars;
 
 *,
 *::before,
@@ -41,7 +41,7 @@ img {
 
 .ay-container {
   max-width: 1440px;
-  margin: auto;
+  margin: 0 auto;
   padding: 0 64px;
 
   @media only screen and (max-width: 800px) {
@@ -74,18 +74,23 @@ img {
 [data-reveal="up"] {
   transform: translateY(32px);
 }
+
 [data-reveal="down"] {
   transform: translateY(-32px);
 }
+
 [data-reveal="left"] {
   transform: translateX(-48px);
 }
+
 [data-reveal="right"] {
   transform: translateX(48px);
 }
+
 [data-reveal="fade"] {
   transform: none;
 }
+
 [data-reveal="scale"] {
   transform: scale(0.94);
 }
@@ -162,16 +167,20 @@ img {
   width: 5px;
   height: 5px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(vars.$color-btn, 0.45);
   border-radius: 99px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(vars.$color-btn, 0.8);
 }
+
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
@@ -183,13 +192,16 @@ img {
   &::-webkit-scrollbar {
     width: 4px;
   }
+
   &::-webkit-scrollbar-track {
     background: transparent;
   }
+
   &::-webkit-scrollbar-thumb {
     background: rgba(vars.$color-btn, 0.35);
     border-radius: 99px;
   }
+
   &::-webkit-scrollbar-thumb:hover {
     background: rgba(vars.$color-btn, 0.65);
   }
@@ -200,15 +212,19 @@ img {
 html.lenis {
   height: auto;
 }
+
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
+
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
+
 .lenis.lenis-stopped {
   overflow: hidden;
 }
+
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }

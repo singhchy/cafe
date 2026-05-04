@@ -2,4 +2,5 @@
 @use "./layout/layout";
 @use "./pages/pages";
 
-//sass --watch scss/style.scss:css/style.css
+//sass --watch scss/style.scss:css/style.css // dont use this instead use node watch.js
+@use "helper/buttons";

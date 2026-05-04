@@ -1,1 +1,195 @@
-@use "../helper/helper" as *;
+@use "../helper/variable" as vars;
+
+// ─── HERO ───────────────────────────────────────────────────────────────────
+
+.section {
+    width: 100%;
+    min-height: 100svh;
+    position: sticky;
+    top: 0;
+    overflow: visible;
+    background: vars.$color-bg;
+    // Layering for stacking effect
+    z-index: 1;
+}
+
+.section-inner {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+.ca-hero {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.ca-hero .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    width: 100%;
+}
+
+// ── LEFT ──
+
+.hero-left {
+    max-width: 500px;
+    flex-shrink: 0;
+}
+
+.hero-left h1 {
+    font-family: vars.$font-serif;
+    font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+    line-height: 1.1;
+    color: vars.$color-primary;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.hero-left h1 span {
+    color: vars.$color-accent;
+    font-style: italic;
+}
+
+.hero-left p {
+    margin: 28px 0 36px;
+    color: vars.$color-subtext;
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 400px;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: vars.$color-btn;
+    color: #fff;
+    border: none;
+    padding: 15px 32px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: vars.$font-sans;
+    // clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
+    transition: background 0.3s vars.$ease-out-soft, box-shadow 0.3s vars.$ease-out-soft;
+
+    &:hover {
+        background: vars.$color-btn-hover;
+        box-shadow: 0 8px 28px vars.$shadow-btn;
+    }
+}
+
+// ── RIGHT ──
+
+.hero-right {
+    position: relative;
+    width: 480px;
+    height: 540px;
+    flex-shrink: 0;
+}
+
+.outline-shape {
+    position: absolute;
+    width: 104%;
+    height: 104%;
+    top: -2%;
+    left: -2%;
+    z-index: 2;
+    pointer-events: none;
+    overflow: visible;
+}
+
+// The image container clipped to a diagonal rectangle
+.image-mask {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    clip-path: polygon(40px 0%, 100% 0%, calc(100% - 40px) 100%, 0% 100%);
+}
+
+.image-mask img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    will-change: opacity;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// ── RESPONSIVE ──
+
+@media (max-width: 1024px) {
+    .ca-hero .wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-left {
+        max-width: 100%;
+    }
+
+    .hero-left p {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-right {
+        width: min(420px, 90vw);
+        height: calc(min(420px, 90vw) * 1.125);
+    }
+}
+
+@media (max-width: 480px) {
+    .ca-hero {
+        padding-top: 100px;
+        padding-bottom: 48px;
+    }
+
+    .hero-left h1 {
+        font-size: 2.2rem;
+    }
+}
+
+// ── SCROLL REVEAL ──
+
+.scroll-reveal-section {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.scroll-reveal-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.scroll-reveal {
+    margin: 20px 0;
+}
+
+.scroll-reveal-text {
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    line-height: 1.5;
+    font-weight: 600;
+    color: vars.$color-headline;
+    font-family: vars.$font-serif;
+}
+
+.word {
+    display: inline-block;
+}

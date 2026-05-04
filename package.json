@@ -1,0 +1,24 @@
+{
+  "name": "revamp-cafe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "watch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeedinc/ayurveda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/codeedinc/ayurveda/issues"
+  },
+  "homepage": "https://github.com/codeedinc/ayurveda#readme",
+  "dependencies": {
+    "sass": "^1.99.0"
+  }
+}

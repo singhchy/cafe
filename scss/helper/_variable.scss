@@ -3,23 +3,28 @@ $font-serif: "Cormorant Garamond", serif;
 $font-sans: "Poppins", sans-serif;
 
 // ─── COLORS ───
-$color-headline: #2e2a27;
-$color-subtext: #6b6560;
+$color-bg: #f5f0e8;
+$color-surface: #fffdf7;
+$color-headline: #1a1a1a;
+$color-subtext: #6b6b5a;
 $color-white: #ffffff;
-$color-bg: #f5f2ee;
-$color-btn: #8aab88;
-$color-btn-hover: #7a9c78;
-$color-divider: #8aab88;
+$color-primary: #2d4a2d;
+$color-btn: #2d4a2d;
+$color-btn-hover: #1e3320;
+$color-divider: #2d4a2d;
+$color-accent: #c8a96e;
+$color-border: rgba(45, 74, 45, 0.12);
+$color-nav-bg: rgba(255, 253, 247, 0.92);
 
-// overlay tints for hero gradient
+// ─── OVERLAYS ───
 $overlay-green: rgba(180, 200, 175, 0.35);
 $overlay-mauve: rgba(200, 185, 195, 0.3);
 $overlay-blue: rgba(175, 190, 205, 0.3);
 
-// shadows
+// ─── SHADOWS ───
 $shadow-flower: rgba(140, 130, 120, 0.18);
-$shadow-btn: rgba(138, 171, 136, 0.35);
-$shadow-btn-hover: rgba(138, 171, 136, 0.5);
+$shadow-btn: rgba(45, 74, 45, 0.35);
+$shadow-btn-hover: rgba(45, 74, 45, 0.5);
 
 // ─── EASING ───
 $ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
