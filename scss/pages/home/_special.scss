@@ -41,7 +41,7 @@
 
     h2 {
       font-size: clamp(3rem, 8vw, 6rem);
-      font-family: $font-serif;
+      font-family: $font-main;
       margin-bottom: 20px;
       letter-spacing: 2px;
     }
@@ -103,7 +103,7 @@
 
     .quote-text {
       font-size: clamp(1.4rem, 3vw, 2.2rem);
-      font-family: $font-serif;
+      font-family: $font-main;
       line-height: 1.4;
       color: $color-headline;
       margin-bottom: 50px;

@@ -10,7 +10,7 @@ html,
 body {
   overflow-x: clip;
   width: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 img {
@@ -193,21 +193,22 @@ img {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #f5f0e8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(45, 74, 45, 0.45);
+  background: rgba(45, 74, 45, 0.2);
   border-radius: 99px;
+  border: 2px solid #f5f0e8;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(45, 74, 45, 0.8);
+  background: rgba(45, 74, 45, 0.4);
 }
 
 ::-webkit-scrollbar-corner {
@@ -1368,8 +1369,8 @@ html.lenis {
 }
 
 .logo {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.6rem;
+  font-family: "Dancing Script", cursive;
+  font-size: 2.2rem;
   color: #2d4a2d;
 }
 
@@ -1443,7 +1444,7 @@ li {
   flex-direction: column;
   gap: 30px;
   backdrop-filter: blur(20px);
-  background: rgba(255, 253, 247, 0.92);
+  background: #f5f0e8;
   opacity: 0;
   pointer-events: none;
   transform: scale(1.1);
@@ -1455,6 +1456,252 @@ li {
   text-decoration: none;
   opacity: 0;
   transform: translateY(40px);
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+.mobile-link:hover {
+  color: #c8a96e;
+  letter-spacing: 2px;
+}
+
+.footer-section {
+  background: #2d4a2d;
+  position: relative;
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+}
+.footer-section ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+.footer-section .footer-cta {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 0;
+}
+.footer-section .single-cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-section .single-cta i {
+  color: #c8a96e;
+  font-size: 20px;
+}
+.footer-section .cta-text h4 {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.footer-section .cta-text span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 400;
+}
+.footer-section .footer-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px 0;
+}
+.footer-section .footer-widget .footer-logo {
+  margin-bottom: 15px;
+}
+.footer-section .footer-widget .footer-logo img {
+  max-width: 140px;
+}
+.footer-section .footer-widget .footer-text p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 24px;
+}
+.footer-section .footer-widget .footer-social-icon span {
+  color: #ffffff;
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 15px;
+}
+.footer-section .footer-widget .footer-social-icon .social-group {
+  display: flex;
+  gap: 15px;
+}
+.footer-section .footer-widget .footer-social-icon .social-item {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.footer-section .footer-widget .footer-social-icon .social-item .social-btn {
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 18px;
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.footer-section .footer-widget .footer-social-icon .social-item .social-btn:hover {
+  transform: scale(1.25);
+}
+.footer-section .footer-widget .footer-social-icon .social-item .tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  transform-origin: bottom center;
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 20;
+}
+.footer-section .footer-widget .footer-social-icon .social-item .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1a1a1a;
+}
+.footer-section .footer-widget .footer-social-icon .social-item:hover .tooltip {
+  transform: translateX(-50%) scale(1);
+}
+.footer-section .footer-widget .footer-social-icon .social-item .facebook-bg {
+  background: #3B5998;
+}
+.footer-section .footer-widget .footer-social-icon .social-item .twitter-bg {
+  background: #1da1f2;
+}
+.footer-section .footer-widget .footer-social-icon .social-item .google-bg {
+  background: #DD4B39;
+}
+.footer-section .footer-widget .footer-social-icon .social-item .instagram-bg {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.footer-section .footer-widget-heading h3 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  position: relative;
+}
+.footer-section .footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 2px;
+  width: 35px;
+  background: #c8a96e;
+}
+.footer-section .footer-widget ul li {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 8px;
+}
+.footer-section .footer-widget ul li a {
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+.footer-section .footer-widget ul li a:hover {
+  color: #c8a96e;
+}
+.footer-section .subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.footer-section .subscribe-form input {
+  width: 100%;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+}
+.footer-section .subscribe-form input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+.footer-section .subscribe-form button {
+  position: absolute;
+  right: 0;
+  background: #c8a96e;
+  padding: 9px 15px;
+  border: 1px solid #c8a96e;
+  top: 0;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.footer-section .subscribe-form button:hover {
+  background: rgb(185.975, 147.07, 73.025);
+  padding-right: 20px;
+}
+.footer-section .subscribe-form button i {
+  font-size: 16px;
+  transform: rotate(-6deg);
+}
+.footer-section .copyright-area {
+  background: rgb(35.3571428571, 58.1428571429, 35.3571428571);
+  padding: 12px 0;
+}
+.footer-section .copyright-area .copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer-section .copyright-area .copyright-text p a {
+  color: #c8a96e;
+  text-decoration: none;
+}
+.footer-section .footer-menu {
+  text-align: right;
+}
+.footer-section .footer-menu li {
+  display: inline-block;
+  margin-left: 12px;
+}
+.footer-section .footer-menu li a {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-section .footer-menu li a:hover {
+  color: #c8a96e;
+}
+
+.footer-section .row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+@media (max-width: 991px) {
+  .footer-section .row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .section {
@@ -1496,17 +1743,18 @@ li {
 }
 
 .hero-left h1 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
   font-size: clamp(2.6rem, 4.5vw, 4.2rem);
   line-height: 1.1;
   color: #2d4a2d;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 .hero-left h1 span {
+  font-family: "Dancing Script", cursive;
   color: #c8a96e;
-  font-style: italic;
+  font-size: 1.1em;
 }
 
 .hero-left p {
@@ -1530,7 +1778,7 @@ li {
   font-size: 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   transition: background 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .hero-btn:hover {
@@ -1624,7 +1872,7 @@ li {
   line-height: 1.5;
   font-weight: 600;
   color: #1a1a1a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .word {
@@ -1696,19 +1944,16 @@ li {
   padding: 0 40px;
 }
 .about-center .subtitle {
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.4rem;
   color: #2d4a2d;
   margin-bottom: 10px;
 }
 .about-center h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
   font-size: 3.5rem;
   color: #c8a96e;
-  font-style: italic;
-  font-weight: 400;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 .about-center .leaf-branch {
@@ -1721,7 +1966,7 @@ li {
   height: auto;
 }
 .about-center h3 {
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.5;
@@ -1827,19 +2072,18 @@ li {
   top: 0;
 }
 .package-left .subtitle {
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.4rem;
   color: #2d4a2d;
   margin-bottom: 15px;
   display: block;
 }
 .package-left h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
   font-size: 3.5rem;
   color: #c8a96e;
   line-height: 1.1;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 .package-left p {
@@ -1892,8 +2136,9 @@ li {
 .package-tabs .tab-btn {
   background: none;
   border: none;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.8rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
   color: #6b6b5a;
   cursor: pointer;
   padding: 0;
@@ -1964,7 +2209,7 @@ li {
   margin-bottom: 5px;
 }
 .menu-item .menu-details .menu-title-row h4 {
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   color: #1a1a1a;
@@ -1977,7 +2222,7 @@ li {
   opacity: 0.5;
 }
 .menu-item .menu-details .menu-title-row .price {
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   color: #c8a96e;
   white-space: nowrap;
@@ -2055,20 +2300,17 @@ li {
 }
 .gallery-section .gallery-header .subtitle {
   display: block;
-  font-family: "Poppins", sans-serif;
+  font-family: "Dancing Script", cursive;
   color: #c8a96e;
-  letter-spacing: 4px;
-  font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 1.4rem;
   margin-bottom: 16px;
-  text-transform: uppercase;
 }
 .gallery-section .gallery-header h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   color: #1a1a1a;
   line-height: 1.1;
-  font-weight: 600;
+  font-weight: 700;
 }
 .gallery-section .gallery-row {
   display: flex;
@@ -2093,14 +2335,16 @@ li {
   height: 100%;
   overflow: hidden;
   border-radius: 16px;
-  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: flex 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: flex;
   cursor: pointer;
 }
 .gallery-section .gallery-row .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, filter;
 }
 .gallery-section .gallery-row .gallery-item .item-overlay {
   position: absolute;
@@ -2120,7 +2364,7 @@ li {
   background: #ffffff;
   color: #2d4a2d;
   border-radius: 50px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 0.7rem;
   letter-spacing: 1px;
@@ -2133,6 +2377,7 @@ li {
 }
 .gallery-section .gallery-row .gallery-item:hover {
   flex: 3;
+  z-index: 10;
 }
 @media (max-width: 768px) {
   .gallery-section .gallery-row .gallery-item:hover {
@@ -2141,7 +2386,8 @@ li {
   }
 }
 .gallery-section .gallery-row .gallery-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.2);
+  filter: brightness(1.1) saturate(1.1);
 }
 .gallery-section .gallery-row .gallery-item:hover .item-overlay {
   opacity: 1;
@@ -2171,7 +2417,7 @@ li {
   }
 }
 .footer-section .footer-brand h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Dancing Script", cursive;
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #c8a96e;
@@ -2238,7 +2484,7 @@ li {
   color: #ffffff;
   padding: 5px 12px;
   font-size: 0.65rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -2288,20 +2534,17 @@ li {
 }
 .services-section .services-header .subtitle {
   display: block;
-  font-family: "Poppins", sans-serif;
+  font-family: "Dancing Script", cursive;
   color: #c8a96e;
-  letter-spacing: 3px;
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   margin-bottom: 15px;
-  text-transform: uppercase;
 }
 .services-section .services-header h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
   font-size: clamp(3rem, 8vw, 5rem);
   color: #1a1a1a;
   line-height: 1.1;
-  font-weight: 600;
+  font-weight: 700;
 }
 .services-section .slider-container {
   width: 100%;
@@ -2425,21 +2668,18 @@ li {
 }
 .why-us-section .why-us-top .why-us-top-left .subtitle {
   display: block;
-  font-family: "Poppins", sans-serif;
+  font-family: "Dancing Script", cursive;
   color: #c8a96e;
-  letter-spacing: 3px;
-  font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 1.4rem;
   margin-bottom: 20px;
-  text-transform: uppercase;
 }
 .why-us-section .why-us-top .why-us-top-left h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
   font-size: clamp(2.5rem, 5vw, 4.2rem);
   color: #1a1a1a;
   line-height: 1.1;
   margin-bottom: 30px;
-  font-weight: 600;
+  font-weight: 700;
 }
 .why-us-section .why-us-top .why-us-top-left p {
   color: #6b6b5a;
@@ -2466,7 +2706,7 @@ li {
 }
 .why-us-section .why-us-top .why-us-top-left .why-us-stats .stat-item .stat-num {
   display: block;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
   font-size: 3.5rem;
   color: #c8a96e;
   font-weight: 600;
@@ -2474,7 +2714,7 @@ li {
   margin-bottom: 8px;
 }
 .why-us-section .why-us-top .why-us-top-left .why-us-stats .stat-item .stat-label {
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   color: #6b6b5a;
   font-size: 0.95rem;
   font-weight: 500;
@@ -2566,7 +2806,7 @@ li {
   z-index: 1;
 }
 .why-us-section .why-us-bottom .event-box .box-content h3 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
   font-size: 2rem;
   color: #c8a96e;
   margin-bottom: 15px;
@@ -2668,7 +2908,6 @@ li {
 }
 .testimonial-section .testimonial-track {
   display: flex;
-  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
 }
 .testimonial-section .testimonial-item {
   min-width: 100%;
@@ -2686,11 +2925,11 @@ li {
 }
 .testimonial-section .testimonial-item .quote-text {
   font-size: clamp(1.4rem, 3vw, 2.2rem);
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
   line-height: 1.4;
   color: #1a1a1a;
   margin-bottom: 50px;
-  font-style: italic;
+  font-weight: 500;
 }
 .testimonial-section .testimonial-item .author {
   display: flex;
@@ -2784,8 +3023,9 @@ li {
 }
 .video-section .video-overlay-text h2 {
   font-size: clamp(3rem, 8vw, 6rem);
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Raleway", sans-serif;
   margin-bottom: 20px;
+  font-weight: 700;
   letter-spacing: 2px;
 }
 .video-section .video-overlay-text p {
@@ -2809,7 +3049,7 @@ li {
   padding: 14px 32px;
   background: #2d4a2d;
   color: #ffffff;
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 14px;
   text-transform: uppercase;

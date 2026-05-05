@@ -17,10 +17,27 @@ hamburger.addEventListener("click", () => {
   gsap.to(".line:nth-child(1)", { rotate: open ? 45 : 0, y: open ? 8.75 : 0, duration: 0.3 });
   gsap.to(".line:nth-child(2)", { opacity: open ? 0 : 1, duration: 0.2 });
   gsap.to(".line:nth-child(3)", { rotate: open ? -45 : 0, y: open ? -8.75 : 0, duration: 0.3 });
+
+  if (open) {
+    if (window.lenis) window.lenis.stop();
+    document.body.style.overflow = "hidden";
+  } else {
+    if (window.lenis) window.lenis.start();
+    document.body.style.overflow = "";
+  }
 });
 
 links.forEach((link) => {
-  link.addEventListener("click", () => { open = false; navTl.reverse(); });
+  link.addEventListener("click", () => { 
+    open = false; 
+    navTl.reverse(); 
+    gsap.to(".line:nth-child(1)", { rotate: 0, y: 0, duration: 0.3 });
+    gsap.to(".line:nth-child(2)", { opacity: 1, duration: 0.2 });
+    gsap.to(".line:nth-child(3)", { rotate: 0, y: 0, duration: 0.3 });
+
+    if (window.lenis) window.lenis.start();
+    document.body.style.overflow = "";
+  });
 });
 
 let lastScrollY = window.scrollY;
@@ -255,8 +272,8 @@ function initTestimonialSlider() {
     function updateSlider() {
         gsap.to(track, {
             xPercent: -100 * currentIndex,
-            duration: 1,
-            ease: "expo.inOut"
+            duration: 0.5,
+            ease: "power2.inOut"
         });
     }
 
@@ -271,9 +288,49 @@ function initTestimonialSlider() {
     });
 }
 
+/* ─── SECTION FADE ON SCROLL ───────────────────────────────────────────── */
+function initSectionFade() {
+    const sections = document.querySelectorAll('.section');
+    if (!sections.length) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        sections.forEach((section, index) => {
+            if (index === sections.length - 1) return; // Last section doesn't fade out
+
+            const nextSection = sections[index + 1];
+            const nextTop = nextSection.offsetTop;
+            const distanceToTop = nextTop - scrollY;
+
+            if (distanceToTop <= windowHeight && distanceToTop >= 0) {
+                const progress = distanceToTop / windowHeight;
+                
+                // Steeper opacity curve for a more "atmospheric" fade
+                section.style.opacity = (progress * progress).toString();
+                
+                // "Pushing inside" effect: Scale down slightly as it recedes
+                const scale = 0.92 + (0.08 * progress);
+                // We keep it centered and stick it to the top
+                section.style.transform = `scale(${scale})`;
+                section.style.transformOrigin = 'center center';
+                
+            } else if (distanceToTop > windowHeight) {
+                section.style.opacity = '1';
+                section.style.transform = 'scale(1)';
+            } else if (distanceToTop < 0) {
+                section.style.opacity = '0';
+                section.style.transform = 'scale(0.92)';
+            }
+        });
+    }, { passive: true });
+}
+
 // Initialize all custom components
 document.addEventListener('DOMContentLoaded', () => {
     initNativeParallax();
     initHoverVideo();
     initTestimonialSlider();
+    initSectionFade();
 });

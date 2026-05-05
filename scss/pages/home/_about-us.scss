@@ -67,20 +67,17 @@
   padding: 0 40px;
 
   .subtitle {
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    font-family: vars.$font-decorative;
+    font-size: 1.4rem;
     color: vars.$color-primary;
     margin-bottom: 10px;
   }
 
   h2 {
-    font-family: vars.$font-serif;
+    font-family: vars.$font-main;
     font-size: 3.5rem;
     color: vars.$color-accent;
-    font-style: italic;
-    font-weight: 400;
+    font-weight: 700;
     margin-bottom: 20px;
   }
 
@@ -96,7 +93,7 @@
   }
 
   h3 {
-    font-family: vars.$font-sans;
+    font-family: vars.$font-main;
     font-size: 1.2rem;
     font-weight: 600;
     line-height: 1.5;

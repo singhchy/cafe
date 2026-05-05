@@ -20,7 +20,6 @@
 
   .testimonial-track {
     display: flex;
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
   }
 
   .testimonial-item {
@@ -40,11 +39,11 @@
 
     .quote-text {
       font-size: clamp(1.4rem, 3vw, 2.2rem);
-      font-family: $font-serif;
+      font-family: $font-main;
       line-height: 1.4;
       color: $color-headline;
       margin-bottom: 50px;
-      font-style: italic;
+      font-weight: 500;
     }
 
     .author {

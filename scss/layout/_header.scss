@@ -30,8 +30,8 @@
 }
 
 .logo {
-  font-family: vars.$font-serif;
-  font-size: 1.6rem;
+  font-family: vars.$font-decorative;
+  font-size: 2.2rem;
   color: vars.$color-primary;
 }
 
@@ -111,7 +111,7 @@ li {
   flex-direction: column;
   gap: 30px;
   backdrop-filter: blur(20px);
-  background: vars.$color-nav-bg;
+  background: vars.$color-bg;
   opacity: 0;
   pointer-events: none;
   transform: scale(1.1);
@@ -123,4 +123,10 @@ li {
   text-decoration: none;
   opacity: 0;
   transform: translateY(40px);
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+
+  &:hover {
+    color: vars.$color-accent;
+    letter-spacing: 2px;
+  }
 }

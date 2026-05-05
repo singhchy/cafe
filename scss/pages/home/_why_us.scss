@@ -33,22 +33,19 @@
 
       .subtitle {
         display: block;
-        font-family: $font-sans;
+        font-family: $font-decorative;
         color: $color-accent;
-        letter-spacing: 3px;
-        font-weight: 700;
-        font-size: 0.85rem;
+        font-size: 1.4rem;
         margin-bottom: 20px;
-        text-transform: uppercase;
       }
 
       h2 {
-        font-family: $font-serif;
+        font-family: $font-main;
         font-size: clamp(2.5rem, 5vw, 4.2rem);
         color: $color-headline;
         line-height: 1.1;
         margin-bottom: 30px;
-        font-weight: 600;
+        font-weight: 700;
       }
 
       p {
@@ -74,7 +71,7 @@
         .stat-item {
           .stat-num {
             display: block;
-            font-family: $font-serif;
+            font-family: $font-main;
             font-size: 3.5rem;
             color: $color-accent;
             font-weight: 600;
@@ -82,7 +79,7 @@
             margin-bottom: 8px;
           }
           .stat-label {
-            font-family: $font-sans;
+            font-family: $font-main;
             color: $color-subtext;
             font-size: 0.95rem;
             font-weight: 500;
@@ -182,7 +179,7 @@
         z-index: 1;
 
         h3 {
-          font-family: $font-serif;
+          font-family: $font-main;
           font-size: 2rem;
           color: $color-accent;
           margin-bottom: 15px;

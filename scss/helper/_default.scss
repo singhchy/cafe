@@ -12,7 +12,7 @@ html,
 body {
   overflow-x: clip;
   width: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: vars.$font-main;
 }
 
 img {
@@ -164,21 +164,22 @@ img {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: vars.$color-bg;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(vars.$color-btn, 0.45);
+  background: rgba(vars.$color-primary, 0.2);
   border-radius: 99px;
+  border: 2px solid vars.$color-bg;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(vars.$color-btn, 0.8);
+  background: rgba(vars.$color-primary, 0.4);
 }
 
 ::-webkit-scrollbar-corner {

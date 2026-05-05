@@ -23,20 +23,19 @@
     top: 0;
 
     .subtitle {
-        font-size: 0.9rem;
-        font-weight: 600;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
+        font-family: vars.$font-decorative;
+        font-size: 1.4rem;
         color: vars.$color-primary;
         margin-bottom: 15px;
         display: block;
     }
 
     h2 {
-        font-family: vars.$font-serif;
+        font-family: vars.$font-main;
         font-size: 3.5rem;
         color: vars.$color-accent;
         line-height: 1.1;
+        font-weight: 700;
         margin-bottom: 20px;
     }
 
@@ -99,8 +98,9 @@
     .tab-btn {
         background: none;
         border: none;
-        font-family: vars.$font-serif;
-        font-size: 1.8rem;
+        font-family: vars.$font-main;
+        font-weight: 600;
+        font-size: 1.4rem;
         color: vars.$color-subtext;
         cursor: pointer;
         padding: 0;
@@ -178,7 +178,7 @@
             margin-bottom: 5px;
 
             h4 {
-                font-family: vars.$font-sans;
+                font-family: vars.$font-main;
                 font-size: 1.1rem;
                 font-weight: 600;
                 color: vars.$color-headline;
@@ -193,7 +193,7 @@
             }
 
             .price {
-                font-family: vars.$font-sans;
+                font-family: vars.$font-main;
                 font-weight: 700;
                 color: vars.$color-accent;
                 white-space: nowrap;

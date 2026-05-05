@@ -21,21 +21,18 @@
 
         .subtitle {
             display: block;
-            font-family: $font-sans;
+            font-family: $font-decorative;
             color: $color-accent;
-            letter-spacing: 3px;
-            font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1.4rem;
             margin-bottom: 15px;
-            text-transform: uppercase;
         }
 
         h2 {
-            font-family: $font-serif;
+            font-family: $font-main;
             font-size: clamp(3rem, 8vw, 5rem);
             color: $color-headline;
             line-height: 1.1;
-            font-weight: 600;
+            font-weight: 700;
         }
     }
 

@@ -1,1 +1,275 @@
-@use "../helper/variable" as vars;
+@use "../helper/helper" as *;
+
+.footer-section {
+  background: $color-primary; 
+  position: relative;
+  color: $color-white;
+  font-family: $font-main;
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
+
+  .footer-cta {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 0;
+  }
+
+  .single-cta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    i {
+      color: $color-accent;
+      font-size: 20px;
+    }
+  }
+
+  .cta-text {
+    h4 {
+      color: $color-white;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    span {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px 0;
+  }
+
+  .footer-widget {
+    .footer-logo {
+      margin-bottom: 15px;
+      img {
+        max-width: 140px;
+      }
+    }
+
+    .footer-text p {
+      margin-bottom: 12px;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 24px;
+    }
+
+    .footer-social-icon {
+      span {
+        color: $color-white;
+        display: block;
+        font-size: 15px;
+        font-weight: 700;
+        font-family: $font-main;
+        margin-bottom: 15px;
+      }
+
+      .social-group {
+          display: flex;
+          gap: 15px;
+      }
+      
+      .social-item {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        
+        .social-btn {
+          height: 44px; // Increased from 32px
+          width: 44px;  // Increased from 32px
+          text-align: center;
+          line-height: 44px;
+          border-radius: 50%;
+          color: $color-white;
+          font-size: 18px; // Increased from 14px
+          display: block;
+          transition: transform 0.3s $ease-out-soft, background 0.3s ease;
+          cursor: pointer;
+          border: none;
+          outline: none;
+
+          &:hover {
+              transform: scale(1.25);
+          }
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            transform-origin: bottom center;
+            background: #1a1a1a;
+            color: $color-white;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 8px;
+            white-space: nowrap;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+            transition: transform 0.3s $ease-out-soft;
+            z-index: 20;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                border: 6px solid transparent;
+                border-top-color: #1a1a1a;
+            }
+        }
+
+        &:hover .tooltip {
+            transform: translateX(-50%) scale(1);
+        }
+
+        .facebook-bg { background: #3B5998; }
+        .twitter-bg { background: #1da1f2; }
+        .google-bg { background: #DD4B39; }
+        .instagram-bg { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+      }
+    }
+  }
+
+  .footer-widget-heading h3 {
+    color: $color-white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      height: 2px;
+      width: 35px;
+      background: $color-accent;
+    }
+  }
+
+  .footer-widget ul li {
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 8px;
+
+    a {
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: capitalize;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.3s ease;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+
+  .subscribe-form {
+    position: relative;
+    overflow: hidden;
+
+    input {
+      width: 100%;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: $color-white;
+      outline: none;
+      font-size: 14px;
+      font-weight: 400;
+
+      &::placeholder {
+          color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      background: $color-accent;
+      padding: 9px 15px;
+      border: 1px solid $color-accent;
+      top: 0;
+      cursor: pointer;
+      color: $color-white;
+      transition: all 0.3s $ease-out-soft;
+
+      &:hover {
+          background: darken(#c8a96e, 10%);
+          padding-right: 20px;
+      }
+
+      i {
+        font-size: 16px;
+        transform: rotate(-6deg);
+      }
+    }
+  }
+
+  .copyright-area {
+    background: darken(#2d4a2d, 5%);
+    padding: 12px 0;
+
+    .copyright-text p {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.5);
+
+      a {
+        color: $color-accent;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .footer-menu {
+    text-align: right;
+
+    li {
+      display: inline-block;
+      margin-left: 12px;
+
+      a {
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $color-accent;
+        }
+      }
+    }
+  }
+}
+
+// ─── GRID ADAPTATION ─────────────────────
+.footer-section .row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @media (max-width: 991px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

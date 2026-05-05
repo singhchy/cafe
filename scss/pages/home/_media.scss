@@ -13,21 +13,18 @@
 
     .subtitle {
       display: block;
-      font-family: $font-sans;
+      font-family: $font-decorative;
       color: $color-accent;
-      letter-spacing: 4px;
-      font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 1.4rem;
       margin-bottom: 16px;
-      text-transform: uppercase;
     }
 
     h2 {
-      font-family: $font-serif;
+      font-family: $font-main;
       font-size: clamp(2.5rem, 5vw, 4.5rem);
       color: $color-headline;
       line-height: 1.1;
-      font-weight: 600;
+      font-weight: 700;
     }
   }
 
@@ -45,14 +42,16 @@
       height: 100%;
       overflow: hidden;
       border-radius: 16px;
-      transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: flex 0.8s $ease-out-soft, transform 0.8s $ease-out-soft;
+      will-change: flex;
       cursor: pointer;
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 1.2s $ease-out-expo;
+        transition: transform 0.8s $ease-out-soft, filter 0.8s $ease-out-soft;
+        will-change: transform, filter;
       }
 
       .item-overlay {
@@ -73,7 +72,7 @@
           background: $color-white;
           color: $color-primary;
           border-radius: 50px;
-          font-family: $font-sans;
+          font-family: $font-main;
           font-weight: 700;
           font-size: 0.7rem;
           letter-spacing: 1px;
@@ -86,10 +85,14 @@
       }
 
       &:hover {
-        flex: 3; // Expands on hover
+        flex: 3;
+        z-index: 10;
         @media (max-width: 768px) { flex: none; height: 350px; }
 
-        img { transform: scale(1.05); }
+        img { 
+          transform: scale(1.2); 
+          filter: brightness(1.1) saturate(1.1);
+        }
         .item-overlay { 
           opacity: 1; 
           .cta-btn { transform: translateY(0); }
@@ -123,7 +126,7 @@
 
   .footer-brand {
     h2 {
-      font-family: $font-serif;
+      font-family: $font-decorative;
       font-size: 2.5rem;
       margin-bottom: 20px;
       color: $color-accent;
@@ -187,7 +190,7 @@
           color: $color-white;
           padding: 5px 12px;
           font-size: 0.65rem;
-          font-family: $font-sans;
+          font-family: $font-main;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 1px;
