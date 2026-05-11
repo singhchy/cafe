@@ -160,7 +160,7 @@ img {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(vars.$color-btn, 0.5) transparent;
+  scrollbar-color: rgba(vars.$color-accent, 0.5) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -173,13 +173,13 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(vars.$color-primary, 0.2);
+  background: rgba(vars.$color-accent, 0.3);
   border-radius: 99px;
   border: 2px solid vars.$color-bg;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(vars.$color-primary, 0.4);
+  background: rgba(vars.$color-accent, 0.6);
 }
 
 ::-webkit-scrollbar-corner {
@@ -199,12 +199,12 @@ img {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(vars.$color-btn, 0.35);
+    background: rgba(vars.$color-accent, 0.35);
     border-radius: 99px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: rgba(vars.$color-btn, 0.65);
+    background: rgba(vars.$color-accent, 0.65);
   }
 }
 

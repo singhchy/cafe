@@ -223,14 +223,19 @@ function initNativeParallax() {
       const rect = item.getBoundingClientRect();
       const itemTop = rect.top + scrollY;
       
-      // Calculate distance from center of viewport
       const viewportCenter = scrollY + (window.innerHeight / 2);
       const itemCenter = itemTop + (rect.height / 2);
       const distance = viewportCenter - itemCenter;
       
-      // Apply transform based on speed
       const yPos = distance * speed;
-      item.style.transform = `translateY(${yPos}px)`;
+      
+      // Use GSAP to animate y independently of other transforms
+      gsap.to(item, {
+        y: yPos,
+        duration: 0.8,
+        ease: "power1.out",
+        overwrite: "auto"
+      });
     });
   }, { passive: true });
 }
